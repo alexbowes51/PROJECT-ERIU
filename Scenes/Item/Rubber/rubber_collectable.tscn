@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjq3gvbk6ho5o"]
+
+[ext_resource type="Script" path="res://Scenes/Item/Rubber/rubber_collectable.gd" id="1_1y8k5"]
+[ext_resource type="Resource" uid="uid://bvg885cvceqlc" path="res://Scenes/Item/Rubber/Rubber.tres" id="2_8cm50"]
+[ext_resource type="Texture2D" uid="uid://dk62hubethro3" path="res://Art/Items/Rubber.png" id="2_81r5b"]
+[ext_resource type="PackedScene" uid="uid://83dimkt458gc" path="res://VFX/collection_expolsion/pick_up.tscn" id="4_2faqh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iv5cl"]
+radius = 22.8035
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gb8mk"]
+radius = 3.16228
+
+[node name="Rubber_collectable" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_1y8k5")
+item = ExtResource("2_8cm50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_81r5b")
+
+[node name="Interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_area"]
+shape = SubResource("CircleShape2D_iv5cl")
+
+[node name="CollisionExplosion" parent="." instance=ExtResource("4_2faqh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_gb8mk")
+
+[connection signal="body_entered" from="Interactable_area" to="." method="_on_interactable_area_body_entered"]

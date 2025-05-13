@@ -1,0 +1,240 @@
+[gd_scene load_steps=16 format=3 uid="uid://buoxgii380s3e"]
+
+[ext_resource type="Shader" path="res://Scenes/Pause_Menu/pause_menu.gdshader" id="1_6hx4e"]
+[ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_ifo2s"]
+[ext_resource type="Texture2D" uid="uid://ban3p8nf7pwnu" path="res://Art/Inventory/pixil-frame-0 (19).png" id="3_h4vuu"]
+[ext_resource type="Texture2D" uid="uid://qmspg283paed" path="res://Art/Inventory/pixil-frame-0 (20).png" id="4_15ctu"]
+[ext_resource type="Texture2D" uid="uid://blh3kft2uy50c" path="res://Art/Inventory/pixil-frame-0 (17).png" id="5_xmoaa"]
+[ext_resource type="Texture2D" uid="uid://dx47e8r21pfcm" path="res://Art/Inventory/pixil-frame-0 (15).png" id="6_0fktk"]
+[ext_resource type="Texture2D" uid="uid://dx0uj5o4jp5lg" path="res://Art/Inventory/pixil-frame-0 (18).png" id="6_srbmr"]
+[ext_resource type="Texture2D" uid="uid://6er6yi0mqe6p" path="res://Art/Inventory/pixil-frame-0 (16).png" id="7_i4l1g"]
+[ext_resource type="Texture2D" uid="uid://b1k12cvedhw06" path="res://Art/Inventory/pixil-frame-0 (21).png" id="9_jh2kx"]
+[ext_resource type="Texture2D" uid="uid://brx4np6l2fk0w" path="res://Art/Inventory/pixil-frame-0 (22).png" id="10_kf4on"]
+[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="11_o5xbv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vx67"]
+shader = ExtResource("1_6hx4e")
+shader_parameter/blurr = 0.0
+
+[sub_resource type="Animation" id="Animation_jskdf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blurr")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_yu3h8"]
+resource_name = "blurr"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blurr")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 0.8, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_piey8"]
+_data = {
+"RESET": SubResource("Animation_jskdf"),
+"blurr": SubResource("Animation_yu3h8")
+}
+
+[node name="Pause Menu" type="Control"]
+process_mode = 3
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -1916.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ifo2s")
+metadata/_edit_vertical_guides_ = [-1180.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5vx67")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 553.0
+offset_top = 66.0
+offset_right = 1353.0
+offset_bottom = 966.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 709.0
+offset_top = 115.0
+offset_right = 1209.0
+offset_bottom = 365.0
+texture_normal = ExtResource("3_h4vuu")
+texture_hover = ExtResource("4_15ctu")
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 709.0
+offset_top = 266.0
+offset_right = 1209.0
+offset_bottom = 516.0
+texture_normal = ExtResource("5_xmoaa")
+texture_hover = ExtResource("6_srbmr")
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 709.0
+offset_top = 578.0
+offset_right = 1209.0
+offset_bottom = 828.0
+texture_normal = ExtResource("6_0fktk")
+texture_hover = ExtResource("7_i4l1g")
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 709.0
+offset_top = 430.0
+offset_right = 1209.0
+offset_bottom = 664.0
+texture_normal = ExtResource("9_jh2kx")
+texture_hover = ExtResource("10_kf4on")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 783.0
+offset_top = 66.0
+offset_right = 1135.0
+offset_bottom = 203.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "Paused"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_piey8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_o5xbv")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="TextureButton4" to="." method="_on_texture_button_4_pressed"]

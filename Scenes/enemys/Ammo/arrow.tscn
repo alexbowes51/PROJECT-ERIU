@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ew71k15wafgy"]
+
+[ext_resource type="Script" path="res://Scenes/enemys/Ammo/arrow.gd" id="1_sou5a"]
+[ext_resource type="Texture2D" uid="uid://s3w267dybx6m" path="res://Art/Items/Items/Arrow/Arrow.png" id="2_mvqrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i27ak"]
+size = Vector2(13, 39)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otcl3"]
+radius = 2.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_sou5a")
+
+[node name="arrow_hit_bow_enemy" type="Area2D" parent="."]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arrow_hit_bow_enemy"]
+z_index = 1
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_i27ak")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_mvqrn")
+offset = Vector2(4, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_otcl3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -1)
+
+[connection signal="area_shape_entered" from="arrow_hit_bow_enemy" to="." method="_on_arrow_hit_bow_enemy_area_shape_entered"]
+[connection signal="body_entered" from="arrow_hit_bow_enemy" to="arrow_hit_bow_enemy" method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

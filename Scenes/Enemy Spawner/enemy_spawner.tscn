@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkvert6sx3te8"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy Spawner/enemy_spawner.gd" id="1_jugik"]
+[ext_resource type="Script" path="res://Scenes/Enemy Spawner/spawner_info.gd" id="2_xeg4u"]
+[ext_resource type="PackedScene" uid="uid://cock7nvcnmq6e" path="res://Scenes/enemys/Cross_Bow_Soldier/Cross_Bow_Soldier.tscn" id="3_cuwe7"]
+[ext_resource type="PackedScene" uid="uid://618x4cs781ri" path="res://Scenes/enemys/Foot_Soldier/Foot_Soldier.tscn" id="4_x5d0k"]
+
+[sub_resource type="Resource" id="Resource_3v727"]
+script = ExtResource("2_xeg4u")
+time_s = 0
+time_e = 1
+enemy = ExtResource("3_cuwe7")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_w7ced"]
+script = ExtResource("2_xeg4u")
+time_s = 0
+time_e = 10
+enemy = ExtResource("4_x5d0k")
+enemy_num = 10
+enemy_spawn_delay = 2
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_jugik")
+spawns = Array[ExtResource("2_xeg4u")]([SubResource("Resource_3v727"), SubResource("Resource_w7ced")])
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

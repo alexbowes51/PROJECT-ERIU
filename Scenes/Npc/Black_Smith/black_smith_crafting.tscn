@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=3 uid="uid://lyvill1i58ul"]
+
+[ext_resource type="Script" path="res://Scenes/Npc/Black_Smith/black_smith_crafting.gd" id="1_7sor0"]
+[ext_resource type="Texture2D" uid="uid://6oivht7vl0oc" path="res://Art/Inventory/pixil-frame-0 (10).png" id="2_7wce5"]
+[ext_resource type="PackedScene" uid="uid://cvkx60yshxptc" path="res://Scenes/Inventory/inventory_slot_ui.tscn" id="2_g0n6j"]
+[ext_resource type="Texture2D" uid="uid://bhuh8nl8bx3q6" path="res://Art/Items/Wood.png" id="4_f54ds"]
+[ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="4_ix3h4"]
+[ext_resource type="Texture2D" uid="uid://dk62hubethro3" path="res://Art/Items/Rubber.png" id="5_pb67k"]
+[ext_resource type="Texture2D" uid="uid://cunkiglykdqkr" path="res://Art/Items/Bottles.png" id="6_l7l6e"]
+
+[node name="Black_Smith_Crafting" type="Control"]
+layout_mode = 3
+anchor_right = 0.172
+anchor_bottom = 0.262
+offset_right = 52.856
+offset_bottom = 44.224
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.28, 1.2)
+mouse_filter = 2
+script = ExtResource("1_7sor0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 4
+texture_filter = 1
+layout_mode = 0
+offset_right = 197.0
+offset_bottom = 170.0
+scale = Vector2(1.28, 1.28)
+texture = ExtResource("2_7wce5")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+z_index = 4
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.748
+offset_top = -40.7292
+offset_right = -19.748
+offset_bottom = 18.2708
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.74135, 1.8586)
+pivot_offset = Vector2(10, 10)
+columns = 3
+
+[node name="Inventory_Slot_UI1" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Inventory_Slot_UI9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_g0n6j")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/GridContainer/Control"]
+z_index = -1
+position = Vector2(81.0179, -29.2435)
+scale = Vector2(0.444956, 0.617569)
+texture = ExtResource("4_ix3h4")
+
+[node name="wood" type="Control" parent="NinePatchRect/GridContainer/Control"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 71.5542
+offset_top = -37.2468
+offset_right = 87.5542
+offset_bottom = -37.2468
+scale = Vector2(0.859798, 0.90192)
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/GridContainer/Control/wood"]
+position = Vector2(0.407667, 3.10702)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_f54ds")
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/Control/wood"]
+layout_mode = 0
+offset_left = 14.6757
+offset_top = -4.66055
+offset_right = 31.6757
+offset_bottom = 18.3395
+scale = Vector2(0.551356, 0.635703)
+text = "0"
+
+[node name="rubber" type="Control" parent="NinePatchRect/GridContainer/Control"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 57.534
+offset_top = -8.17303
+offset_right = 73.534
+offset_bottom = -8.17303
+scale = Vector2(0.873818, 0.70576)
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/GridContainer/Control/rubber"]
+position = Vector2(15.9586, 0.892567)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_pb67k")
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/Control/rubber"]
+layout_mode = 0
+offset_left = 30.6497
+offset_top = -7.04755
+offset_right = 47.6497
+offset_bottom = 15.9524
+scale = Vector2(0.551356, 0.635703)
+text = "0"
+
+[node name="bottle" type="Control" parent="NinePatchRect/GridContainer/Control"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 66.6472
+offset_top = -22.1845
+offset_right = 82.6472
+offset_bottom = -22.1845
+scale = Vector2(0.896618, 0.82196)
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/GridContainer/Control/bottle"]
+position = Vector2(6.49496, 1.98526)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_l7l6e")
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/Control/bottle"]
+layout_mode = 0
+offset_left = 19.5459
+offset_top = -5.54007
+offset_right = 36.5459
+offset_bottom = 17.4599
+scale = Vector2(0.551356, 0.635703)
+text = "0"
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/Control"]
+layout_mode = 0
+offset_left = 62.7916
+offset_top = -53.7102
+offset_right = 209.792
+offset_bottom = -30.7102
+scale = Vector2(0.215452, 0.439542)
+text = "Materials Required"
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 2
+offset_left = 27.3438
+offset_top = 4.6875
+offset_right = 162.344
+offset_bottom = 27.6875
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0.571634, 0.804285, 3.85046e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 21
+theme_override_constants/shadow_offset_y = 18
+theme_override_font_sizes/font_size = 350
+text = "Black-Smith Shop"

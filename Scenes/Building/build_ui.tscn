@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://dqed0ghaw8nlo"]
+
+[ext_resource type="Script" path="res://Scenes/Building/build_ui.gd" id="1_lod6p"]
+[ext_resource type="Texture2D" uid="uid://bhuh8nl8bx3q6" path="res://Art/Items/Wood.png" id="3_pu17x"]
+[ext_resource type="Texture2D" uid="uid://uxaolvoccavu" path="res://Art/Tile_map/house 2.png" id="3_st342"]
+[ext_resource type="Texture2D" uid="uid://cunkiglykdqkr" path="res://Art/Items/Bottles.png" id="4_qvvi1"]
+[ext_resource type="Texture2D" uid="uid://cc061iwc1bbt2" path="res://Art/Tile_map/farm.png" id="5_4xk3d"]
+[ext_resource type="Texture2D" uid="uid://dk62hubethro3" path="res://Art/Items/Rubber.png" id="5_nskj3"]
+[ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="6_wihka"]
+[ext_resource type="Texture2D" uid="uid://dcwv5i0elvtl0" path="res://Art/Inventory/pixil-frame-0 (25).png" id="7_rqpdi"]
+[ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="8_nnrki"]
+[ext_resource type="Texture2D" uid="uid://k65ktaokfjwt" path="res://Art/Tile_map/BlackSmith_WS.png" id="9_t3bgu"]
+[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="11_pcx5o"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_p8g6o"]
+allow_unpress = true
+
+[node name="Build_Ui" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchor_right = 0.962
+anchor_bottom = 0.21
+offset_right = 0.599854
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lod6p")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 185.0
+scale = Vector2(1.04, 1)
+mouse_filter = 0
+texture = ExtResource("8_nnrki")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="Background" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(775.962, 94)
+scale = Vector2(4.65385, 1.6)
+texture = ExtResource("7_rqpdi")
+
+[node name="Wood" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(609.615, 107)
+scale = Vector2(0.961538, 1)
+texture = ExtResource("3_pu17x")
+
+[node name="Wood_Label" type="Label" parent="NinePatchRect/Wood"]
+offset_left = 34.0001
+offset_top = -13.0
+offset_right = 178.0
+offset_bottom = 10.0
+text = "0
+"
+
+[node name="Bottles" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(607.692, 145)
+scale = Vector2(0.961538, 1)
+texture = ExtResource("4_qvvi1")
+
+[node name="Bottles_Label" type="Label" parent="NinePatchRect/Bottles"]
+offset_left = 33.0001
+offset_top = -12.0
+offset_right = 177.0
+offset_bottom = 11.0
+text = "0
+"
+
+[node name="Rubber" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(610.577, 69)
+texture = ExtResource("5_nskj3")
+
+[node name="Rubber_Label" type="Label" parent="NinePatchRect/Rubber"]
+offset_left = 29.8077
+offset_top = -13.0
+offset_right = 173.808
+offset_bottom = 10.0
+text = "0"
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 50.9615
+offset_top = 36.0
+offset_right = 580.962
+offset_bottom = 136.0
+scale = Vector2(0.85, 1.2)
+mouse_filter = 0
+theme_override_constants/h_separation = 40
+columns = 3
+
+[node name="house" type="TextureButton" parent="NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_group = SubResource("ButtonGroup_p8g6o")
+texture_normal = ExtResource("6_wihka")
+texture_pressed = ExtResource("7_rqpdi")
+texture_hover = ExtResource("8_nnrki")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/GridContainer/house"]
+texture_filter = 1
+position = Vector2(74.0993, 44.2956)
+scale = Vector2(1.1877, 0.664087)
+texture = ExtResource("3_st342")
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/house/Sprite2D"]
+offset_left = -35.3323
+offset_top = 44.7826
+offset_right = 1494.67
+offset_bottom = 726.783
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 500
+text = "House"
+
+[node name="farm" type="TextureButton" parent="NinePatchRect/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_group = SubResource("ButtonGroup_p8g6o")
+texture_normal = ExtResource("6_wihka")
+texture_pressed = ExtResource("7_rqpdi")
+texture_hover = ExtResource("8_nnrki")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/GridContainer/farm"]
+position = Vector2(73.1945, 44.2956)
+scale = Vector2(1.1696, 0.664087)
+texture = ExtResource("5_4xk3d")
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/farm/Sprite2D"]
+offset_left = -35.3323
+offset_top = 44.7826
+offset_right = 1494.67
+offset_bottom = 726.783
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 500
+text = "Farm"
+
+[node name="black_smith" type="TextureButton" parent="NinePatchRect/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_group = SubResource("ButtonGroup_p8g6o")
+texture_normal = ExtResource("6_wihka")
+texture_pressed = ExtResource("7_rqpdi")
+texture_hover = ExtResource("8_nnrki")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/GridContainer/black_smith"]
+texture_filter = 1
+position = Vector2(73.1945, 43.4623)
+scale = Vector2(1.1696, 0.647421)
+texture = ExtResource("9_t3bgu")
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/black_smith/Sprite2D"]
+offset_left = -64.4378
+offset_top = 44.8513
+offset_right = 2795.56
+offset_bottom = 726.852
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 500
+text = "Black-Smith"
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 727.885
+offset_top = 26.0
+offset_right = 871.885
+offset_bottom = 49.0
+text = "Materials required"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_pcx5o")

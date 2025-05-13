@@ -1,0 +1,148 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3fek1gdhc7aw"]
+
+[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="1_kmt40"]
+[ext_resource type="Script" path="res://Dialogue/Merchant_Dialogue/merchant_dialogue.gd" id="1_svyaw"]
+[ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="2_kwdev"]
+[ext_resource type="FontFile" uid="uid://6twna5ce2qh2" path="res://Celtica-BookOblique.ttf" id="3_045jx"]
+[ext_resource type="Texture2D" uid="uid://dcwv5i0elvtl0" path="res://Art/Inventory/pixil-frame-0 (25).png" id="4_lw2st"]
+[ext_resource type="Texture2D" uid="uid://bkveo25uewh27" path="res://Art/Portraits for convo and animation/Portraits for convo and animation/Merchant/Merchant Portrait.png" id="4_xysps"]
+[ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="5_ka1ba"]
+[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="8_ehphf"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_i8j3n"]
+allow_unpress = true
+
+[node name="Merchant_Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 121.0
+offset_bottom = 53.0
+script = ExtResource("1_svyaw")
+M_D_file = "res://Dialogue/Merchant_Dialogue/merchant_dialogue1.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+process_mode = 3
+physics_interpolation_mode = 1
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 1.0
+offset_right = 109.0
+offset_bottom = 40.0
+scale = Vector2(1.11567, 1.30714)
+mouse_filter = 0
+texture = ExtResource("2_kwdev")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+process_mode = 3
+physics_interpolation_mode = 1
+texture_filter = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 11.0
+offset_right = 1298.0
+offset_bottom = 149.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_045jx")
+theme_override_font_sizes/normal_font_size = 100
+text = "chatting...."
+fit_content = true
+scroll_following = true
+autowrap_mode = 2
+tab_size = 1
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+process_mode = 3
+physics_interpolation_mode = 1
+texture_filter = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 852.0
+offset_bottom = 186.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_045jx")
+theme_override_font_sizes/normal_font_size = 150
+text = "name:"
+fit_content = true
+scroll_following = true
+autowrap_mode = 2
+tab_size = 1
+
+[node name="TextureButton" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 4.48161
+offset_top = 33.6613
+offset_right = 104.482
+offset_bottom = 133.661
+scale = Vector2(0.5, 0.085)
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_i8j3n")
+texture_normal = ExtResource("2_kwdev")
+texture_pressed = ExtResource("4_lw2st")
+texture_hover = ExtResource("5_ka1ba")
+stretch_mode = 0
+
+[node name="Follow Text" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 15.2375
+offset_top = 33.6613
+offset_right = 2229.24
+offset_bottom = 1511.66
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 18
+theme_override_constants/shadow_offset_y = 25
+theme_override_font_sizes/font_size = 100
+text = "Follow me 
+"
+
+[node name="unFollow Text" type="Label" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 12.5485
+offset_top = 33.6613
+offset_right = 3277.55
+offset_bottom = 2073.66
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 18
+theme_override_constants/shadow_offset_y = 25
+theme_override_font_sizes/font_size = 100
+text = "unFollow me 
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
+z_index = 1
+position = Vector2(86.9433, 18.3607)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_xysps")
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect"]
+modulate = Color(0.499446, 0.488466, 0.035647, 1)
+position = Vector2(86.9433, 19.8908)
+scale = Vector2(0.615656, 0.491752)
+texture = ExtResource("1_kmt40")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ehphf")
+
+[connection signal="pressed" from="NinePatchRect/TextureButton" to="." method="_on_texture_button_pressed"]

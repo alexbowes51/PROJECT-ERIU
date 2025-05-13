@@ -1,0 +1,1506 @@
+[gd_scene load_steps=130 format=3 uid="uid://dwmhxdnbbb5cd"]
+
+[ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
+[ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
+[ext_resource type="PackedScene" uid="uid://cv24ug4cywu32" path="res://Scenes/Inventory/inventory_ui.tscn" id="3_jvthm"]
+[ext_resource type="Texture2D" uid="uid://b0oxjqut63miq" path="res://Art/Player/No Weapons/Player Character No Weapons/Death No Gore/Player Charachter death no gore-Sheet.png" id="4_3c6km"]
+[ext_resource type="Texture2D" uid="uid://qg27vkxb4tik" path="res://Art/UI/Hearts/Heart.png" id="4_n7t0m"]
+[ext_resource type="Texture2D" uid="uid://decc4kmxjecj2" path="res://Art/Player/Sword/Sword Player/Attack/Player Attack Sword -Sheet.png" id="5_v876a"]
+[ext_resource type="Texture2D" uid="uid://cnkifyojblhqw" path="res://Art/Player/Crossbow/Crossbow Player/Attack/Player Crossbow Attack-Sheet.png" id="5_y7y56"]
+[ext_resource type="Texture2D" uid="uid://cqo1f1h37m5ly" path="res://Art/Player/No Weapons/Player Character No Weapons/Walk/Player Walk-Sheet.png" id="6_agh1c"]
+[ext_resource type="Texture2D" uid="uid://c5seg5q0wy21d" path="res://Art/Player/Sword/Sword Player/Death No Gore/Player Charachter Sword death no gore-Sheet.png" id="6_jyjmh"]
+[ext_resource type="Texture2D" uid="uid://dgg5n2wfsb5ej" path="res://Art/Player/Sword/Sword Player/Player Charachter Sword .png" id="7_eckk0"]
+[ext_resource type="PackedScene" uid="uid://dqed0ghaw8nlo" path="res://Scenes/Building/build_ui.tscn" id="7_olynr"]
+[ext_resource type="PackedScene" uid="uid://b3fek1gdhc7aw" path="res://Dialogue/Merchant_Dialogue/merchant_dialogue.tscn" id="8_dy8ic"]
+[ext_resource type="Texture2D" uid="uid://bmx4kqjkmv35g" path="res://Art/Player/Sword/Sword Player/Walk/Player Walk Sword-Sheet.png" id="8_vlpk3"]
+[ext_resource type="Texture2D" uid="uid://bhuh8nl8bx3q6" path="res://Art/Items/Wood.png" id="9_gefow"]
+[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="9_mjni5"]
+[ext_resource type="Texture2D" uid="uid://bdii2j163ikfo" path="res://Art/UI/Hearts/Heart Beat-Sheet.png" id="10_5b1b5"]
+[ext_resource type="Script" path="res://Scenes/player/UIControl.gd" id="10_hpanq"]
+[ext_resource type="Texture2D" uid="uid://cunkiglykdqkr" path="res://Art/Items/Bottles.png" id="10_khoqc"]
+[ext_resource type="AudioStream" uid="uid://2kofpilh5wu3" path="res://Audio/vfx_sounds/minecraft-grass-walking-sound-effect.mp3" id="10_yodoo"]
+[ext_resource type="Texture2D" uid="uid://dk62hubethro3" path="res://Art/Items/Rubber.png" id="11_hnjnx"]
+[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="12_cohmc"]
+[ext_resource type="PackedScene" uid="uid://bv3fjtxyo1edw" path="res://Dialogue/Black_Smith DiaLogue/black_smit_dialogue.tscn" id="13_eylsh"]
+[ext_resource type="PackedScene" uid="uid://lyvill1i58ul" path="res://Scenes/Npc/Black_Smith/black_smith_crafting.tscn" id="14_bmap2"]
+[ext_resource type="AudioStream" uid="uid://dq0ua7wk8wy6r" path="res://Audio/vfx_sounds/mixkit-impact-of-a-strong-punch-2155.mp3" id="17_3rcj0"]
+[ext_resource type="AudioStream" uid="uid://b15iotr1bikbi" path="res://Audio/vfx_sounds/mixkit-sword-strikes-armor-2765.wav" id="18_7slj4"]
+[ext_resource type="PackedScene" uid="uid://bopk1ta60cfqg" path="res://Scenes/Inventory/player_hotbar.tscn" id="19_ag7iv"]
+[ext_resource type="PackedScene" uid="uid://cm28ftmarv0qi" path="res://VFX/collection_expolsion/damage.tscn" id="19_d4ufm"]
+[ext_resource type="PackedScene" uid="uid://dmdcilu706lxk" path="res://Scenes/respawn/respawn.tscn" id="22_fuqjl"]
+[ext_resource type="PackedScene" uid="uid://buoxgii380s3e" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="24_gpgmm"]
+[ext_resource type="PackedScene" uid="uid://2dk0i07v5kqb" path="res://Scenes/settings/setting.tscn" id="25_k3yy6"]
+[ext_resource type="Texture2D" uid="uid://nohnidqou0hp" path="res://Art/UI/Keyboard Letters and Symbols.png" id="26_m30sq"]
+[ext_resource type="PackedScene" uid="uid://bwhotbwv1uej5" path="res://Scenes/Intro_Objective/into_game_objective.tscn" id="27_crx5h"]
+[ext_resource type="PackedScene" uid="uid://dlfccjxj7500u" path="res://Scenes/quest_tracker/quest_tracker.tscn" id="28_1bthv"]
+[ext_resource type="PackedScene" uid="uid://cpbh2ctna2flc" path="res://Scenes/joystick/joy_stick.tscn" id="28_2ljpj"]
+[ext_resource type="Texture2D" uid="uid://b778nedb5dqep" path="res://Art/UI/pixil-frame-0 (32).png" id="30_ul0g5"]
+[ext_resource type="Texture2D" uid="uid://blbhih52fxbqt" path="res://Art/UI/pixil-frame-0 (29).png" id="31_jwygv"]
+[ext_resource type="Texture2D" uid="uid://d0rhjbhekja64" path="res://Art/UI/pixil-frame-0 (31).png" id="32_tf7xg"]
+
+[sub_resource type="GDScript" id="GDScript_pbkry"]
+script/source = "extends CharacterBody2D
+
+##health varibales
+var heart_list : Array[TextureRect]
+var currentHealth: int = 5
+var MaxHealth: int = 5
+var player_alive = true
+var death = false
+##attacking varibales
+var Player_is_in_attacking_range = false
+var enemy_is_in_attacking_range = false
+var is_attacking = false
+
+var attack_damage_cool_down = true
+var attack = false
+var receives_knockback = false
+var knock_scale = 2.0
+var speed = 300
+var Instruction = false
+
+var dash_speed = 1000
+var dash_duration = 0.2
+var dash_cooldown = 1.0
+var can_dash = true
+var is_dashing = false
+var dash_timer = 0.0
+var dash_direction = Vector2.ZERO
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var inv : Inventory = preload(\"res://Scenes/Inventory/player_Inventory.tres\")
+@onready var hb_inv : Inventory = preload(\"res://Scenes/Inventory/Hot_bar.tres\")
+@onready var merchant_dialogue: Control = $Camera2D/UI/Merchant_Dialogue
+@onready var black_smit_dialogue: Control = $Camera2D/UI/Black_Smit_Dialogue
+@onready var audio_stream_player: AudioStreamPlayer = $Pick_Up
+@onready var walking: AudioStreamPlayer = $walking
+@onready var wood_coll: Label = $Camera2D/UI/PickUpNotifaction/Wood_Coll
+@onready var bottles_coll_2: Label = $Camera2D/UI/PickUpNotifaction/Bottles_Coll2
+@onready var rubber_coll_3: Label = $Camera2D/UI/PickUpNotifaction/Rubber_Coll3
+@onready var sprite_2d: Sprite2D = $Camera2D/UI/PickUpNotifaction/Sprite2D
+@onready var build_av: Label = $Camera2D/UI/build_notifcation/Build_av
+@onready var respawn: Control = $Camera2D/UI/Respawn
+@onready var hit_by__sword: AudioStreamPlayer = $\"hit_by _sword\"
+@onready var arrow_hit: AudioStreamPlayer = $arrow_hit
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var control_1: Control = $Camera2D/UI/Control_1
+@onready var joy_stick: Node2D = $Camera2D/UI/JoyStick
+
+
+
+@onready var Sword = preload(\"res://Scenes/Item/Sword/sword.tres\")
+
+func _ready():
+	add_to_group(\"player\")
+	var heart_container = $Camera2D/UI/HFlowContainer/HealthBar
+	wood_coll.visible = false
+	bottles_coll_2.visible = false
+	rubber_coll_3.visible = false
+	sprite_2d.visible = false
+	build_av.visible = false
+	respawn.visible = false
+	control_1.visible = false
+
+	
+	for heart in heart_container.get_children():
+		heart_list.append(heart)
+	print(heart_list)
+
+func _physics_process(_delta: float) -> void:
+	if WorldManager.player_talking_Merchant:
+		merchant_dialogue.start()
+
+	if WorldManager.player_talking_Black_Smith:
+		black_smit_dialogue.start()
+
+	if WorldManager.player_in_build_zone:
+		build_av.visible = true
+	else:
+		build_av.visible = false
+
+	if currentHealth < MaxHealth:
+		WorldManager.player_needs_healing = true
+	else:
+		WorldManager.player_needs_healing = false
+		
+	if Instruction:
+		control_1.visible = true
+	elif !Instruction:
+		control_1.visible = false
+
+	if not WorldManager.player_talking_Merchant and not WorldManager.player_talking_Black_Smith:
+		if currentHealth > 0:
+			update_hearts()
+			enemy_attack()
+			get_input()
+
+			if is_dashing:
+				dash_timer -= _delta
+				if dash_timer <= 0:
+					is_dashing = false
+					receives_knockback = true
+				velocity = dash_direction * dash_speed
+			else:
+				var input_direction = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
+				var joy_dir = joy_stick.posVector
+				if joy_dir:
+					velocity = joy_dir * speed
+					look_at(joy_stick.posVector)
+					move_and_slide()  # Always call this
+				if input_direction:
+					velocity = input_direction * speed
+				else:
+					velocity = Vector2(0,0)
+
+			move_and_slide()  # Always call this
+			teleporting()
+			Heal_damage()
+		else:
+			player_dead()
+
+
+func get_input():
+	var input_direction = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
+
+	# Don't allow animation overrides while dashing
+	if is_dashing:
+		return
+
+	if input_direction != Vector2.ZERO:
+		if !walking.playing:
+			walking.play()
+	else:
+		walking.stop()
+
+	if input_direction != Vector2.ZERO:
+		rotation = velocity.angle() + deg_to_rad(-90)
+
+	if Input.is_action_just_pressed(\"dash\") and can_dash and not is_dashing:
+		start_dash()
+
+	if !is_attacking:
+		if input_direction != Vector2.ZERO:
+			if check_weapon():
+				animated_sprite_2d.play(\"Player_sword_walk\")
+			else:
+				animated_sprite_2d.play(\"Player_Walk\")
+		else:
+			if check_weapon():
+				animated_sprite_2d.play(\"Player_sword_idle\")
+			else:
+				animated_sprite_2d.play(\"Player_Idle\")
+
+	if Input.is_action_just_pressed(\"attack\"):
+		if check_weapon():
+			animated_sprite_2d.play(\"Player_sword_attack\")
+		else:
+			animated_sprite_2d.play(\"Player_Attack\")
+
+		is_attacking = true
+		WorldManager.player_current_attack = true
+		attack = true
+		$Attack_Cooldown.start()
+	
+	if Input.is_action_just_pressed(\"Instructions\"):
+		Instruction = !Instruction
+		
+
+func collect(item):	
+	audio_stream_player.play()
+	inv.insert(item,1)
+	print(str(item.name))
+	
+	if item.name == \"wood\":
+		sprite_2d.visible = true
+		wood_coll.visible = true
+		wood_coll.text = \"+\" + str(1)
+		await get_tree().create_timer(.5).timeout
+		wood_coll.visible = false
+		sprite_2d.visible = false
+		
+	if item.name == \"Rubber\":
+		sprite_2d.visible = true
+		rubber_coll_3.visible = true
+		rubber_coll_3.text = \"+\" + str(1)
+		await get_tree().create_timer(.5).timeout
+		rubber_coll_3.visible = false
+		sprite_2d.visible = false
+		
+	if item.name == \"Bottle\":
+		sprite_2d.visible = true
+		bottles_coll_2.visible = true
+		bottles_coll_2.text = \"+\" + str(1)
+		await get_tree().create_timer(.5).timeout
+		bottles_coll_2.visible = false
+		sprite_2d.visible = false
+		
+
+func take_damage():
+	if currentHealth > 0:
+		arrow_hit.play()
+		cpu_particles_2d.emitting = true
+		currentHealth -= 1
+		update_hearts()
+
+func update_hearts():
+	for i in range(heart_list.size()):
+		heart_list[i].visible = i < currentHealth
+		
+		var animated_sprite = heart_list[i].get_node(\"AnimatedSprite2D\")
+
+		if i < 3 && currentHealth < 3:
+			animated_sprite.play(\"new_animation\") 
+		else:
+			animated_sprite.play(\"default\")  
+
+func Heal_damage():
+	if WorldManager.player_healed == true:
+		if currentHealth < MaxHealth:
+			currentHealth += 1
+			update_hearts()
+			print(str(currentHealth))
+			WorldManager.player_healed = false
+			
+
+func upgrade_player():
+	pass
+
+func player_dead():
+	currentHealth = 0
+	player_alive = false
+	respawn.visible = true
+	if death:
+		if check_weapon():
+			animated_sprite_2d.play(\"Player_sword_death\")
+		else:
+			animated_sprite_2d.play(\"Player_Death\")
+
+func enemy_attack():
+	if Player_is_in_attacking_range and attack_damage_cool_down == true:
+		take_damage()
+		if player_alive:
+			animated_sprite_2d.play(\"Player_Hurt\")
+		attack_damage_cool_down = false
+		$Damage_cooldown.start()
+		
+
+func _on_damage_cooldown_timeout():
+	attack_damage_cool_down = true
+
+func _on_attack_cooldown_timeout():
+	WorldManager.player_current_attack = false
+	attack = false
+	is_attacking = false
+
+func Player():
+	pass
+
+func _on_player_hit_box_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+	if area.name == \"Foot_Attack_Area\":
+		Player_is_in_attacking_range = true
+		receives_knockback = true
+		KnockBack(area.global_position)
+		enemy_attack()
+	if area.name == \"arrow_hit_bow_enemy\":
+		Player_is_in_attacking_range = true
+		receives_knockback = true
+		KnockBack(area.global_position)
+		enemy_attack()
+	if area.name == \"g_h_area\":
+		Player_is_in_attacking_range = true
+		enemy_attack()
+		receives_knockback = true
+		KnockBack(area.global_position)
+	if area.name == \"Boss_Rock\":
+		Player_is_in_attacking_range = true
+		enemy_attack()
+		receives_knockback = true
+		KnockBack(area.global_position)
+	if area.name == \"Boss_1_ha\":
+		Player_is_in_attacking_range = true
+		enemy_attack()
+		receives_knockback = true
+		KnockBack(area.global_position)
+
+func _on_player_hit_box_area_exited(area: Area2D) -> void:
+	if area.name == \"Foot_Attack_Area\":
+		Player_is_in_attacking_range = false
+	if area.name == \"arrow_hit_bow_enemy\":
+		Player_is_in_attacking_range = false
+	if area.name == \"g_h_area\":
+		Player_is_in_attacking_range = false
+	if area.name == \"Boss_Rock\":
+		Player_is_in_attacking_range = false
+	if area.name == \"Boss_1_ha\":
+		Player_is_in_attacking_range = false
+
+		
+func teleporting():
+		if WorldManager.tp_Wp1_A == \"A\" && WorldManager.Wp1_tp == true:
+			position = WorldManager.Wp1_B
+			WorldManager.Wp1_tp = false
+	
+		
+		if WorldManager.tp_Wp1_A == \"B\" && WorldManager.Wp1_tp == true:
+			position = WorldManager.Wp1_A
+			WorldManager.Wp1_tp = false
+	
+	
+		if WorldManager.tp_Wp2_A == \"A\" && WorldManager.Wp2_tp == true:
+			position = WorldManager.Wp2_B
+			WorldManager.Wp2_tp = false
+		
+		
+		if WorldManager.tp_Wp2_A == \"B\" && WorldManager.Wp2_tp == true:
+			position = WorldManager.Wp2_A
+			WorldManager.Wp2_tp = false
+
+
+func KnockBack(damage_dir: Vector2):
+	if receives_knockback && attack_damage_cool_down:
+		var knockback_dir = damage_dir.direction_to(self.global_position)
+		var knockback_strength = 35 * knock_scale
+		var knockback = knockback_dir * knockback_strength
+		
+		global_position += knockback
+
+func check_weapon() -> bool:
+	if hb_inv != null:
+		if hb_inv.Has_Items(Sword,1):
+			WorldManager.Player_Damage *= 2
+			return true 
+	return false  
+
+func start_dash():
+	var input_direction = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
+	if input_direction == Vector2.ZERO:
+		return
+
+	is_dashing = true
+	
+	animated_sprite_2d.play(\"Player_Dash\")
+	if animated_sprite_2d.animation_finished:
+		animated_sprite_2d.play(\"idle\")
+	dash_timer = dash_duration
+	dash_direction = input_direction.normalized()
+	can_dash = false
+	receives_knockback = false  # invincible during dash
+	$Dash_Timer.start()
+
+
+func _on_dash_timer_timeout() -> void:
+	can_dash = true
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uuud"]
+atlas = ExtResource("3_0i4q8")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr8jk"]
+atlas = ExtResource("3_0i4q8")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qcmq"]
+atlas = ExtResource("3_0i4q8")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfmtt"]
+atlas = ExtResource("3_0i4q8")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8hy6"]
+atlas = ExtResource("3_0i4q8")
+region = Rect2(1792, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf061"]
+atlas = ExtResource("3_0i4q8")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wdw5"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(1344, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoabi"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(1792, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obex1"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(2240, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a8uu"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(2688, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndhxq"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(3136, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_810ma"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(3584, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmq7p"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(4032, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntlk4"]
+atlas = ExtResource("3_jrwhl")
+region = Rect2(4480, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va61d"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(4480, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wfgk"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtghl"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm5pp"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m47ly"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cmjx"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(1792, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkgxw"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uloyf"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(2688, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1711"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(3136, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tunnj"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(3584, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bin4d"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(4032, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fka1p"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(4480, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlk0f"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h8pc"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(2688, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oaxl"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(3136, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxuft"]
+atlas = ExtResource("4_3c6km")
+region = Rect2(3584, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ke4"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cry06"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_836iu"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbmye"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iruf"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlvhv"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(1792, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5167b"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y55p"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(2688, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cktvs"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(3136, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns41q"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(3584, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obgis"]
+atlas = ExtResource("6_agh1c")
+region = Rect2(4032, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grjh2"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(0, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynaqf"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(448, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lijcn"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(896, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67qbh"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(1344, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5flfy"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(1792, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3xvt"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(2240, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5c3r"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(2688, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dapep"]
+atlas = ExtResource("5_y7y56")
+region = Rect2(3136, 0, 448, 268)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_127we"]
+atlas = ExtResource("5_v876a")
+region = Rect2(0, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wc5l"]
+atlas = ExtResource("5_v876a")
+region = Rect2(448, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btgxu"]
+atlas = ExtResource("5_v876a")
+region = Rect2(896, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kya6"]
+atlas = ExtResource("5_v876a")
+region = Rect2(1344, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v20og"]
+atlas = ExtResource("5_v876a")
+region = Rect2(1792, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f512b"]
+atlas = ExtResource("5_v876a")
+region = Rect2(2240, 0, 448, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecnn8"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5nvr"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtwyx"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lghw8"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdyqt"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(1792, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx714"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s14v"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(2688, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbpg2"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(3136, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cc0e"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(3584, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0bq3"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(4032, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck2ch"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(4480, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i14oo"]
+atlas = ExtResource("6_jyjmh")
+region = Rect2(4928, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sog4k"]
+atlas = ExtResource("7_eckk0")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ok7p"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbaok"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxs3p"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sghu"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2hjo"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(1792, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn1n8"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftcux"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(2688, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2pdg"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(3136, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yro4"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(3584, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snoxd"]
+atlas = ExtResource("8_vlpk3")
+region = Rect2(4032, 0, 448, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3ys1"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8uuud")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_pr8jk")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7qcmq")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bfmtt")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_c8hy6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tf061")
+}],
+"loop": false,
+"name": &"Player_Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_7wdw5")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_hoabi")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_obex1")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_2a8uu")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_ndhxq")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_810ma")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_mmq7p")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_ntlk4")
+}],
+"loop": false,
+"name": &"Player_Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va61d")
+}],
+"loop": false,
+"name": &"Player_Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wfgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtghl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm5pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m47ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cmjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkgxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uloyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1711")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tunnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bin4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fka1p")
+}],
+"loop": false,
+"name": &"Player_Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlk0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h8pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oaxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxuft")
+}],
+"loop": false,
+"name": &"Player_Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ke4")
+}],
+"loop": false,
+"name": &"Player_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_cry06")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_836iu")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_hbmye")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_6iruf")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_hlvhv")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_5167b")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_2y55p")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_cktvs")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_ns41q")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_obgis")
+}],
+"loop": false,
+"name": &"Player_Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grjh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynaqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lijcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67qbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5flfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3xvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5c3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dapep")
+}],
+"loop": true,
+"name": &"Player_cross_attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Player_cross_death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Player_cross_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Player_cross_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_127we")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wc5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btgxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kya6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v20og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f512b")
+}],
+"loop": false,
+"name": &"Player_sword_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecnn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5nvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtwyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lghw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdyqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx714")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s14v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbpg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cc0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0bq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck2ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i14oo")
+}],
+"loop": true,
+"name": &"Player_sword_death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sog4k")
+}],
+"loop": true,
+"name": &"Player_sword_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ok7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbaok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxs3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sghu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2hjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn1n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftcux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2pdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yro4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snoxd")
+}],
+"loop": true,
+"name": &"Player_sword_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlxic"]
+radius = 29.6875
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdfm3"]
+radius = 22.0
+height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayp1y"]
+size = Vector2(53, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5glv"]
+atlas = ExtResource("4_n7t0m")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6ci7"]
+atlas = ExtResource("4_n7t0m")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ikr8"]
+atlas = ExtResource("10_5b1b5")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kj1g"]
+atlas = ExtResource("10_5b1b5")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya8ew"]
+atlas = ExtResource("10_5b1b5")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nubn7"]
+atlas = ExtResource("10_5b1b5")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mc0xm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5glv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6ci7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ikr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kj1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya8ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nubn7")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_5f0ot"]
+offsets = PackedFloat32Array(0.00591716, 1)
+colors = PackedColorArray(1, 1, 0.2, 1, 1, 0.552941, 0.2, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_02i48"]
+gradient = SubResource("Gradient_5f0ot")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.1)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+texture_filter = 1
+position = Vector2(898, 581)
+script = SubResource("GDScript_pbkry")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(-2.98023e-08, 5.96046e-08)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_y3ys1")
+animation = &"Player_Attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -1.06581e-14)
+scale = Vector2(0.64, 0.56)
+shape = SubResource("CircleShape2D_mlxic")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="Player_HitBox" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_HitBox"]
+z_index = 1
+shape = SubResource("CapsuleShape2D_rdfm3")
+debug_color = Color(0.984314, 0, 0.34902, 0.513726)
+
+[node name="Player_Attack_HitBox" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(0, 3)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Attack_HitBox"]
+z_index = 1
+position = Vector2(0, 38)
+shape = SubResource("RectangleShape2D_ayp1y")
+debug_color = Color(0.681852, 0.502586, 0.0146951, 0.42)
+
+[node name="Damage_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Attack_Cooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+texture_filter = 1
+limit_left = 100
+limit_top = 100
+limit_right = 32500
+limit_bottom = 19600
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="Camera2D"]
+physics_interpolation_mode = 1
+auto_translate_mode = 1
+visible = false
+scale = Vector2(0.97, 0.72)
+transform = Transform2D(0.97, 0, 0, 0.72, 0, 0)
+script = ExtResource("10_hpanq")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Camera2D/UI"]
+offset_left = 38.1443
+offset_top = 54.1667
+offset_right = 554.144
+offset_bottom = 54.1667
+
+[node name="HealthBar" type="HBoxContainer" parent="Camera2D/UI/HFlowContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="heart" type="TextureRect" parent="Camera2D/UI/HFlowContainer/HealthBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/HFlowContainer/HealthBar/heart"]
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_mc0xm")
+
+[node name="heart2" type="TextureRect" parent="Camera2D/UI/HFlowContainer/HealthBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/HFlowContainer/HealthBar/heart2"]
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_mc0xm")
+frame_progress = 0.718973
+
+[node name="heart3" type="TextureRect" parent="Camera2D/UI/HFlowContainer/HealthBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/HFlowContainer/HealthBar/heart3"]
+position = Vector2(0.24744, -3.52859e-05)
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_mc0xm")
+frame_progress = 0.70344
+
+[node name="heart4" type="TextureRect" parent="Camera2D/UI/HFlowContainer/HealthBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/HFlowContainer/HealthBar/heart4"]
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_mc0xm")
+frame_progress = 0.383743
+
+[node name="heart5" type="TextureRect" parent="Camera2D/UI/HFlowContainer/HealthBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/HFlowContainer/HealthBar/heart5"]
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_mc0xm")
+
+[node name="Pause Menu" parent="Camera2D/UI" instance=ExtResource("24_gpgmm")]
+z_index = 0
+offset_left = 102.062
+offset_top = 241.667
+offset_right = -1817.94
+offset_bottom = -838.333
+
+[node name="Build_Ui" parent="Camera2D/UI" instance=ExtResource("7_olynr")]
+offset_left = 120.0
+offset_top = 1215.0
+offset_right = -530.04
+offset_bottom = 1171.2
+scale = Vector2(1.5, 1.5)
+
+[node name="Inventory_UI" parent="Camera2D/UI" instance=ExtResource("3_jvthm")]
+offset_left = 1497.94
+offset_top = 266.667
+offset_right = 1497.94
+offset_bottom = 266.667
+scale = Vector2(2.5, 4)
+localize_numeral_system = false
+
+[node name="Black_Smith_Crafting" parent="Camera2D/UI" instance=ExtResource("14_bmap2")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 632.99
+offset_top = 20.8333
+offset_right = 882.99
+offset_bottom = 236.833
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(2.7, 2.7)
+
+[node name="Black_Smit_Dialogue" parent="Camera2D/UI" instance=ExtResource("13_eylsh")]
+offset_left = 502.062
+offset_top = 579.167
+offset_right = 507.062
+offset_bottom = 579.167
+scale = Vector2(8, 8)
+
+[node name="Merchant_Dialogue" parent="Camera2D/UI" instance=ExtResource("8_dy8ic")]
+offset_left = 486.598
+offset_top = 570.833
+offset_right = 526.598
+offset_bottom = 610.833
+scale = Vector2(8, 8)
+
+[node name="PickUpNotifaction" type="Control" parent="Camera2D/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.06186
+offset_top = 311.111
+offset_right = -2.06186
+offset_bottom = 311.111
+
+[node name="Wood_Coll" type="Label" parent="Camera2D/UI/PickUpNotifaction"]
+z_index = 1
+layout_mode = 0
+offset_left = 114.433
+offset_top = 200.0
+offset_right = 154.433
+offset_bottom = 223.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/PickUpNotifaction/Wood_Coll"]
+position = Vector2(-27, 12)
+texture = ExtResource("9_gefow")
+
+[node name="Bottles_Coll2" type="Label" parent="Camera2D/UI/PickUpNotifaction"]
+z_index = 1
+layout_mode = 0
+offset_left = 114.433
+offset_top = 379.389
+offset_right = 154.433
+offset_bottom = 402.389
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/PickUpNotifaction/Bottles_Coll2"]
+position = Vector2(-27, 12)
+texture = ExtResource("10_khoqc")
+
+[node name="Rubber_Coll3" type="Label" parent="Camera2D/UI/PickUpNotifaction"]
+z_index = 1
+layout_mode = 0
+offset_left = 114.433
+offset_top = 288.389
+offset_right = 154.433
+offset_bottom = 311.389
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 0.666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/PickUpNotifaction/Rubber_Coll3"]
+position = Vector2(-27, 12)
+texture = ExtResource("11_hnjnx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/PickUpNotifaction"]
+position = Vector2(104.124, 320.833)
+scale = Vector2(4, 8)
+texture = ExtResource("12_cohmc")
+
+[node name="Player_Hotbar" parent="Camera2D/UI" instance=ExtResource("19_ag7iv")]
+offset_left = 5.15464
+offset_top = 845.833
+offset_right = -1767.84
+offset_bottom = -182.164
+scale = Vector2(3, 3)
+
+[node name="Respawn" parent="Camera2D/UI" instance=ExtResource("22_fuqjl")]
+offset_left = 215.464
+offset_top = 341.667
+offset_right = -1299.54
+offset_bottom = -531.333
+scale = Vector2(4, 4)
+
+[node name="Quest_Tracker" parent="Camera2D/UI" instance=ExtResource("28_1bthv")]
+offset_left = 1.03093
+offset_top = 143.056
+offset_right = 1.03091
+offset_bottom = 143.056
+
+[node name="Control" parent="Camera2D/UI" instance=ExtResource("25_k3yy6")]
+z_index = 0
+texture_filter = 1
+offset_left = 3.09278
+offset_top = 5.55556
+offset_right = -1916.91
+offset_bottom = -1074.44
+scale = Vector2(1.02655, 1.38087)
+
+[node name="build_notifcation" type="Control" parent="Camera2D/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -509.278
+offset_top = 958.333
+offset_right = -509.278
+offset_bottom = 958.333
+scale = Vector2(0.0313293, 0.0557567)
+
+[node name="Build_av" type="Label" parent="Camera2D/UI/build_notifcation"]
+layout_mode = 0
+offset_left = 18000.0
+offset_top = 389.0
+offset_right = 61479.0
+offset_bottom = 5889.0
+scale = Vector2(0.33, 0.262)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4000
+text = "= Build Mode available"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/build_notifcation/Build_av"]
+texture_filter = 1
+position = Vector2(-2760.42, 3001.32)
+scale = Vector2(267.761, 337.355)
+texture = ExtResource("26_m30sq")
+hframes = 8
+vframes = 14
+frame = 17
+
+[node name="Control_1" type="Control" parent="Camera2D/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12.3711
+offset_top = 915.278
+offset_right = 52.3711
+offset_bottom = 955.278
+
+[node name="quest" type="Label" parent="Camera2D/UI/Control_1"]
+layout_mode = 0
+offset_left = 51.5464
+offset_top = 22.2222
+offset_right = 43530.5
+offset_bottom = 5522.22
+scale = Vector2(0.013, 0.01)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4000
+text = "= Quest Tracker"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Control_1/quest"]
+texture_filter = 1
+position = Vector2(-2760.42, 3001.32)
+scale = Vector2(267.761, 337.355)
+texture = ExtResource("26_m30sq")
+hframes = 8
+vframes = 14
+frame = 32
+
+[node name="bag" type="Label" parent="Camera2D/UI/Control_1"]
+layout_mode = 0
+offset_left = 51.5464
+offset_top = -34.7222
+offset_right = 43530.5
+offset_bottom = 5465.28
+scale = Vector2(0.013, 0.01)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4000
+text = "i = bag"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Control_1/bag"]
+texture_filter = 1
+position = Vector2(-2760.42, 3001.32)
+scale = Vector2(267.761, 337.355)
+texture = ExtResource("26_m30sq")
+hframes = 8
+vframes = 14
+frame = 24
+
+[node name="Build_av3" type="Label" parent="Camera2D/UI/Control_1"]
+layout_mode = 0
+offset_left = -1.03093
+offset_top = -88.889
+offset_right = 43478.0
+offset_bottom = 5411.11
+scale = Vector2(0.013, 0.01)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 4000
+text = "Click = Attack"
+
+[node name="JoyStick" parent="Camera2D/UI" instance=ExtResource("28_2ljpj")]
+position = Vector2(206.186, 1280.56)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/UI"]
+texture_filter = 1
+position = Vector2(1309.28, 1136.11)
+scale = Vector2(2.45361, 2.875)
+texture_normal = ExtResource("30_ul0g5")
+action = "attack"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D/UI"]
+texture_filter = 1
+position = Vector2(1612.37, 1123.61)
+scale = Vector2(2.45361, 2.875)
+texture_normal = ExtResource("31_jwygv")
+action = "dash"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Camera2D/UI"]
+texture_filter = 1
+position = Vector2(417.526, 1125)
+scale = Vector2(2.63918, 3.08333)
+texture_normal = ExtResource("32_tf7xg")
+action = "i"
+
+[node name="Into_Game_Objective" parent="Camera2D/UI" instance=ExtResource("27_crx5h")]
+process_mode = 3
+scale = Vector2(1.02905, 1.40067)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_02i48")
+texture_scale = 2.0
+
+[node name="Pick_Up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mjni5")
+
+[node name="walking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_yodoo")
+volume_db = 10.0
+
+[node name="hit_by _sword" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_3rcj0")
+
+[node name="heavy_hit" type="AudioStreamPlayer" parent="."]
+
+[node name="arrow_hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_7slj4")
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("19_d4ufm")]
+
+[node name="Dash_Timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Player_HitBox" to="." method="_on_player_hit_box_area_entered"]
+[connection signal="area_exited" from="Player_HitBox" to="." method="_on_player_hit_box_area_exited"]
+[connection signal="area_shape_entered" from="Player_HitBox" to="." method="_on_player_hit_box_area_shape_entered"]
+[connection signal="body_entered" from="Player_HitBox" to="." method="_on_player_hit_box_body_entered"]
+[connection signal="body_exited" from="Player_HitBox" to="." method="_on_player_hit_box_body_exited"]
+[connection signal="body_entered" from="Player_Attack_HitBox" to="." method="_on_attack_hit_box_body_entered"]
+[connection signal="body_exited" from="Player_Attack_HitBox" to="." method="_on_attack_hit_box_body_exited"]
+[connection signal="timeout" from="Damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="Attack_Cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
