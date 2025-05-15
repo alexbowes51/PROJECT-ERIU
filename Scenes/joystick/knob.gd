@@ -4,9 +4,9 @@ extends Sprite2D
 
 var pressing = false
 @export var maxlength = 100
-@export var deadzone = 10
+@export var deadzone = 50
 
-func _reday():
+func ready():
 	maxlength *= parent.scale.x
 	
 func _process(delta):
@@ -15,8 +15,8 @@ func _process(delta):
 			global_position = get_global_mouse_position()
 		else:
 			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
-			global_position.x = parent.global_position.x + cos(angle)+maxlength
-			global_position.y = parent.global_position.y + cos(angle)+maxlength
+			global_position.x = parent.global_position.x + cos(angle)*maxlength
+			global_position.y = parent.global_position.y + sin(angle)*maxlength
 		calculateVector()	
 	else:
 		global_position = lerp(global_position, parent.global_position, delta * 50)

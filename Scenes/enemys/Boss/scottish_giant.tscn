@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://w1rdpmbg4qfm"]
+[gd_scene load_steps=83 format=3 uid="uid://w1rdpmbg4qfm"]
 
 [ext_resource type="Texture2D" uid="uid://dj00g2fwp5jv1" path="res://Art/Enemies/Enemy Giant/Enemy Giant Standing.png" id="1_eayay"]
 [ext_resource type="Texture2D" uid="uid://dxwc1okf4km5n" path="res://Art/Enemies/Enemy Giant/Attack/Enemy Giant Attack-Sheet.png" id="1_llq3w"]
@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://cock7nvcnmq6e" path="res://Scenes/enemys/Cross_Bow_Soldier/Cross_Bow_Soldier.tscn" id="16_p1qas"]
 [ext_resource type="Script" path="res://Scenes/enemys/Boss/death.gd" id="17_jfo0l"]
 [ext_resource type="PackedScene" uid="uid://cer4infdssnfg" path="res://VFX/collection_expolsion/buff.tscn" id="17_qctr4"]
+[ext_resource type="Texture2D" uid="uid://dqcuuax5qxps8" path="res://Art/UI/Progress bars/pixil-frame-0 (29).png" id="19_h0g4n"]
+[ext_resource type="Texture2D" uid="uid://bh571b08usagr" path="res://Art/UI/Progress bars/pixil-frame-0 (31).png" id="20_674nm"]
 [ext_resource type="PackedScene" uid="uid://ox1hjt0u1oje" path="res://VFX/collection_expolsion/boss_damage.tscn" id="20_tuhxs"]
+[ext_resource type="Texture2D" uid="uid://b0oaew3qpi6x8" path="res://Art/UI/Progress bars/pixil-frame-0 (33).png" id="21_3p5jf"]
 [ext_resource type="AudioStream" uid="uid://qbnkkc40ikxn" path="res://Audio/vfx_sounds/mixkit-sword-slash-swoosh-1476.mp3" id="21_ihdrh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yaj8y"]
@@ -522,36 +525,37 @@ wait_time = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-modulate = Color(1, 0.396078, 0, 1)
-z_index = 3
-offset_left = 855.0
-offset_top = 69.0
-offset_right = 1408.0
-offset_bottom = 129.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-value = 100.0
-metadata/_edit_use_anchors_ = true
-
 [node name="Label" type="Label" parent="CanvasLayer"]
 z_index = 3
-offset_left = 1006.0
-offset_top = 15.0
-offset_right = 5954.0
-offset_bottom = 1037.0
+offset_left = 814.0
+offset_top = 17.0
+offset_right = 5762.0
+offset_bottom = 1039.0
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 750
 text = "Benandonner"
 metadata/_edit_use_anchors_ = true
 
 [node name="debug" type="Label" parent="CanvasLayer"]
-offset_left = 1092.0
-offset_top = 151.0
-offset_right = 1136.0
-offset_bottom = 174.0
+offset_left = 894.0
+offset_top = 119.0
+offset_right = 938.0
+offset_bottom = 142.0
 scale = Vector2(1.48, 1)
 text = "name"
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 732.0
+offset_top = 11.0
+offset_right = 832.0
+offset_bottom = 111.0
+scale = Vector2(4, 2)
+value = 100.0
+texture_under = ExtResource("19_h0g4n")
+texture_over = ExtResource("20_674nm")
+texture_progress = ExtResource("21_3p5jf")
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("17_qctr4")]
 z_index = 1

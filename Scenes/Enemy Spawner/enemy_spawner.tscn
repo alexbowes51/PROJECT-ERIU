@@ -16,15 +16,16 @@ enemy_spawn_delay = 0
 [sub_resource type="Resource" id="Resource_w7ced"]
 script = ExtResource("2_xeg4u")
 time_s = 0
-time_e = 10
+time_e = 1
 enemy = ExtResource("4_x5d0k")
-enemy_num = 10
-enemy_spawn_delay = 2
+enemy_num = 1
+enemy_spawn_delay = 0
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_jugik")
 spawns = Array[ExtResource("2_xeg4u")]([SubResource("Resource_3v727"), SubResource("Resource_w7ced")])
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

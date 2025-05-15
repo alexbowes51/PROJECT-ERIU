@@ -44,7 +44,7 @@ var Wp1_B = Vector2(18349,1107)
 var Wp2_A = Vector2(6849,14543)
 var Wp2_B = Vector2(1948,1146)
 
-var home_spawn = Vector2(1850,3933)
+var home_spawn = Vector2(4350,14552)
 var villages_Cleared : int = 0
 var waypoints_Cleared : int = 0
 var waypoint1clear : bool = false

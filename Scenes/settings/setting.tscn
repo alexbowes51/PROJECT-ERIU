@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/settings/setting.gd" id="1_21w2r"]
 [ext_resource type="Texture2D" uid="uid://6oivht7vl0oc" path="res://Art/Inventory/pixil-frame-0 (10).png" id="1_ir2uo"]
-[ext_resource type="Texture2D" uid="uid://nohnidqou0hp" path="res://Art/UI/Keyboard Letters and Symbols.png" id="3_rofjc"]
+[ext_resource type="Texture2D" uid="uid://nohnidqou0hp" path="res://Art/UI/Keys/Keyboard Letters and Symbols.png" id="3_rofjc"]
 [ext_resource type="Texture2D" uid="uid://dx47e8r21pfcm" path="res://Art/Inventory/pixil-frame-0 (15).png" id="3_x4u2x"]
-[ext_resource type="Texture2D" uid="uid://bgnq6pdidnkj3" path="res://Art/UI/Keyboard Extras.png" id="4_5gbuj"]
+[ext_resource type="Texture2D" uid="uid://bgnq6pdidnkj3" path="res://Art/UI/Keys/Keyboard Extras.png" id="4_5gbuj"]
 [ext_resource type="Texture2D" uid="uid://6er6yi0mqe6p" path="res://Art/Inventory/pixil-frame-0 (16).png" id="4_vvvak"]
 [ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="7_en5jv"]
 

@@ -202,6 +202,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_right = 44.0

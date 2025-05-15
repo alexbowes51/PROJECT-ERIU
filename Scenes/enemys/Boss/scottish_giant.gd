@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var player = find_parent("world").find_child("Player")
 @onready var sprite = $AnimatedSprite2D
-@onready var progress_bar: ProgressBar = $CanvasLayer/ProgressBar
+@onready var progress_bar: TextureProgressBar = $CanvasLayer/TextureProgressBar
 @onready var damage_cooldown: Timer = $damage_cooldown
 @onready var cpu_particles_2d_2: CPUParticles2D = $CPUParticles2D2
 @onready var damage_audio: AudioStreamPlayer = $damage

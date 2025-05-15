@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dow7opdw7egdk"
+path="res://.godot/imported/Female Influencer Portrait Fliped.png-af5b11cd86f8402356953fe03be3576c.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Art/New_Art/New npcs/Female Influencer/Portrait Flipped/Female Influencer Portrait Fliped.png"
+dest_files=["res://.godot/imported/Female Influencer Portrait Fliped.png-af5b11cd86f8402356953fe03be3576c.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

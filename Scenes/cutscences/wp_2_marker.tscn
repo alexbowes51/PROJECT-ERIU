@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdkc7gfdit6ir"]
 
 [ext_resource type="Script" path="res://Scenes/Marker/off_screen_marker.gd" id="1_3qfxf"]
-[ext_resource type="Texture2D" uid="uid://cmjw2qr12r5u4" path="res://Art/UI/wp_marker.png" id="1_yvd5k"]
+[ext_resource type="Texture2D" uid="uid://cmjw2qr12r5u4" path="res://Art/UI/Markers/wp_marker.png" id="1_yvd5k"]
 [ext_resource type="Texture2D" uid="uid://df66udohcv6il" path="res://Art/Tile_map/WayPoint2(A).png" id="2_av8nb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln1kf"]
