@@ -109,11 +109,19 @@ func _on_TextureButton_pressed() -> void:
 	var correct = int(entry.get("correct", -1))
 
 	if correct < 0 or correct >= opts.size():
-		answer_label.text = "⚠️ Bad 'correct' index: %d" % correct
+		answer_label.text = "Bad 'correct' index: %d" % correct
 	elif selected == correct:
 		answer_label.text = "Correct!"
+		var player = get_tree().get_current_scene().get_node("Player")
+		if player:
+			player.addScore()
+			player.addBrain()
 	else:
 		answer_label.text = "Incorrect! Correct was: " + opts[correct]
+		var player = get_tree().get_current_scene().get_node("Player")
+		if player:
+			player.removeScore()
+			player.removeBrain()
 
 	await get_tree().create_timer(2.0).timeout
 	_next_script()

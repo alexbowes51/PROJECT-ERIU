@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=137 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -38,6 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://b778nedb5dqep" path="res://Art/UI/Touch_Screen/pixil-frame-0 (32).png" id="30_ul0g5"]
 [ext_resource type="Texture2D" uid="uid://blbhih52fxbqt" path="res://Art/UI/Touch_Screen/pixil-frame-0 (29).png" id="31_jwygv"]
 [ext_resource type="Texture2D" uid="uid://d0rhjbhekja64" path="res://Art/UI/Touch_Screen/pixil-frame-0 (31).png" id="32_tf7xg"]
+[ext_resource type="Texture2D" uid="uid://dqcuuax5qxps8" path="res://Art/UI/Progress bars/pixil-frame-0 (29).png" id="34_rbv6y"]
+[ext_resource type="Texture2D" uid="uid://bh571b08usagr" path="res://Art/UI/Progress bars/pixil-frame-0 (31).png" id="35_1lw30"]
+[ext_resource type="Texture2D" uid="uid://rauhhq642mn7" path="res://Art/UI/Progress bars/pixil-frame-0 (32).png" id="36_nh234"]
+[ext_resource type="Texture2D" uid="uid://cljll0sogqcyy" path="res://Art/New_Art/UI/Mental Icons/Brain Regular/Brain .png" id="37_5qleb"]
 
 [sub_resource type="GDScript" id="GDScript_pbkry"]
 script/source = "extends CharacterBody2D
@@ -87,10 +91,13 @@ var dash_direction = Vector2.ZERO
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var control_1: Control = $Camera2D/UI/Control_1
 @onready var joy_stick: Node2D = $Camera2D/UI/JoyStick
-
+@onready var mentalhealth: TextureProgressBar = $Camera2D/UI/Mentalhealth
+@onready var score: Label = $Camera2D/UI/Score
 
 
 @onready var Sword = preload(\"res://Scenes/Item/Sword/sword.tres\")
+
+var socialscore = 0
 
 func _ready():
 	add_to_group(\"player\")
@@ -420,6 +427,30 @@ func respawn_player():
 
 	animated_sprite_2d.play(\"Player_Idle\")
 	
+
+func addScore():
+	if WorldManager.player_talking_Farmer:
+		score.text = \"score : \" + str(socialscore + 25 * 1.25)
+
+func removeScore():
+	if WorldManager.player_talking_Farmer:
+		score.text = \"score : \" + str(socialscore - 25 * 1.25)
+		
+func addBrain():
+	if WorldManager.player_talking_Farmer:
+		if mentalhealth.value <= 100:
+			mentalhealth.value += 25
+		
+	if mentalhealth.value < 100:
+		mentalhealth.value = 100
+			
+func removeBrain():
+	if WorldManager.player_talking_Farmer:
+		if mentalhealth.value >= 25:
+			mentalhealth.value -= 25
+		
+	if mentalhealth.value < 0:
+		mentalhealth.value = 0
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uuud"]
@@ -1111,6 +1142,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn640"]
+atlas = ExtResource("37_5qleb")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7kba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn640")
+}],
+"loop": true,
+"name": &"healthly",
+"speed": 5.0
+}]
+
 [sub_resource type="Gradient" id="Gradient_5f0ot"]
 offsets = PackedFloat32Array(0.00591716, 1)
 colors = PackedColorArray(1, 1, 0.2, 1, 1, 0.552941, 0.2, 0)
@@ -1288,7 +1334,6 @@ offset_top = 570.833
 offset_right = 526.598
 offset_bottom = 610.833
 scale = Vector2(8, 8)
-M_D_file = null
 
 [node name="Farmer_dialogue" parent="Camera2D/UI" instance=ExtResource("19_dbonm")]
 offset_left = 307.216
@@ -1300,10 +1345,11 @@ scale = Vector2(8, 8)
 [node name="PickUpNotifaction" type="Control" parent="Camera2D/UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -2.06186
-offset_top = 311.111
-offset_right = -2.06186
-offset_bottom = 311.111
+offset_left = 1.03093
+offset_top = 430.555
+offset_right = 1.03093
+offset_bottom = 430.555
+scale = Vector2(0.7, 0.7)
 
 [node name="Wood_Coll" type="Label" parent="Camera2D/UI/PickUpNotifaction"]
 z_index = 1
@@ -1354,7 +1400,7 @@ position = Vector2(-27, 12)
 texture = ExtResource("11_hnjnx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/PickUpNotifaction"]
-position = Vector2(104.124, 320.833)
+position = Vector2(98.6745, 317.461)
 scale = Vector2(4, 8)
 texture = ExtResource("12_cohmc")
 
@@ -1374,11 +1420,12 @@ scale = Vector2(4, 4)
 
 [node name="Quest_Tracker" parent="Camera2D/UI" instance=ExtResource("28_1bthv")]
 offset_left = 1.03093
-offset_top = 143.056
-offset_right = 1.03091
-offset_bottom = 143.056
+offset_top = 212.5
+offset_right = 1.03088
+offset_bottom = 212.5
 
 [node name="Control" parent="Camera2D/UI" instance=ExtResource("25_k3yy6")]
+visible = false
 z_index = 0
 texture_filter = 1
 offset_left = 3.09278
@@ -1417,6 +1464,7 @@ vframes = 14
 frame = 17
 
 [node name="Control_1" type="Control" parent="Camera2D/UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 12.3711
@@ -1501,7 +1549,34 @@ action = "i"
 
 [node name="Into_Game_Objective" parent="Camera2D/UI" instance=ExtResource("27_crx5h")]
 process_mode = 3
+visible = false
 scale = Vector2(1.02905, 1.40067)
+
+[node name="Score" type="Label" parent="Camera2D/UI"]
+offset_left = 501.031
+offset_top = 144.444
+offset_right = 2645.03
+offset_bottom = 826.444
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 500
+text = "Score : 0 "
+
+[node name="Mentalhealth" type="TextureProgressBar" parent="Camera2D/UI"]
+offset_left = 81.4433
+offset_top = 73.6111
+offset_right = 181.443
+offset_bottom = 173.611
+scale = Vector2(4, 2)
+value = 100.0
+texture_under = ExtResource("34_rbv6y")
+texture_over = ExtResource("35_1lw30")
+texture_progress = ExtResource("36_nh234")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/Mentalhealth"]
+position = Vector2(-6.18557, 43.0555)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_e7kba")
+animation = &"healthly"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_02i48")

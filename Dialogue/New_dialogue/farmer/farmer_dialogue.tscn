@@ -140,6 +140,7 @@ tick_count = 4
 ticks_on_borders = true
 
 [node name="false_l" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
 offset_left = 1.79264
 offset_top = -12.2405
 offset_right = 344.793
@@ -155,6 +156,7 @@ text = "False
 "
 
 [node name="1_2 false" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
 offset_left = 109.351
 offset_top = -12.2405
 offset_right = 880.351
@@ -169,6 +171,7 @@ theme_override_font_sizes/font_size = 150
 text = "Partly True"
 
 [node name="1_2 true" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
 offset_left = 43.0235
 offset_top = -12.2405
 offset_right = 1008.02
@@ -183,6 +186,7 @@ theme_override_font_sizes/font_size = 150
 text = "Partly  False"
 
 [node name="true_l" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
 offset_left = 179.264
 offset_top = -10.7104
 offset_right = 510.264
