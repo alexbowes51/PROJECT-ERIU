@@ -1,0 +1,6 @@
+[
+	{"name": "Farmer", "text": "Hello there Ronan!"},
+	{"name": "Farmer", "text": "Climate change is causing Wexford farmers to plant crops earlier in the year due to warmer springs."},
+	{"quiz": true,"answers": ["False", "Partly False", "Partly True", "True"],"correct": 3 },
+	{"name": "Farmer", "text": "Glad You Learn something"}
+]

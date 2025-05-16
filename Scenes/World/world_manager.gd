@@ -59,6 +59,8 @@ var player_talking_Black_Smith = false
 var Bs_shop = false
 var Item_Selling = "none"
 
+var player_talking_Farmer = false
+
 var player_needs_healing = false
 
 var Intro_stop_index = 0

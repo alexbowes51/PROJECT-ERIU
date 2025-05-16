@@ -1,0 +1,187 @@
+[gd_scene load_steps=23 format=3 uid="uid://bvt4wca1sbt1v"]
+
+[ext_resource type="Script" path="res://Scenes/Question Npcs/Farmer/farmer.gd" id="1_1vw5s"]
+[ext_resource type="Texture2D" uid="uid://bh6jvov3waodc" path="res://Art/New_Art/New npcs/Farmer/Idle/Farmer.png" id="1_84cpk"]
+[ext_resource type="Texture2D" uid="uid://brr3xd7io2lvh" path="res://Art/New_Art/New npcs/Farmer/Walk/Farmer Walk-Sheet.png" id="2_od2iy"]
+[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="3_qhk2f"]
+[ext_resource type="Texture2D" uid="uid://06j0xqll13h1" path="res://Art/UI/Keys/E.png" id="4_61x2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmlik"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opa3g"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wno5w"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64tt5"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3352"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8065"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o40p5"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7te3"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_insy4"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xt2y"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(1792, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft6mt"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubll6"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(2688, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6qqs"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(3136, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g77l"]
+atlas = ExtResource("2_od2iy")
+region = Rect2(3584, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0xgg"]
+atlas = ExtResource("1_84cpk")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hmnop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opa3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wno5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64tt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3352")
+}],
+"loop": true,
+"name": &"Iteract",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8065")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o40p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7te3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_insy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xt2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft6mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubll6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6qqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g77l")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0xgg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnmbj"]
+radius = 85.2115
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_1vw5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dmlik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_hmnop")
+animation = &"Iteract"
+
+[node name="area" type="Area2D" parent="."]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+z_index = 1
+shape = SubResource("CircleShape2D_lnmbj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -27.0
+offset_top = 1.0
+offset_right = 13.0
+offset_bottom = 41.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -95.0
+offset_right = 96.0
+offset_bottom = -55.0
+scale = Vector2(1.12, 1)
+texture = ExtResource("3_qhk2f")
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -29.0
+offset_top = -89.0
+offset_right = 39.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.631682, 0.408503, 9.62615e-08, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Talk to Farmer"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(-39, -76)
+texture = ExtResource("4_61x2y")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="area" to="." method="_on_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

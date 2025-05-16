@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://caj6plpuqsmrv" path="res://Scenes/WayPoints/WayPoint2/WayPoint2.tscn" id="12_fchno"]
 [ext_resource type="PackedScene" uid="uid://c4giqpf6ir3tc" path="res://Scenes/WayPoints/WayPoint2/WayPoint2_Dark.tscn" id="13_q1lxv"]
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/village_1_area.gd" id="19_7vy6w"]
-[ext_resource type="PackedScene" uid="uid://bkvert6sx3te8" path="res://Scenes/Enemy Spawner/enemy_spawner.tscn" id="19_pmo0y"]
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/village_2.gd" id="20_ctc6y"]
+[ext_resource type="PackedScene" uid="uid://bvt4wca1sbt1v" path="res://Scenes/Question Npcs/Farmer/farmer.tscn" id="20_hhmmy"]
 [ext_resource type="PackedScene" uid="uid://dik7r6dxrcc7" path="res://Scenes/Marker/off_screen_marker.tscn" id="20_qiysy"]
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/waypoint_1.gd" id="21_w0oxr"]
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/waypoint_2.gd" id="22_dy6hf"]
@@ -274,7 +274,7 @@ position = Vector2(100, 100)
 script = ExtResource("1_tvuku")
 
 [node name="Player" parent="." instance=ExtResource("3_2ajww")]
-position = Vector2(6788, 15005)
+position = Vector2(4645, 14282)
 collision_layer = 9
 collision_mask = 9
 
@@ -324,6 +324,9 @@ process_mode = 3
 physics_interpolation_mode = 1
 auto_translate_mode = 1
 position = Vector2(4672, 14125)
+
+[node name="CharacterBody2D" parent="NPC" instance=ExtResource("20_hhmmy")]
+position = Vector2(4810, 14241)
 
 [node name="WayPoints" type="Node2D" parent="."]
 
@@ -426,8 +429,6 @@ shape = SubResource("CircleShape2D_droos")
 
 [node name="Node2D" parent="Polluted_areas/Waypoint_2" instance=ExtResource("25_jxjgr")]
 position = Vector2(3.00129, 3)
-
-[node name="EnemySpawner" parent="." instance=ExtResource("19_pmo0y")]
 
 [connection signal="area_shape_entered" from="BuildZone" to="." method="_on_build_zone_area_shape_entered"]
 [connection signal="area_shape_exited" from="BuildZone" to="." method="_on_build_zone_area_shape_exited"]

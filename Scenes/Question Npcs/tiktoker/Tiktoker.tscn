@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://q07bst77bas7"]
+
+[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="1_acmuc"]
+[ext_resource type="Texture2D" uid="uid://06j0xqll13h1" path="res://Art/UI/Keys/E.png" id="2_uwoh2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2a2dn"]
+radius = 85.2115
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+animation = &""
+
+[node name="Interact_Area" type="Area2D" parent="."]
+z_index = 1
+scale = Vector2(0.18, 0.18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact_Area"]
+z_index = 1
+shape = SubResource("CircleShape2D_2a2dn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4.86
+offset_top = 0.18
+offset_right = 35.14
+offset_bottom = 40.18
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -95.0
+offset_right = 96.0
+offset_bottom = -55.0
+scale = Vector2(1.12, 1)
+texture = ExtResource("1_acmuc")
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -29.0
+offset_top = -89.0
+offset_right = 39.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.631682, 0.408503, 9.62615e-08, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Talk to Merchant"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(-39, -76)
+texture = ExtResource("2_uwoh2")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=131 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://b15iotr1bikbi" path="res://Audio/vfx_sounds/mixkit-sword-strikes-armor-2765.wav" id="18_7slj4"]
 [ext_resource type="PackedScene" uid="uid://bopk1ta60cfqg" path="res://Scenes/Inventory/player_hotbar.tscn" id="19_ag7iv"]
 [ext_resource type="PackedScene" uid="uid://cm28ftmarv0qi" path="res://VFX/collection_expolsion/damage.tscn" id="19_d4ufm"]
+[ext_resource type="PackedScene" uid="uid://bpjx7ymy21ry7" path="res://Dialogue/New_dialogue/farmer/farmer_dialogue.tscn" id="19_dbonm"]
 [ext_resource type="PackedScene" uid="uid://dmdcilu706lxk" path="res://Scenes/respawn/respawn.tscn" id="22_fuqjl"]
 [ext_resource type="PackedScene" uid="uid://buoxgii380s3e" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="24_gpgmm"]
 [ext_resource type="PackedScene" uid="uid://2dk0i07v5kqb" path="res://Scenes/settings/setting.tscn" id="25_k3yy6"]
@@ -72,6 +73,7 @@ var dash_direction = Vector2.ZERO
 @onready var hb_inv : Inventory = preload(\"res://Scenes/Inventory/Hot_bar.tres\")
 @onready var merchant_dialogue: Control = $Camera2D/UI/Merchant_Dialogue
 @onready var black_smit_dialogue: Control = $Camera2D/UI/Black_Smit_Dialogue
+@onready var farmer_dialogue: Control = $Camera2D/UI/Farmer_dialogue
 @onready var audio_stream_player: AudioStreamPlayer = $Pick_Up
 @onready var walking: AudioStreamPlayer = $walking
 @onready var wood_coll: Label = $Camera2D/UI/PickUpNotifaction/Wood_Coll
@@ -112,6 +114,9 @@ func _physics_process(_delta: float) -> void:
 
 	if WorldManager.player_talking_Black_Smith:
 		black_smit_dialogue.start()
+		
+	if WorldManager.player_talking_Farmer:
+		farmer_dialogue.start()
 
 	if WorldManager.player_in_build_zone:
 		build_av.visible = true
@@ -1282,6 +1287,14 @@ offset_left = 486.598
 offset_top = 570.833
 offset_right = 526.598
 offset_bottom = 610.833
+scale = Vector2(8, 8)
+M_D_file = null
+
+[node name="Farmer_dialogue" parent="Camera2D/UI" instance=ExtResource("19_dbonm")]
+offset_left = 307.216
+offset_top = 455.556
+offset_right = -1383.78
+offset_bottom = -542.444
 scale = Vector2(8, 8)
 
 [node name="PickUpNotifaction" type="Control" parent="Camera2D/UI"]
