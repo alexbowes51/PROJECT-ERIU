@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=29 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bntq5pscl63ve" path="res://Scenes/World/day+night/day+night_cycle.tscn" id="6_e4wto"]
 [ext_resource type="Texture2D" uid="uid://cpw45fl58mqxy" path="res://Art/Tile_map/tilemap.png" id="6_ig8a5"]
 [ext_resource type="PackedScene" uid="uid://1dbdepmt6rvh" path="res://Scenes/Fog/fog.tscn" id="6_mkpcw"]
+[ext_resource type="PackedScene" uid="uid://bgxqmbbyp2kti" path="res://Scenes/Question Npcs/Gardai/Gardai(M).tscn" id="9_so0mj"]
 [ext_resource type="PackedScene" uid="uid://cidva77gd3bbc" path="res://Scenes/Npc/Merchant/Merchant.tscn" id="10_d0n30"]
 [ext_resource type="PackedScene" uid="uid://bt8u5ca3evu4h" path="res://Scenes/WayPoints/Waypoint1/WayPoint1.tscn" id="11_58lkg"]
 [ext_resource type="PackedScene" uid="uid://caj6plpuqsmrv" path="res://Scenes/WayPoints/WayPoint2/WayPoint2.tscn" id="12_fchno"]
@@ -327,6 +328,9 @@ position = Vector2(4672, 14125)
 
 [node name="CharacterBody2D" parent="NPC" instance=ExtResource("20_hhmmy")]
 position = Vector2(4810, 14241)
+
+[node name="CharacterBody2D2" parent="NPC" instance=ExtResource("9_so0mj")]
+position = Vector2(4923, 14088)
 
 [node name="WayPoints" type="Node2D" parent="."]
 

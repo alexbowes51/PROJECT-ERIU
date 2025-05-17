@@ -1,0 +1,7 @@
+[
+	{"name": "Garda", "text": "Hello there Ronan!"},
+	{"name": "Garda", "text": "Climate change affects everyone in Wexford equally, regardless of income or resources."},
+	{"quiz": true,"answers": ["False", "Partly False", "Partly True", "True"],"correct": 0 },
+	{"name": "Garda", "text": "Poorer communities are more vulnerable to extreme weather and have fewer means to adapt or recover."},
+	{"name": "Garda", "text": "Glad to be a service"}
+]

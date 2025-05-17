@@ -1,18 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgxqmbbyp2kti"]
+[gd_scene load_steps=11 format=3 uid="uid://bgxqmbbyp2kti"]
 
+[ext_resource type="Script" path="res://Scenes/Question Npcs/Gardai/gardai(m).gd" id="1_pkmfr"]
 [ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="1_rsvf5"]
 [ext_resource type="Texture2D" uid="uid://06j0xqll13h1" path="res://Art/UI/Keys/E.png" id="2_ckphb"]
+[ext_resource type="Texture2D" uid="uid://dr53qa0716xdx" path="res://Art/New_Art/New npcs/Garda Male/Idle/Garda Male.png" id="2_w8fcn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_53u2r"]
+radius = 14.0357
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okyfb"]
+atlas = ExtResource("2_w8fcn")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggg40"]
+atlas = ExtResource("2_w8fcn")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhas8"]
+atlas = ExtResource("2_w8fcn")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0m7tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyfb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggg40")
+}],
+"loop": true,
+"name": &"Iteract",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhas8")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_683wh"]
 radius = 85.2115
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_pkmfr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_53u2r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
-animation = &""
+sprite_frames = SubResource("SpriteFrames_0m7tk")
+animation = &"Idle"
 
 [node name="Interact_Area" type="Area2D" parent="."]
 z_index = 1
@@ -42,12 +89,13 @@ texture = ExtResource("1_rsvf5")
 texture_filter = 1
 layout_mode = 0
 offset_left = -29.0
-offset_top = -89.0
-offset_right = 39.0
-offset_bottom = -66.0
+offset_top = -87.0
+offset_right = 121.0
+offset_bottom = -64.0
+scale = Vector2(0.9, 0.9)
 theme_override_colors/font_color = Color(0.631682, 0.408503, 9.62615e-08, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Talk to Merchant"
+text = "Talk to Male Gardai"
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 z_index = 1
@@ -56,3 +104,7 @@ texture = ExtResource("2_ckphb")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[connection signal="body_entered" from="Interact_Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Interact_Area" to="." method="_on_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

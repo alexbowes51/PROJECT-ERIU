@@ -1,42 +1,34 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpjx7ymy21ry7"]
+[gd_scene load_steps=8 format=3 uid="uid://yio6f6w0xdwf"]
 
-[ext_resource type="Script" path="res://Dialogue/New_dialogue/farmer/farmer_dialogue.gd" id="1_faurg"]
-[ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="1_xy30b"]
-[ext_resource type="FontFile" uid="uid://6twna5ce2qh2" path="res://Celtica-BookOblique.ttf" id="2_1x5gf"]
-[ext_resource type="Texture2D" uid="uid://dcwv5i0elvtl0" path="res://Art/Inventory/pixil-frame-0 (25).png" id="3_xrhf1"]
-[ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="4_xgr18"]
-[ext_resource type="Texture2D" uid="uid://c0w3kridgckhq" path="res://Art/New_Art/New npcs/Farmer/Portrait Flipped/Farmer Flipped Portrait .png" id="5_0px8f"]
-[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="6_edx6i"]
-[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="7_rjopt"]
+[ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="1_1n8wt"]
+[ext_resource type="FontFile" uid="uid://6twna5ce2qh2" path="res://Celtica-BookOblique.ttf" id="2_diw7o"]
+[ext_resource type="Texture2D" uid="uid://dcwv5i0elvtl0" path="res://Art/Inventory/pixil-frame-0 (25).png" id="3_pvhtt"]
+[ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="4_qdfoq"]
+[ext_resource type="Texture2D" uid="uid://c0w3kridgckhq" path="res://Art/New_Art/New npcs/Farmer/Portrait Flipped/Farmer Flipped Portrait .png" id="5_n18cx"]
+[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="6_5tbl5"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_12216"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_cc4qs"]
 allow_unpress = true
 
-[node name="Farmer_dialogue" type="Control"]
+[node name="Tiktoker(f)" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1860.0
-offset_bottom = -1080.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_faurg")
-F_D_file = "res://Dialogue/New_dialogue/farmer/Farmer_dia.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 process_mode = 3
 physics_interpolation_mode = 1
 auto_translate_mode = 1
 texture_filter = 1
-layout_mode = 0
 offset_left = 1.0
 offset_right = 152.0
 offset_bottom = 60.0
 scale = Vector2(1.11567, 1.30714)
 mouse_filter = 0
-texture = ExtResource("1_xy30b")
+texture = ExtResource("1_1n8wt")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
@@ -58,7 +50,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/normal_font = ExtResource("2_1x5gf")
+theme_override_fonts/normal_font = ExtResource("2_diw7o")
 theme_override_font_sizes/normal_font_size = 100
 text = "chatting...."
 fit_content = true
@@ -82,7 +74,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/normal_font = ExtResource("2_1x5gf")
+theme_override_fonts/normal_font = ExtResource("2_diw7o")
 theme_override_font_sizes/normal_font_size = 150
 text = "name:"
 fit_content = true
@@ -99,10 +91,10 @@ offset_bottom = 144.371
 scale = Vector2(0.25, 0.085)
 toggle_mode = true
 action_mode = 0
-button_group = SubResource("ButtonGroup_12216")
-texture_normal = ExtResource("1_xy30b")
-texture_pressed = ExtResource("3_xrhf1")
-texture_hover = ExtResource("4_xgr18")
+button_group = SubResource("ButtonGroup_cc4qs")
+texture_normal = ExtResource("1_1n8wt")
+texture_pressed = ExtResource("3_pvhtt")
+texture_hover = ExtResource("4_qdfoq")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="NinePatchRect/TextureButton"]
@@ -123,13 +115,13 @@ text = "Submit"
 z_index = 1
 position = Vector2(125.485, 16.8306)
 scale = Vector2(-0.03, 0.03)
-texture = ExtResource("5_0px8f")
+texture = ExtResource("5_n18cx")
 
 [node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect"]
 modulate = Color(0.499446, 0.488466, 0.035647, 1)
 position = Vector2(125.485, 18.3607)
 scale = Vector2(0.615656, 0.491752)
-texture = ExtResource("6_edx6i")
+texture = ExtResource("6_5tbl5")
 
 [node name="slider" type="HSlider" parent="NinePatchRect"]
 layout_mode = 0
@@ -153,7 +145,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("2_1x5gf")
+theme_override_fonts/font = ExtResource("2_diw7o")
 theme_override_font_sizes/font_size = 150
 text = "False
 "
@@ -169,7 +161,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("2_1x5gf")
+theme_override_fonts/font = ExtResource("2_diw7o")
 theme_override_font_sizes/font_size = 150
 text = "Partly True"
 
@@ -184,7 +176,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("2_1x5gf")
+theme_override_fonts/font = ExtResource("2_diw7o")
 theme_override_font_sizes/font_size = 150
 text = "Partly  False"
 
@@ -199,7 +191,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("2_1x5gf")
+theme_override_fonts/font = ExtResource("2_diw7o")
 theme_override_font_sizes/font_size = 150
 text = "True"
 
@@ -212,9 +204,3 @@ offset_bottom = 166.071
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 100
 text = "Na: "
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_rjopt")
-
-[connection signal="pressed" from="NinePatchRect/TextureButton" to="." method="_on_TextureButton_pressed"]
-[connection signal="value_changed" from="NinePatchRect/slider" to="." method="_on_slider_value_changed"]

@@ -1,6 +1,6 @@
 extends Control
 
-@export_file("*.json") var F_D_file
+@export_file("*.json") var Gm_D_file
 
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 @onready var slider : HSlider = $NinePatchRect/slider
@@ -10,7 +10,7 @@ extends Control
 @onready var text_label : RichTextLabel = $NinePatchRect/Text
 
 var dialogue : Array = []
-var current_dialogue_id : int   = -1
+var current_dialogue_id : int = -1
 var dia_active: bool  = false
 
 func _ready() -> void:
@@ -35,9 +35,9 @@ func start() -> void:
 	_next_script()
 
 func _load_dialogue() -> Array:
-	var file = FileAccess.open(F_D_file, FileAccess.READ)
+	var file = FileAccess.open(Gm_D_file, FileAccess.READ)
 	if not file:
-		push_error("Couldn’t open JSON: " + str(F_D_file))
+		push_error("Couldn’t open JSON: " + str(Gm_D_file))
 		return []
 	var content = file.get_as_text()
 	var parsed  = JSON.parse_string(content)
@@ -88,7 +88,7 @@ func _end_dialogue() -> void:
 	_hide_all()
 	dia_active = false
 	current_dialogue_id = -1
-	WorldManager.player_talking_Farmer = false
+	WorldManager.player_talking_Gardai_m = false
 	emit_signal("end_dialogue")
 
 func _on_slider_value_changed(value: float) -> void:
@@ -99,7 +99,7 @@ func _on_slider_value_changed(value: float) -> void:
 	if idx >= 0 and idx < opts.size():
 		answer_label.text = "You picked: " + opts[idx]
 
-func _on_TextureButton_pressed() -> void:
+func _on_TextureButton_pressed():
 	if not dia_active:
 		return
 	audio_player.play()

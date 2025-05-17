@@ -16,9 +16,10 @@ allow_unpress = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
-offset_right = 121.0
-offset_bottom = 53.0
+offset_right = -1.0
+mouse_filter = 2
 script = ExtResource("1_svyaw")
+M_D_file = "res://Dialogue/Merchant_Dialogue/merchant_dialogue1.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 process_mode = 3

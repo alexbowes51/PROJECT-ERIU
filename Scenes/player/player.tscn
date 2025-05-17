@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=146 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bopk1ta60cfqg" path="res://Scenes/Inventory/player_hotbar.tscn" id="19_ag7iv"]
 [ext_resource type="PackedScene" uid="uid://cm28ftmarv0qi" path="res://VFX/collection_expolsion/damage.tscn" id="19_d4ufm"]
 [ext_resource type="PackedScene" uid="uid://bpjx7ymy21ry7" path="res://Dialogue/New_dialogue/farmer/farmer_dialogue.tscn" id="19_dbonm"]
+[ext_resource type="PackedScene" uid="uid://wsfm3k7hhygt" path="res://Dialogue/New_dialogue/Gardai(M)/gardai(m)_dia.tscn" id="20_13rod"]
 [ext_resource type="PackedScene" uid="uid://dmdcilu706lxk" path="res://Scenes/respawn/respawn.tscn" id="22_fuqjl"]
 [ext_resource type="PackedScene" uid="uid://buoxgii380s3e" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="24_gpgmm"]
 [ext_resource type="PackedScene" uid="uid://2dk0i07v5kqb" path="res://Scenes/settings/setting.tscn" id="25_k3yy6"]
@@ -42,6 +43,10 @@
 [ext_resource type="Texture2D" uid="uid://bh571b08usagr" path="res://Art/UI/Progress bars/pixil-frame-0 (31).png" id="35_1lw30"]
 [ext_resource type="Texture2D" uid="uid://rauhhq642mn7" path="res://Art/UI/Progress bars/pixil-frame-0 (32).png" id="36_nh234"]
 [ext_resource type="Texture2D" uid="uid://cljll0sogqcyy" path="res://Art/New_Art/UI/Mental Icons/Brain Regular/Brain .png" id="37_5qleb"]
+[ext_resource type="Texture2D" uid="uid://dhvtadeuvbq67" path="res://Art/New_Art/UI/Mental Icons/Brain Questions/Brain Questions .png" id="38_k24rj"]
+[ext_resource type="Texture2D" uid="uid://dwfwvq8wpmo7k" path="res://Art/New_Art/UI/Mental Icons/Brain Full Power/Brain Power Full.png" id="39_5ir2b"]
+[ext_resource type="Texture2D" uid="uid://2odmtrkhk8pm" path="res://Art/New_Art/UI/Mental Icons/Brain Confused/Brain Confused .png" id="41_awpmi"]
+[ext_resource type="Texture2D" uid="uid://bebte7b5bl0ku" path="res://Art/New_Art/UI/Mental Icons/Clouded Judgement/Brain Clouded Judgement.png" id="42_66ua6"]
 
 [sub_resource type="GDScript" id="GDScript_pbkry"]
 script/source = "extends CharacterBody2D
@@ -78,6 +83,7 @@ var dash_direction = Vector2.ZERO
 @onready var merchant_dialogue: Control = $Camera2D/UI/Merchant_Dialogue
 @onready var black_smit_dialogue: Control = $Camera2D/UI/Black_Smit_Dialogue
 @onready var farmer_dialogue: Control = $Camera2D/UI/Farmer_dialogue
+@onready var gardai_m__dia: Control = $\"Camera2D/UI/Gardai(M)_Dia\"
 @onready var audio_stream_player: AudioStreamPlayer = $Pick_Up
 @onready var walking: AudioStreamPlayer = $walking
 @onready var wood_coll: Label = $Camera2D/UI/PickUpNotifaction/Wood_Coll
@@ -92,7 +98,9 @@ var dash_direction = Vector2.ZERO
 @onready var control_1: Control = $Camera2D/UI/Control_1
 @onready var joy_stick: Node2D = $Camera2D/UI/JoyStick
 @onready var mentalhealth: TextureProgressBar = $Camera2D/UI/Mentalhealth
+@onready var mental_icon : AnimatedSprite2D = $Camera2D/UI/Mentalhealth/AnimatedSprite2D
 @onready var score: Label = $Camera2D/UI/Score
+
 
 
 @onready var Sword = preload(\"res://Scenes/Item/Sword/sword.tres\")
@@ -124,11 +132,31 @@ func _physics_process(_delta: float) -> void:
 		
 	if WorldManager.player_talking_Farmer:
 		farmer_dialogue.start()
+		
+	if WorldManager.player_talking_Gardai_m:
+		gardai_m__dia.start()
 
 	if WorldManager.player_in_build_zone:
 		build_av.visible = true
 	else:
 		build_av.visible = false
+	
+	if mentalhealth.value == 100:
+		mental_icon.play(\"healthly(100)\")
+		speed = 300
+	if mentalhealth.value == 75:
+		speed = 250
+		mental_icon.play(\"healthish(75)\")
+	if mentalhealth.value == 50:
+		speed = 200
+		mental_icon.play(\"normal(50)\")
+	if mentalhealth.value == 25:
+		speed = 150
+		mental_icon.play(\"not healthy(25)\")
+	if mentalhealth.value == 0:
+		speed = 100
+		mental_icon.play(\"unhealthy(0)\")
+	
 
 	if currentHealth < MaxHealth:
 		WorldManager.player_needs_healing = true
@@ -430,22 +458,46 @@ func respawn_player():
 
 func addScore():
 	if WorldManager.player_talking_Farmer:
-		score.text = \"score : \" + str(socialscore + 25 * 1.25)
-
+		socialscore += 25 * 1.25
+		score.text = \"Social Score : \" + str(socialscore)
+		
+	if WorldManager.player_talking_Gardai_m:
+		socialscore += 25 * 1.45
+		score.text = \"Social Score : \" + str(socialscore)
+		
 func removeScore():
 	if WorldManager.player_talking_Farmer:
-		score.text = \"score : \" + str(socialscore - 25 * 1.25)
+		socialscore -= 25 * 1.25
+		if socialscore < 0:
+			socialscore = 0
+		score.text = \"Social Score : \" + str(socialscore)
+		
+	if WorldManager.player_talking_Gardai_m:
+		socialscore -= 25 * 1.45
+		if socialscore < 0:
+			socialscore = 0
+		score.text = \"Social Score : \" + str(socialscore)
+		
+	
 		
 func addBrain():
 	if WorldManager.player_talking_Farmer:
 		if mentalhealth.value <= 100:
 			mentalhealth.value += 25
+			
+	if WorldManager.player_talking_Gardai_m:
+		if mentalhealth.value >= 25:
+			mentalhealth.value -= 25
 		
 	if mentalhealth.value < 100:
 		mentalhealth.value = 100
 			
 func removeBrain():
 	if WorldManager.player_talking_Farmer:
+		if mentalhealth.value >= 25:
+			mentalhealth.value -= 25
+			
+	if WorldManager.player_talking_Gardai_m:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
 		
@@ -1142,18 +1194,66 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kn640"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ro4u"]
+atlas = ExtResource("38_k24rj")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjcht"]
+atlas = ExtResource("39_5ir2b")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amg6x"]
 atlas = ExtResource("37_5qleb")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6ji6"]
+atlas = ExtResource("41_awpmi")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_som1u"]
+atlas = ExtResource("42_66ua6")
 region = Rect2(0, 0, 448, 448)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7kba"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kn640")
+"texture": SubResource("AtlasTexture_0ro4u")
 }],
 "loop": true,
-"name": &"healthly",
+"name": &"healthish(75)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjcht")
+}],
+"loop": true,
+"name": &"healthly(100)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amg6x")
+}],
+"loop": true,
+"name": &"normal(50)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6ji6")
+}],
+"loop": true,
+"name": &"not healthy(25)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_som1u")
+}],
+"loop": true,
+"name": &"unhealthy(0)",
 "speed": 5.0
 }]
 
@@ -1342,6 +1442,13 @@ offset_right = -1383.78
 offset_bottom = -542.444
 scale = Vector2(8, 8)
 
+[node name="Gardai(M)_Dia" parent="Camera2D/UI" instance=ExtResource("20_13rod")]
+offset_left = 301.0
+offset_top = 458.0
+offset_right = -1395.0
+offset_bottom = -543.0
+scale = Vector2(8, 8)
+
 [node name="PickUpNotifaction" type="Control" parent="Camera2D/UI"]
 layout_mode = 3
 anchors_preset = 0
@@ -1412,6 +1519,7 @@ offset_bottom = -182.164
 scale = Vector2(3, 3)
 
 [node name="Respawn" parent="Camera2D/UI" instance=ExtResource("22_fuqjl")]
+visible = false
 offset_left = 215.464
 offset_top = 341.667
 offset_right = -1299.54
@@ -1419,6 +1527,7 @@ offset_bottom = -531.333
 scale = Vector2(4, 4)
 
 [node name="Quest_Tracker" parent="Camera2D/UI" instance=ExtResource("28_1bthv")]
+visible = false
 offset_left = 1.03093
 offset_top = 212.5
 offset_right = 1.03088
@@ -1464,7 +1573,6 @@ vframes = 14
 frame = 17
 
 [node name="Control_1" type="Control" parent="Camera2D/UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 12.3711
@@ -1549,23 +1657,22 @@ action = "i"
 
 [node name="Into_Game_Objective" parent="Camera2D/UI" instance=ExtResource("27_crx5h")]
 process_mode = 3
-visible = false
 scale = Vector2(1.02905, 1.40067)
 
 [node name="Score" type="Label" parent="Camera2D/UI"]
-offset_left = 501.031
-offset_top = 144.444
-offset_right = 2645.03
-offset_bottom = 826.444
+offset_left = 246.392
+offset_top = 191.667
+offset_right = 3917.39
+offset_bottom = 873.667
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 500
-text = "Score : 0 "
+text = "Social Score : 0 "
 
 [node name="Mentalhealth" type="TextureProgressBar" parent="Camera2D/UI"]
-offset_left = 81.4433
-offset_top = 73.6111
-offset_right = 181.443
-offset_bottom = 173.611
+offset_left = 146.392
+offset_top = 83.3333
+offset_right = 246.391
+offset_bottom = 183.333
 scale = Vector2(4, 2)
 value = 100.0
 texture_under = ExtResource("34_rbv6y")
@@ -1573,10 +1680,10 @@ texture_over = ExtResource("35_1lw30")
 texture_progress = ExtResource("36_nh234")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/Mentalhealth"]
-position = Vector2(-6.18557, 43.0555)
+position = Vector2(-14.1753, 40.2778)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_e7kba")
-animation = &"healthly"
+animation = &"healthly(100)"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_02i48")

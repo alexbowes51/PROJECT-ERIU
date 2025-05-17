@@ -60,6 +60,7 @@ var Bs_shop = false
 var Item_Selling = "none"
 
 var player_talking_Farmer = false
+var player_talking_Gardai_m = false
 
 var player_needs_healing = false
 
