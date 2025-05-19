@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2wl86c645c1b"]
+
+[ext_resource type="Script" path="res://Scenes/Buildings/Wexford concil buidling/wexford_concil_buidling.gd" id="1_dxrv2"]
+[ext_resource type="Texture2D" uid="uid://bu2tiglyguy48" path="res://Art/Tile_map/Landmarks/pixil-frame-0 (34).png" id="2_xcd8g"]
+[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="3_wv4nq"]
+[ext_resource type="Texture2D" uid="uid://06j0xqll13h1" path="res://Art/UI/Keys/E.png" id="4_nc42s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rlgo"]
+size = Vector2(708, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkypw"]
+size = Vector2(149, 81)
+
+[node name="Wexford Concil buidling" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_dxrv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -100)
+scale = Vector2(4, 4)
+texture = ExtResource("2_xcd8g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(14, -57)
+shape = SubResource("RectangleShape2D_4rlgo")
+debug_color = Color(0.463096, 0.536017, 0.685621, 0.42)
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(-306, 1.5)
+shape = SubResource("RectangleShape2D_tkypw")
+debug_color = Color(0.828628, 0.00148974, 0.948239, 0.42)
+
+[node name="Control" type="Control" parent="."]
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -301.0
+offset_top = -7.0
+offset_right = -261.0
+offset_bottom = 33.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = -73.0
+offset_right = 20.0
+offset_bottom = -33.0
+scale = Vector2(1.12, 1)
+texture = ExtResource("3_wv4nq")
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -24.0
+offset_top = -65.0
+offset_right = 126.0
+offset_bottom = -42.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0.631682, 0.408503, 9.62615e-08, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Enter"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(-34, -54)
+texture = ExtResource("4_nc42s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
