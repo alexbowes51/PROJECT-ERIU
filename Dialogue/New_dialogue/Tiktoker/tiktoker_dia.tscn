@@ -1,0 +1,216 @@
+[gd_scene load_steps=10 format=3 uid="uid://dueeruky65e3p"]
+
+[ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="1_ellrt"]
+[ext_resource type="Script" path="res://Dialogue/New_dialogue/Tiktoker/tiktoker_dia.gd" id="1_m8p1j"]
+[ext_resource type="FontFile" uid="uid://6twna5ce2qh2" path="res://Celtica-BookOblique.ttf" id="2_75ckg"]
+[ext_resource type="Texture2D" uid="uid://dcwv5i0elvtl0" path="res://Art/Inventory/pixil-frame-0 (25).png" id="3_1pdym"]
+[ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="4_tumt1"]
+[ext_resource type="Texture2D" uid="uid://0gl6mhw72dm" path="res://Art/New_Art/New npcs/Female Influencer/Portriat/Female Influencer Portrait .png" id="5_ixkl8"]
+[ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="6_h762l"]
+[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="8_hhvnv"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ehgu8"]
+allow_unpress = true
+
+[node name="tiktoker_dia" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1688.0
+offset_bottom = -1008.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8p1j")
+tik_d_file = "res://Dialogue/New_dialogue/Tiktoker/Tiktoker.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+process_mode = 3
+physics_interpolation_mode = 1
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 1.0
+offset_right = 152.0
+offset_bottom = 60.0
+scale = Vector2(1.11567, 1.30714)
+mouse_filter = 0
+texture = ExtResource("1_ellrt")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+process_mode = 3
+physics_interpolation_mode = 1
+texture_filter = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 18.0
+offset_right = 1869.0
+offset_bottom = 156.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_75ckg")
+theme_override_font_sizes/normal_font_size = 100
+text = "chatting...."
+fit_content = true
+scroll_following = true
+autowrap_mode = 2
+tab_size = 1
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+process_mode = 3
+physics_interpolation_mode = 1
+texture_filter = 1
+clip_contents = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 1948.0
+offset_bottom = 190.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_75ckg")
+theme_override_font_sizes/normal_font_size = 150
+text = "name:"
+fit_content = true
+scroll_following = true
+autowrap_mode = 2
+tab_size = 1
+
+[node name="TextureButton" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 116.522
+offset_top = 44.3717
+offset_right = 216.523
+offset_bottom = 144.371
+scale = Vector2(0.25, 0.085)
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_ehgu8")
+texture_normal = ExtResource("1_ellrt")
+texture_pressed = ExtResource("3_1pdym")
+texture_hover = ExtResource("4_tumt1")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="NinePatchRect/TextureButton"]
+layout_mode = 0
+offset_left = 14.3412
+offset_top = 27.001
+offset_right = 1904.34
+offset_bottom = 709.001
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 450
+text = "Submit"
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
+z_index = 1
+position = Vector2(125.485, 16.8306)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("5_ixkl8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect"]
+modulate = Color(0.499446, 0.488466, 0.035647, 1)
+position = Vector2(125.485, 18.3607)
+scale = Vector2(0.615656, 0.491752)
+texture = ExtResource("6_h762l")
+
+[node name="slider" type="HSlider" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 12.5485
+offset_top = 44.3717
+offset_right = 206.549
+offset_bottom = 60.3717
+scale = Vector2(0.5, 0.5)
+max_value = 3.0
+tick_count = 4
+ticks_on_borders = true
+
+[node name="false_l" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
+offset_left = 1.79264
+offset_top = -12.2405
+offset_right = 344.793
+offset_bottom = 192.76
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_75ckg")
+theme_override_font_sizes/font_size = 150
+text = "False
+"
+
+[node name="1_2 false" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
+offset_left = 109.351
+offset_top = -12.2405
+offset_right = 880.351
+offset_bottom = 192.76
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_75ckg")
+theme_override_font_sizes/font_size = 150
+text = "Partly True"
+
+[node name="1_2 true" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
+offset_left = 43.0235
+offset_top = -12.2405
+offset_right = 1008.02
+offset_bottom = 192.76
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_75ckg")
+theme_override_font_sizes/font_size = 150
+text = "Partly  False"
+
+[node name="true_l" type="Label" parent="NinePatchRect/slider"]
+layout_mode = 0
+offset_left = 179.264
+offset_top = -10.7104
+offset_right = 510.264
+offset_bottom = 194.29
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_75ckg")
+theme_override_font_sizes/font_size = 150
+text = "True"
+
+[node name="Answer" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 29.5786
+offset_top = 29.0711
+offset_right = 326.579
+offset_bottom = 166.071
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 100
+text = "Na: "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hhvnv")

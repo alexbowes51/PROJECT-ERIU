@@ -61,6 +61,8 @@ var Item_Selling = "none"
 
 var player_talking_Farmer = false
 var player_talking_Gardai_m = false
+var player_talking_Gardai_f = false
+var player_talking_tiktoker = false
 
 var player_needs_healing = false
 

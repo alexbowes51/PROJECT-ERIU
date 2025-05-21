@@ -29,9 +29,9 @@ func _on_options_pressed() -> void:
 	WorldManager.Settings = true
 
 
-
 func _on_leave_pressed() -> void:
 	audio_stream_player.play()
 	MainMusic.stop()
 	$AnimationPlayer.play("fade_out")
+	await get_tree().create_timer(2.0).timeout
 	get_tree().quit()

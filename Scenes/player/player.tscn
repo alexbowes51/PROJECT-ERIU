@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=148 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://cm28ftmarv0qi" path="res://VFX/collection_expolsion/damage.tscn" id="19_d4ufm"]
 [ext_resource type="PackedScene" uid="uid://bpjx7ymy21ry7" path="res://Dialogue/New_dialogue/farmer/farmer_dialogue.tscn" id="19_dbonm"]
 [ext_resource type="PackedScene" uid="uid://wsfm3k7hhygt" path="res://Dialogue/New_dialogue/Gardai(M)/gardai(m)_dia.tscn" id="20_13rod"]
+[ext_resource type="PackedScene" uid="uid://dq3hmlbgso5a8" path="res://Dialogue/New_dialogue/Gardai(F)/garda(f)_dia.tscn" id="21_1u4em"]
+[ext_resource type="PackedScene" uid="uid://dueeruky65e3p" path="res://Dialogue/New_dialogue/Tiktoker/tiktoker_dia.tscn" id="22_655su"]
 [ext_resource type="PackedScene" uid="uid://dmdcilu706lxk" path="res://Scenes/respawn/respawn.tscn" id="22_fuqjl"]
 [ext_resource type="PackedScene" uid="uid://buoxgii380s3e" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="24_gpgmm"]
 [ext_resource type="PackedScene" uid="uid://2dk0i07v5kqb" path="res://Scenes/settings/setting.tscn" id="25_k3yy6"]
@@ -84,6 +86,9 @@ var dash_direction = Vector2.ZERO
 @onready var black_smit_dialogue: Control = $Camera2D/UI/Black_Smit_Dialogue
 @onready var farmer_dialogue: Control = $Camera2D/UI/Farmer_dialogue
 @onready var gardai_m__dia: Control = $\"Camera2D/UI/Gardai(M)_Dia\"
+@onready var garda_f__dia: Control = $\"Camera2D/UI/garda(f)_dia\"
+@onready var tiktoker_dia: Control = $Camera2D/UI/tiktoker_dia
+
 @onready var audio_stream_player: AudioStreamPlayer = $Pick_Up
 @onready var walking: AudioStreamPlayer = $walking
 @onready var wood_coll: Label = $Camera2D/UI/PickUpNotifaction/Wood_Coll
@@ -99,7 +104,11 @@ var dash_direction = Vector2.ZERO
 @onready var joy_stick: Node2D = $Camera2D/UI/JoyStick
 @onready var mentalhealth: TextureProgressBar = $Camera2D/UI/Mentalhealth
 @onready var mental_icon : AnimatedSprite2D = $Camera2D/UI/Mentalhealth/AnimatedSprite2D
-@onready var score: Label = $Camera2D/UI/Score
+@onready var score: Label = $Camera2D/UI/Respawn/Score
+@onready var touch_screen_button: TouchScreenButton = $Camera2D/UI/TouchScreenButton
+@onready var touch_screen_button_2: TouchScreenButton = $Camera2D/UI/TouchScreenButton2
+@onready var touch_screen_button_3: TouchScreenButton = $Camera2D/UI/TouchScreenButton3
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 
 
@@ -122,6 +131,13 @@ func _ready():
 	for heart in heart_container.get_children():
 		heart_list.append(heart)
 	print(heart_list)
+	
+	if is_mobile_like():
+		not_PC_UI()
+	else:
+		not_Moblie_UI()
+		
+		
 
 func _physics_process(_delta: float) -> void:
 	if WorldManager.player_talking_Merchant:
@@ -135,7 +151,13 @@ func _physics_process(_delta: float) -> void:
 		
 	if WorldManager.player_talking_Gardai_m:
 		gardai_m__dia.start()
-
+	
+	if WorldManager.player_talking_Gardai_f:
+		garda_f__dia.start()
+	
+	if WorldManager.player_talking_tiktoker:
+		tiktoker_dia.start()
+		
 	if WorldManager.player_in_build_zone:
 		build_av.visible = true
 	else:
@@ -458,22 +480,42 @@ func respawn_player():
 
 func addScore():
 	if WorldManager.player_talking_Farmer:
-		socialscore += 25 * 1.25
+		socialscore += round(25 * 1.25)
 		score.text = \"Social Score : \" + str(socialscore)
 		
 	if WorldManager.player_talking_Gardai_m:
-		socialscore += 25 * 1.45
+		socialscore += round(25 * 1.45)
+		score.text = \"Social Score : \" + str(socialscore)
+		
+	if WorldManager.player_talking_Gardai_f:
+		socialscore += round(25 * 1.45)
+		score.text = \"Social Score : \" + str(socialscore)
+		
+	if WorldManager.player_talking_tiktoker:
+		socialscore += round(25 * 1.75)
 		score.text = \"Social Score : \" + str(socialscore)
 		
 func removeScore():
 	if WorldManager.player_talking_Farmer:
-		socialscore -= 25 * 1.25
+		socialscore -= round(25 * 1.25)
 		if socialscore < 0:
 			socialscore = 0
 		score.text = \"Social Score : \" + str(socialscore)
 		
 	if WorldManager.player_talking_Gardai_m:
-		socialscore -= 25 * 1.45
+		socialscore -= round(25 * 1.45)
+		if socialscore < 0:
+			socialscore = 0
+		score.text = \"Social Score : \" + str(socialscore)
+	
+	if WorldManager.player_talking_Gardai_f:
+		socialscore -= round(25 * 1.45)
+		if socialscore < 0:
+			socialscore = 0
+		score.text = \"Social Score : \" + str(socialscore)
+	
+	if WorldManager.player_talking_tiktoker:
+		socialscore -= round(25 * 1.75)
 		if socialscore < 0:
 			socialscore = 0
 		score.text = \"Social Score : \" + str(socialscore)
@@ -488,7 +530,15 @@ func addBrain():
 	if WorldManager.player_talking_Gardai_m:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
-		
+			
+	if WorldManager.player_talking_Gardai_f:
+		if mentalhealth.value >= 25:
+			mentalhealth.value -= 25
+			
+	if WorldManager.player_talking_tiktoker:
+		if mentalhealth.value >= 25:
+			mentalhealth.value -= 25
+			
 	if mentalhealth.value < 100:
 		mentalhealth.value = 100
 			
@@ -500,9 +550,40 @@ func removeBrain():
 	if WorldManager.player_talking_Gardai_m:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
+	
+	if WorldManager.player_talking_Gardai_f:
+		if mentalhealth.value >= 25:
+			mentalhealth.value -= 25
+	
+	if WorldManager.player_talking_tiktoker:
+		if mentalhealth.value >= 25:
+			mentalhealth.value -= 25
 		
 	if mentalhealth.value < 0:
 		mentalhealth.value = 0
+		
+func not_Moblie_UI():
+		touch_screen_button.visible = false
+		touch_screen_button.set_process(false)
+		touch_screen_button_2.visible = false
+		touch_screen_button_2.set_process(false)
+		touch_screen_button_3.visible = false
+		touch_screen_button_3.set_process(false)
+		joy_stick.set_process(false)
+		joy_stick.visible = false
+		
+		
+func not_PC_UI():
+	control_1.visible = false
+	control_1.set_process(false)
+	point_light_2d.visible = false
+	point_light_2d.set_process(false)
+
+func is_mobile_like():
+	var screen_size = DisplayServer.screen_get_size()
+	var dpi = DisplayServer.screen_get_dpi()
+	var os_name = OS.get_name()
+	return os_name in [\"Android\", \"iOS\"] or dpi > 200 or screen_size.x < 900
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uuud"]
@@ -1334,10 +1415,10 @@ transform = Transform2D(0.97, 0, 0, 0.72, 0, 0)
 script = ExtResource("10_hpanq")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Camera2D/UI"]
-offset_left = 38.1443
-offset_top = 54.1667
-offset_right = 554.144
-offset_bottom = 54.1667
+offset_left = 708.247
+offset_top = 1197.22
+offset_right = 1224.25
+offset_bottom = 1197.22
 
 [node name="HealthBar" type="HBoxContainer" parent="Camera2D/UI/HFlowContainer"]
 layout_mode = 2
@@ -1395,17 +1476,17 @@ offset_right = -1817.94
 offset_bottom = -838.333
 
 [node name="Build_Ui" parent="Camera2D/UI" instance=ExtResource("7_olynr")]
-offset_left = 120.0
-offset_top = 1215.0
-offset_right = -530.04
-offset_bottom = 1171.2
-scale = Vector2(1.5, 1.5)
+offset_left = 315.464
+offset_top = 879.167
+offset_right = -308.856
+offset_bottom = 835.367
+scale = Vector2(1, 1.5)
 
 [node name="Inventory_UI" parent="Camera2D/UI" instance=ExtResource("3_jvthm")]
 offset_left = 1497.94
-offset_top = 266.667
+offset_top = 293.056
 offset_right = 1497.94
-offset_bottom = 266.667
+offset_bottom = 293.056
 scale = Vector2(2.5, 4)
 localize_numeral_system = false
 
@@ -1413,19 +1494,19 @@ localize_numeral_system = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 632.99
-offset_top = 20.8333
-offset_right = 882.99
-offset_bottom = 236.833
+offset_left = 620.619
+offset_top = 294.444
+offset_right = 870.619
+offset_bottom = 510.444
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(2.7, 2.7)
 
 [node name="Black_Smit_Dialogue" parent="Camera2D/UI" instance=ExtResource("13_eylsh")]
-offset_left = 502.062
-offset_top = 579.167
-offset_right = 507.062
-offset_bottom = 579.167
+offset_left = 507.216
+offset_top = 581.944
+offset_right = 512.216
+offset_bottom = 581.944
 scale = Vector2(8, 8)
 
 [node name="Merchant_Dialogue" parent="Camera2D/UI" instance=ExtResource("8_dy8ic")]
@@ -1436,26 +1517,40 @@ offset_bottom = 610.833
 scale = Vector2(8, 8)
 
 [node name="Farmer_dialogue" parent="Camera2D/UI" instance=ExtResource("19_dbonm")]
-offset_left = 307.216
-offset_top = 455.556
-offset_right = -1383.78
-offset_bottom = -542.444
+offset_left = 307.0
+offset_top = 456.0
+offset_right = -1553.0
+offset_bottom = -624.0
 scale = Vector2(8, 8)
 
 [node name="Gardai(M)_Dia" parent="Camera2D/UI" instance=ExtResource("20_13rod")]
 offset_left = 301.0
 offset_top = 458.0
-offset_right = -1395.0
-offset_bottom = -543.0
+offset_right = -1559.0
+offset_bottom = -622.0
+scale = Vector2(8, 8)
+
+[node name="garda(f)_dia" parent="Camera2D/UI" instance=ExtResource("21_1u4em")]
+offset_left = 300.0
+offset_top = 453.0
+offset_right = -1560.0
+offset_bottom = -627.0
+scale = Vector2(8, 8)
+
+[node name="tiktoker_dia" parent="Camera2D/UI" instance=ExtResource("22_655su")]
+offset_left = 300.0
+offset_top = 450.0
+offset_right = -1560.0
+offset_bottom = -630.0
 scale = Vector2(8, 8)
 
 [node name="PickUpNotifaction" type="Control" parent="Camera2D/UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1.03093
-offset_top = 430.555
-offset_right = 1.03093
-offset_bottom = 430.555
+offset_left = 2.06186
+offset_top = 473.611
+offset_right = 2.06186
+offset_bottom = 473.611
 scale = Vector2(0.7, 0.7)
 
 [node name="Wood_Coll" type="Label" parent="Camera2D/UI/PickUpNotifaction"]
@@ -1512,10 +1607,10 @@ scale = Vector2(4, 8)
 texture = ExtResource("12_cohmc")
 
 [node name="Player_Hotbar" parent="Camera2D/UI" instance=ExtResource("19_ag7iv")]
-offset_left = 5.15464
-offset_top = 845.833
-offset_right = -1767.84
-offset_bottom = -182.164
+offset_left = 715.464
+offset_top = 1276.39
+offset_right = -1057.53
+offset_bottom = 248.392
 scale = Vector2(3, 3)
 
 [node name="Respawn" parent="Camera2D/UI" instance=ExtResource("22_fuqjl")]
@@ -1526,15 +1621,23 @@ offset_right = -1299.54
 offset_bottom = -531.333
 scale = Vector2(4, 4)
 
+[node name="Score" type="Label" parent="Camera2D/UI/Respawn"]
+layout_mode = 0
+offset_left = 109.278
+offset_top = 63.8888
+offset_right = 3780.28
+offset_bottom = 745.889
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 500
+text = "Social Score : 0 "
+
 [node name="Quest_Tracker" parent="Camera2D/UI" instance=ExtResource("28_1bthv")]
-visible = false
-offset_left = 1.03093
-offset_top = 212.5
-offset_right = 1.03088
-offset_bottom = 212.5
+offset_left = 3.09279
+offset_top = 263.889
+offset_right = 3.09271
+offset_bottom = 263.889
 
 [node name="Control" parent="Camera2D/UI" instance=ExtResource("25_k3yy6")]
-visible = false
 z_index = 0
 texture_filter = 1
 offset_left = 3.09278
@@ -1546,10 +1649,10 @@ scale = Vector2(1.02655, 1.38087)
 [node name="build_notifcation" type="Control" parent="Camera2D/UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -509.278
-offset_top = 958.333
-offset_right = -509.278
-offset_bottom = 958.333
+offset_left = 218.557
+offset_top = -1.38898
+offset_right = 218.557
+offset_bottom = -1.38898
 scale = Vector2(0.0313293, 0.0557567)
 
 [node name="Build_av" type="Label" parent="Camera2D/UI/build_notifcation"]
@@ -1575,10 +1678,10 @@ frame = 17
 [node name="Control_1" type="Control" parent="Camera2D/UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 12.3711
-offset_top = 915.278
-offset_right = 52.3711
-offset_bottom = 955.278
+offset_left = 27.8351
+offset_top = 95.8334
+offset_right = 67.8351
+offset_bottom = 135.833
 
 [node name="quest" type="Label" parent="Camera2D/UI/Control_1"]
 layout_mode = 0
@@ -1632,47 +1735,40 @@ theme_override_font_sizes/font_size = 4000
 text = "Click = Attack"
 
 [node name="JoyStick" parent="Camera2D/UI" instance=ExtResource("28_2ljpj")]
-position = Vector2(206.186, 1280.56)
+position = Vector2(197.938, 1306.94)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/UI"]
 texture_filter = 1
-position = Vector2(1309.28, 1136.11)
+position = Vector2(1252.58, 1216.67)
 scale = Vector2(2.45361, 2.875)
 texture_normal = ExtResource("30_ul0g5")
 action = "attack"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D/UI"]
 texture_filter = 1
-position = Vector2(1612.37, 1123.61)
+position = Vector2(1436.08, 1033.33)
 scale = Vector2(2.45361, 2.875)
 texture_normal = ExtResource("31_jwygv")
 action = "dash"
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="Camera2D/UI"]
 texture_filter = 1
-position = Vector2(417.526, 1125)
+position = Vector2(1617.53, 1204.17)
 scale = Vector2(2.63918, 3.08333)
 texture_normal = ExtResource("32_tf7xg")
 action = "i"
 
 [node name="Into_Game_Objective" parent="Camera2D/UI" instance=ExtResource("27_crx5h")]
 process_mode = 3
+visible = false
 scale = Vector2(1.02905, 1.40067)
 
-[node name="Score" type="Label" parent="Camera2D/UI"]
-offset_left = 246.392
-offset_top = 191.667
-offset_right = 3917.39
-offset_bottom = 873.667
-scale = Vector2(0.05, 0.05)
-theme_override_font_sizes/font_size = 500
-text = "Social Score : 0 "
-
 [node name="Mentalhealth" type="TextureProgressBar" parent="Camera2D/UI"]
-offset_left = 146.392
-offset_top = 83.3333
-offset_right = 246.391
-offset_bottom = 183.333
+visible = false
+offset_left = 677.32
+offset_top = 23.6111
+offset_right = 777.319
+offset_bottom = 123.611
 scale = Vector2(4, 2)
 value = 100.0
 texture_under = ExtResource("34_rbv6y")
@@ -1680,6 +1776,7 @@ texture_over = ExtResource("35_1lw30")
 texture_progress = ExtResource("36_nh234")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI/Mentalhealth"]
+visible = false
 position = Vector2(-14.1753, 40.2778)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_e7kba")

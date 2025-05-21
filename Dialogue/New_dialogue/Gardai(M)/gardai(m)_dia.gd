@@ -49,7 +49,7 @@ func _load_dialogue() -> Array:
 func _input(event):
 	if not dia_active:
 		return
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") ||  Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		audio_player.play()
 		_next_script()
 

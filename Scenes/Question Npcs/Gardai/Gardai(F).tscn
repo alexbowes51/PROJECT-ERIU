@@ -1,18 +1,136 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccug0khxrg6xq"]
+[gd_scene load_steps=22 format=3 uid="uid://ccug0khxrg6xq"]
 
 [ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="1_0xfob"]
+[ext_resource type="Script" path="res://Scenes/Question Npcs/Gardai/gardai(f).gd" id="1_3ra5q"]
+[ext_resource type="Texture2D" uid="uid://hpsngnqstrag" path="res://Art/New_Art/New npcs/Feamle Garda/Idle/Garda Female.png" id="1_l1eew"]
+[ext_resource type="Texture2D" uid="uid://xr5xrqr6mena" path="res://Art/New_Art/New npcs/Feamle Garda/Walk/Garda Walk Female-Sheet.png" id="2_8jjn2"]
 [ext_resource type="Texture2D" uid="uid://06j0xqll13h1" path="res://Art/UI/Keys/E.png" id="2_s1uiu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5nic"]
+radius = 11.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eetsa"]
+atlas = ExtResource("1_l1eew")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvq2e"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_114y4"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4k35"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43op1"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(0, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_341je"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(448, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hhpn"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(896, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t1bl"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(1344, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sh14"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(1792, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2b0b"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(2240, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dtcw"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(2688, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df75q"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(3136, 0, 448, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jby8b"]
+atlas = ExtResource("2_8jjn2")
+region = Rect2(3584, 0, 448, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dpvol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eetsa")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvq2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_114y4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4k35")
+}],
+"loop": true,
+"name": &"Iteract",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43op1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_341je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hhpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t1bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sh14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2b0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dtcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df75q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jby8b")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_km6r5"]
 radius = 85.2115
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_3ra5q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g5nic")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
-animation = &""
+sprite_frames = SubResource("SpriteFrames_dpvol")
+animation = &"Idle"
 
 [node name="Interact_Area" type="Area2D" parent="."]
 z_index = 1
@@ -41,13 +159,14 @@ texture = ExtResource("1_0xfob")
 [node name="Label" type="Label" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = -29.0
-offset_top = -89.0
-offset_right = 39.0
-offset_bottom = -66.0
+offset_left = -31.0
+offset_top = -86.0
+offset_right = 133.0
+offset_bottom = -63.0
+scale = Vector2(0.835, 0.835)
 theme_override_colors/font_color = Color(0.631682, 0.408503, 9.62615e-08, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Talk to Merchant"
+text = "Talk to Female Garda"
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 z_index = 1
@@ -56,3 +175,7 @@ texture = ExtResource("2_s1uiu")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[connection signal="body_entered" from="Interact_Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Interact_Area" to="." method="_on_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
