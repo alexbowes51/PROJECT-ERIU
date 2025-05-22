@@ -45,7 +45,7 @@ func update(slot: Inventory_Slot, inv: Inventory, p_inv: Inventory, s_inv: Inven
 		label_2.visible = true
 		label_2.text = slot.item.name
 
-		if slot.item.name == "sword":
+		if slot.item.name == "sword" || slot.item.name == "Book(1)":
 			item_visual.scale = Vector2(0.05, 0.05)
 		elif slot.item.name == "health_p":
 			item_visual.scale = Vector2(0.15, 0.15)
@@ -59,7 +59,6 @@ func update(slot: Inventory_Slot, inv: Inventory, p_inv: Inventory, s_inv: Inven
 			amount_text.visible = false
 
 func _on_texture_button_pressed():
-	audio_stream_player.play()
 	if not slot_data or not slot_data.item:
 		return  
 
@@ -103,10 +102,13 @@ func _on_texture_button_pressed():
 			
 	
 	elif player_inv.Has_Items(item, 1):  
-		var transfer_amount = min(slot_data.amount, 1)  
-		if player_inv.Has_Items(item, transfer_amount):  
-			player_inv.Remove_Items(item, transfer_amount) 
-			hot_inv.insert(item, transfer_amount) 
+		if item.name == "Book(1)":
+			WorldManager.reading_book_1 = true
+		else:
+			var transfer_amount = min(slot_data.amount, 1)  
+			if player_inv.Has_Items(item, transfer_amount):  
+				player_inv.Remove_Items(item, transfer_amount) 
+				hot_inv.insert(item, transfer_amount) 
 
 	print("After transaction:")
 	print_inventory("Player Inventory", player_inv)

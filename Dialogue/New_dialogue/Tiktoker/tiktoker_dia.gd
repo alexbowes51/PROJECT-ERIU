@@ -2,7 +2,7 @@ extends Control
 
 @export_file("*.json") var tik_d_file
 
-@onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
+
 @onready var slider : HSlider = $NinePatchRect/slider
 @onready var answer_label : Label = $NinePatchRect/Answer
 @onready var submit_btn : TextureButton = $NinePatchRect/TextureButton
@@ -102,7 +102,6 @@ func _on_slider_value_changed(value: float) -> void:
 func _on_TextureButton_pressed():
 	if not dia_active:
 		return
-	audio_player.play()
 	var entry = dialogue[current_dialogue_id]
 	var opts = entry.get("answers", [])
 	var selected = int(slider.value)

@@ -7,7 +7,7 @@ var player: Node = null
 func _ready():
 	set_process(true)
 
-func _process(delta):
+func _process(_delta):
 	if not player:
 		return
 	var distance = position.distance_to(player.global_position)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=144 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://dwfwvq8wpmo7k" path="res://Art/New_Art/UI/Mental Icons/Brain Full Power/Brain Power Full.png" id="39_5ir2b"]
 [ext_resource type="Texture2D" uid="uid://2odmtrkhk8pm" path="res://Art/New_Art/UI/Mental Icons/Brain Confused/Brain Confused .png" id="41_awpmi"]
 [ext_resource type="Texture2D" uid="uid://bebte7b5bl0ku" path="res://Art/New_Art/UI/Mental Icons/Clouded Judgement/Brain Clouded Judgement.png" id="42_66ua6"]
+[ext_resource type="PackedScene" uid="uid://bmnvssf1uyn3s" path="res://Dialogue/Books/Book(1)/Book(1)_dia.tscn" id="46_cpv0t"]
 
 [sub_resource type="GDScript" id="GDScript_pbkry"]
 script/source = "extends CharacterBody2D
@@ -85,17 +86,12 @@ var dash_direction = Vector2.ZERO
 @onready var gardai_m__dia: Control = $\"Camera2D/UI/Gardai(M)_Dia\"
 @onready var garda_f__dia: Control = $\"Camera2D/UI/garda(f)_dia\"
 @onready var tiktoker_dia: Control = $Camera2D/UI/tiktoker_dia
-
-@onready var audio_stream_player: AudioStreamPlayer = $Pick_Up
-@onready var walking: AudioStreamPlayer = $walking
 @onready var wood_coll: Label = $Camera2D/UI/PickUpNotifaction/Wood_Coll
 @onready var bottles_coll_2: Label = $Camera2D/UI/PickUpNotifaction/Bottles_Coll2
 @onready var rubber_coll_3: Label = $Camera2D/UI/PickUpNotifaction/Rubber_Coll3
 @onready var sprite_2d: Sprite2D = $Camera2D/UI/PickUpNotifaction/Sprite2D
 @onready var build_av: Label = $Camera2D/UI/build_notifcation/Build_av
 @onready var respawn: Control = $Camera2D/UI/Respawn
-@onready var hit_by__sword: AudioStreamPlayer = $\"hit_by _sword\"
-@onready var arrow_hit: AudioStreamPlayer = $arrow_hit
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var control_1: Control = $Camera2D/UI/Control_1
 @onready var joy_stick: Node2D = $Camera2D/UI/JoyStick
@@ -105,6 +101,7 @@ var dash_direction = Vector2.ZERO
 @onready var touch_screen_button: TouchScreenButton = $Camera2D/UI/TouchScreenButton
 @onready var touch_screen_button_2: TouchScreenButton = $Camera2D/UI/TouchScreenButton2
 @onready var touch_screen_button_3: TouchScreenButton = $Camera2D/UI/TouchScreenButton3
+@onready var touch_screen_button_4: TouchScreenButton = $Camera2D/UI/TouchScreenButton4
 
 
 
@@ -559,6 +556,8 @@ func not_Moblie_UI():
 		touch_screen_button_2.set_process(false)
 		touch_screen_button_3.visible = false
 		touch_screen_button_3.set_process(false)
+		touch_screen_button_4.visible = false
+		touch_screen_button_4.set_process(false)
 		joy_stick.set_process(false)
 		joy_stick.visible = false
 		
@@ -1727,7 +1726,6 @@ texture_filter = 1
 position = Vector2(1643.3, 1159.72)
 scale = Vector2(2.45361, 2.875)
 texture_normal = ExtResource("34_qx6ax")
-action = "start_dash()"
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="Camera2D/UI"]
 texture_filter = 1
@@ -1763,6 +1761,12 @@ position = Vector2(-14.1753, 40.2778)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_e7kba")
 animation = &"healthly(100)"
+
+[node name="Book_1" parent="Camera2D/UI" instance=ExtResource("46_cpv0t")]
+offset_left = 39.1753
+offset_top = 266.667
+offset_right = 39.1753
+offset_bottom = 266.667
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("19_d4ufm")]
 

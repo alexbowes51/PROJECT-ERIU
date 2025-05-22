@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmnvssf1uyn3s"]
+
+[ext_resource type="Script" path="res://Dialogue/Books/Book(1)/book_1.gd" id="1_ojpwo"]
+[ext_resource type="Texture2D" uid="uid://bmourpiglfsve" path="res://Art/New_Art/pixil-frame-0 (36).png" id="2_55ngw"]
+
+[node name="Book_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ojpwo")
+book_1_file = "res://Dialogue/Books/Book(1)/Book(1).json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1860.0
+offset_bottom = 1068.0
+texture = ExtResource("2_55ngw")
+
+[node name="Page(1)" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 190.0
+offset_right = 883.0
+offset_bottom = 773.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 200
+text = "Page(1)"
+
+[node name="Page(2)" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 178.0
+offset_right = 1712.0
+offset_bottom = 761.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 200
+text = "Page(2)"

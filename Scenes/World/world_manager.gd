@@ -69,6 +69,8 @@ var finished_talking_Gardai_m = false
 var finished_talking_Gardai_f = false
 var finished_talking_tiktoker = false
 
+var reading_book_1 = false
+
 var player_needs_healing = false
 
 var Intro_stop_index = 0
@@ -152,8 +154,3 @@ func _on_build_zone_area_shape_exited(_area_rid: RID, area: Area2D, _area_shape_
 	if area && area.name == "Player_HitBox":
 		player_in_build_zone = false
 		player_attackable = false
-
-
-
-func _on_waypoint_1_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

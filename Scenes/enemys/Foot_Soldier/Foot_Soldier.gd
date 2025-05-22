@@ -16,7 +16,6 @@ var knock_scale = 2.0
 var bottle = preload("res://Scenes/Item/Bottle/bottle_collectable.tscn")
 var rubber = preload("res://Scenes/Item/Rubber/rubber_collectable.tscn")
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
-@onready var hit_by__sword: AudioStreamPlayer = $"hit_by _sword"
 @onready var down: RayCast2D = $down
 @onready var rigth: RayCast2D = $rigth
 @onready var left: RayCast2D = $left

@@ -12,7 +12,6 @@ extends CharacterBody2D
 @export var nav : NavigationAgent2D
 @export var speed = 50
 var target_node = null
-@onready var hit_by__sword: AudioStreamPlayer = $"hit_by _sword"
 @onready var arrow_spawn: Marker2D = $arrow_spawn
 
 var bottle = preload("res://Scenes/Item/Bottle/bottle_collectable.tscn")

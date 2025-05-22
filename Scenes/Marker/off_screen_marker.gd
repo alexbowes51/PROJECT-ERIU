@@ -6,7 +6,7 @@ extends Node2D
 func ready():
 	visible = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	var canvas = get_canvas_transform()
 	var top_left = -canvas.origin / canvas.get_scale()

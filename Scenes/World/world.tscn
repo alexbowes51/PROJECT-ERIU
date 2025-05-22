@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=35 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://8uccqsevmg1h" path="res://Scenes/cutscences/wp_marker.tscn" id="23_h1d37"]
 [ext_resource type="PackedScene" uid="uid://bkvert6sx3te8" path="res://Scenes/Enemy Spawner/enemy_spawner.tscn" id="25_bxhtx"]
 [ext_resource type="PackedScene" uid="uid://cdkc7gfdit6ir" path="res://Scenes/cutscences/wp_2_marker.tscn" id="25_jxjgr"]
+[ext_resource type="PackedScene" uid="uid://dchmbjoupc1p2" path="res://Scenes/Item/New_items/Book 1/Book(dia_1).tscn" id="26_56qxu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fyh05"]
 
@@ -455,6 +456,9 @@ z_index = 1
 position = Vector2(4337, 13981)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("25_bxhtx")]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("26_56qxu")]
+position = Vector2(4913, 14634)
 
 [connection signal="area_shape_entered" from="BuildZone" to="." method="_on_build_zone_area_shape_entered"]
 [connection signal="area_shape_exited" from="BuildZone" to="." method="_on_build_zone_area_shape_exited"]

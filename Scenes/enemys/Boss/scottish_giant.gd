@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var progress_bar: TextureProgressBar = $CanvasLayer/TextureProgressBar
 @onready var damage_cooldown: Timer = $damage_cooldown
 @onready var cpu_particles_2d_2: CPUParticles2D = $CPUParticles2D2
-@onready var damage_audio: AudioStreamPlayer = $damage
 
 
 var vunrible = true
