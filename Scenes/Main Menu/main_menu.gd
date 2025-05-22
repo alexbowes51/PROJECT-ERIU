@@ -17,21 +17,14 @@ func _process(delta: float) -> void:
 
 
 func _on_start_game_pressed() -> void:
-	audio_stream_player.play()
-	MainMusic.stop()
 	$AnimationPlayer.play("fade_out")
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://Scenes/cutscences/cutsence.tscn")
 
 
 func _on_options_pressed() -> void:
-	audio_stream_player.play()
 	WorldManager.Settings = true
 
 
-func _on_leave_pressed() -> void:
-	audio_stream_player.play()
-	MainMusic.stop()
-	$AnimationPlayer.play("fade_out")
-	await get_tree().create_timer(2.0).timeout
+func _on_leave_pressed() -> void:	
 	get_tree().quit()

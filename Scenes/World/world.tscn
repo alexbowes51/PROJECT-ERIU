@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=34 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/waypoint_1.gd" id="21_w0oxr"]
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/waypoint_2.gd" id="22_dy6hf"]
 [ext_resource type="PackedScene" uid="uid://8uccqsevmg1h" path="res://Scenes/cutscences/wp_marker.tscn" id="23_h1d37"]
+[ext_resource type="PackedScene" uid="uid://bkvert6sx3te8" path="res://Scenes/Enemy Spawner/enemy_spawner.tscn" id="25_bxhtx"]
 [ext_resource type="PackedScene" uid="uid://cdkc7gfdit6ir" path="res://Scenes/cutscences/wp_2_marker.tscn" id="25_jxjgr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fyh05"]
@@ -276,7 +277,7 @@ size = Vector2(15.9448, 15.9655)
 radius = 1008.65
 
 [node name="world" type="Node2D"]
-position = Vector2(100, 100)
+position = Vector2(100, 117)
 script = ExtResource("1_tvuku")
 
 [node name="Player" parent="." instance=ExtResource("3_2ajww")]
@@ -285,10 +286,8 @@ collision_layer = 9
 collision_mask = 9
 
 [node name="DAY+NIGHT CYCLE" parent="." instance=ExtResource("6_e4wto")]
-visible = false
 
 [node name="Bosses" type="Node2D" parent="."]
-visible = false
 
 [node name="MiniMap" parent="." instance=ExtResource("5_jtj8c")]
 
@@ -310,7 +309,6 @@ text = "na"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_mkpcw")]
 layer = 2
-visible = false
 
 [node name="TileMaps" type="Node2D" parent="."]
 position = Vector2(100, 100)
@@ -350,7 +348,6 @@ position = Vector2(4991, 14296)
 position = Vector2(5103, 14139)
 
 [node name="WayPoints" type="Node2D" parent="."]
-visible = false
 
 [node name="WayPoint1(A)" parent="WayPoints" instance=ExtResource("11_58lkg")]
 position = Vector2(6751, 14357)
@@ -365,7 +362,6 @@ position = Vector2(6949, 14543)
 position = Vector2(1948, 1046)
 
 [node name="BuildZone" type="Area2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(10871, 2018)
 scale = Vector2(145, 145)
@@ -377,7 +373,6 @@ position = Vector2(-0.158623, -0.451719)
 shape = SubResource("RectangleShape2D_q1q2a")
 
 [node name="BuildArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(10852, 1949)
 scale = Vector2(105, 105)
 script = ExtResource("2_dvjqd")
@@ -402,7 +397,6 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 
 [node name="Polluted_areas" type="Node2D" parent="."]
-visible = false
 z_index = 1
 scale = Vector2(0.999564, 1)
 
@@ -459,6 +453,8 @@ position = Vector2(3.00129, 3)
 [node name="Wexford Concil buidling" parent="." instance=ExtResource("21_q7ov6")]
 z_index = 1
 position = Vector2(4337, 13981)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("25_bxhtx")]
 
 [connection signal="area_shape_entered" from="BuildZone" to="." method="_on_build_zone_area_shape_entered"]
 [connection signal="area_shape_exited" from="BuildZone" to="." method="_on_build_zone_area_shape_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq3hmlbgso5a8"]
+[gd_scene load_steps=9 format=3 uid="uid://dq3hmlbgso5a8"]
 
 [ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="1_1vtas"]
 [ext_resource type="Script" path="res://Dialogue/New_dialogue/Gardai(F)/garda(f)_dia.gd" id="1_iafwl"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="4_dqafa"]
 [ext_resource type="Texture2D" uid="uid://f46wmxaa8kxg" path="res://Art/New_Art/New npcs/Feamle Garda/Portrait/Female Garda Portraitt.png" id="5_m12fn"]
 [ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="6_8v5nj"]
-[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="8_8w6lm"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_reuh5"]
 allow_unpress = true
@@ -213,5 +212,5 @@ scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 100
 text = "Na: "
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_8w6lm")
+[connection signal="pressed" from="NinePatchRect/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="value_changed" from="NinePatchRect/slider" to="." method="_on_slider_value_changed"]

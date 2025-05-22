@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cpwnwshj0ilgc"]
+[gd_scene load_steps=47 format=3 uid="uid://cpwnwshj0ilgc"]
 
 [ext_resource type="Script" path="res://Scenes/enemys/Giant/giant_enemy.gd" id="1_b4gdq"]
 [ext_resource type="Texture2D" uid="uid://ch08c8lvb4dch" path="res://Art/Enemies/Spear Soldier/Attack/Spear Soldeir attack-Sheet.png" id="2_b6dd5"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cn253rnx87yb0" path="res://Art/Enemies/Spear Soldier/Spear Soldeir.png" id="4_e2ikg"]
 [ext_resource type="Texture2D" uid="uid://mnslhir25yee" path="res://Art/Enemies/Spear Soldier/Walk/Spear Soldeir walk-Sheet.png" id="5_ppidj"]
 [ext_resource type="PackedScene" uid="uid://cm28ftmarv0qi" path="res://VFX/collection_expolsion/damage.tscn" id="6_u2iy4"]
-[ext_resource type="AudioStream" uid="uid://dq0ua7wk8wy6r" path="res://Audio/vfx_sounds/mixkit-impact-of-a-strong-punch-2155.mp3" id="7_u0rpg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jjxx"]
 atlas = ExtResource("2_b6dd5")
@@ -338,9 +337,6 @@ shape = SubResource("CircleShape2D_klph8")
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("6_u2iy4")]
 scale = Vector2(8, 8)
-
-[node name="hit_by _sword" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_u0rpg")
 
 [node name="down" type="RayCast2D" parent="."]
 z_index = 1

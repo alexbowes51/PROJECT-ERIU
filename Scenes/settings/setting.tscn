@@ -24,8 +24,10 @@ script = ExtResource("1_21w2r")
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 1925.0
-offset_bottom = 1082.0
+offset_left = 32.0
+offset_top = 2.0
+offset_right = 1893.0
+offset_bottom = 1084.0
 texture = ExtResource("1_ir2uo")
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
@@ -90,9 +92,9 @@ text = "Resolutions"
 [node name="leave" type="TextureButton" parent="NinePatchRect"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1640.0
+offset_left = 1592.0
 offset_top = 26.0
-offset_right = 1862.0
+offset_right = 1814.0
 offset_bottom = 181.0
 texture_normal = ExtResource("3_x4u2x")
 texture_hover = ExtResource("4_vvvak")

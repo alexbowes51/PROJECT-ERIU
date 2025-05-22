@@ -64,6 +64,11 @@ var player_talking_Gardai_m = false
 var player_talking_Gardai_f = false
 var player_talking_tiktoker = false
 
+var finished_talking_Farmer = false
+var finished_talking_Gardai_m = false
+var finished_talking_Gardai_f = false
+var finished_talking_tiktoker = false
+
 var player_needs_healing = false
 
 var Intro_stop_index = 0
@@ -75,8 +80,6 @@ var Player_Damage = 20
 var player_attackable = true
 
 func _ready():
-	BgAudio.stop()
-	MainMusic.stop()
 	minimap = $MiniMap
 	player = $Player
 	
@@ -116,7 +119,7 @@ func spawn_boss():
 	
 	if bosses_node:
 		bosses_node.add_child(scottish_sigma)
-		scottish_sigma.position = Vector2(18967, 616)
+		scottish_sigma.position = Vector2(4337, 12950)
 		print("Boss spawned at:", scottish_sigma.position)
 		spawn_sigma = true  # Mark the boss as spawned
 	else:
@@ -142,8 +145,6 @@ func build():
 func _on_build_zone_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if area && area.name == "Player_HitBox":
 		player_in_build_zone = true
-		BgAudio.play()
-		VillageMusic.stop()
 		player_attackable = true
 
 
@@ -151,8 +152,7 @@ func _on_build_zone_area_shape_exited(_area_rid: RID, area: Area2D, _area_shape_
 	if area && area.name == "Player_HitBox":
 		player_in_build_zone = false
 		player_attackable = false
-		VillageMusic.play()
-		BgAudio.stop()
+
 
 
 func _on_waypoint_1_area_entered(area: Area2D) -> void:

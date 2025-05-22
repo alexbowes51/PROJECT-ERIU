@@ -11,7 +11,7 @@ colors = PackedColorArray(0.72363, 0.09268, 1.92523e-07, 1, 0.676816, 0.185976, 
 [node name="CPUParticles2D" type="CPUParticles2D"]
 z_index = 1
 emitting = false
-amount = 50
+amount = 25
 one_shot = true
 explosiveness = 1.0
 emission_shape = 2

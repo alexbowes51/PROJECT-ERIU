@@ -5,7 +5,7 @@ extends Area2D
 @onready var player = find_parent("world").find_child("Player")
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 
 var speed = 200.0
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 			cpu_particles_2d_2.emitting = true
 			collision_shape_2d.disabled = true
 			animated_sprite_2d.play("stopped")
-			audio_stream_player.play()
+	
 			
 
 

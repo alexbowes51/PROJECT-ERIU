@@ -1,7 +1,7 @@
 extends State
 
 @onready var collision_shape_2d: CollisionShape2D = $"../../PlayerDection/CollisionShape2D"
-@onready var progress_bar: ProgressBar = $"../../CanvasLayer/ProgressBar"
+@onready var progress_bar: TextureProgressBar = $"../../CanvasLayer/TextureProgressBar"
 
 
 

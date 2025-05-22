@@ -102,7 +102,6 @@ func deal_damage():
 	if attacked and WorldManager.player_current_attack:
 		if damage and health > 0:
 			health -= WorldManager.Player_Damage
-			hit_by__sword.play()
 			$damage_cooldown.start()
 
 			$AnimatedSprite2D.play("Foot_E_Hurt")

@@ -42,7 +42,7 @@ func _physics_process(delta):
 func damage():
 	health -= 20
 	cpu_particles_2d_2.emitting = true
-	damage_audio.play()
+
 	
 
 func _on_boss_1_hb_area_entered(area: Area2D) -> void:

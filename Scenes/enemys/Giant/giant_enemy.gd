@@ -92,7 +92,6 @@ func damage():
 			health -= WorldManager.Player_Damage
 			attacked = false
 			_on_attacked_cooldown_timeout()
-			hit_by__sword.play()
 		
 func chasing():
 	if alive == true:

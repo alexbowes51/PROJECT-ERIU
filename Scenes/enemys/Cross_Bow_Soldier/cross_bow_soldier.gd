@@ -99,7 +99,6 @@ func damage():
 	if alive == true && attacked == true:
 		health -= WorldManager.Player_Damage
 		cpu_particles_2d.emitting = true
-		hit_by__sword.play()
 		
 
 func _is_alive():

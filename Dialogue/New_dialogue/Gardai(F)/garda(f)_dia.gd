@@ -49,8 +49,7 @@ func _load_dialogue() -> Array:
 func _input(event):
 	if not dia_active:
 		return
-	if event.is_action_pressed("ui_accept"):
-		audio_player.play()
+	if event.is_action_pressed("chat"):
 		_next_script()
 
 func _next_script() -> void:
@@ -89,6 +88,7 @@ func _end_dialogue() -> void:
 	dia_active = false
 	current_dialogue_id = -1
 	WorldManager.player_talking_Gardai_f = false
+	WorldManager.finished_talking_Gardai_f = true
 	emit_signal("end_dialogue")
 
 func _on_slider_value_changed(value: float) -> void:

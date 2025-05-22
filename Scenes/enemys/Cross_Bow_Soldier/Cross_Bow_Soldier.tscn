@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cock7nvcnmq6e"]
+[gd_scene load_steps=40 format=3 uid="uid://cock7nvcnmq6e"]
 
 [ext_resource type="Script" path="res://Scenes/enemys/Cross_Bow_Soldier/cross_bow_soldier.gd" id="1_iog6a"]
 [ext_resource type="Texture2D" uid="uid://jxgvwj664oqb" path="res://Art/Enemies/Crossbowman/Attack/CrossBowMan Attack-Sheet.png" id="2_2hoqh"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cpt1mif243ecf" path="res://Art/Enemies/Crossbowman/CrossBowMan.png" id="4_gudm3"]
 [ext_resource type="Texture2D" uid="uid://bcc8aijq65c86" path="res://Art/Enemies/Crossbowman/Walk/CrossBowman Walk-Sheet.png" id="5_epnt2"]
 [ext_resource type="PackedScene" uid="uid://cm28ftmarv0qi" path="res://VFX/collection_expolsion/damage.tscn" id="7_ulhmo"]
-[ext_resource type="AudioStream" uid="uid://dq0ua7wk8wy6r" path="res://Audio/vfx_sounds/mixkit-impact-of-a-strong-punch-2155.mp3" id="8_kpk7w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_if7mi"]
 atlas = ExtResource("2_2hoqh")
@@ -307,9 +306,6 @@ debug_color = Color(0.941893, 9.2411e-06, 0.60857, 0.42)
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("7_ulhmo")]
 scale = Vector2(5, 5)
-
-[node name="hit_by _sword" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_kpk7w")
 
 [node name="arrow_spawn" type="Marker2D" parent="."]
 position = Vector2(-116.667, 344.444)

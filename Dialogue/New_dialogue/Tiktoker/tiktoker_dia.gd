@@ -49,8 +49,7 @@ func _load_dialogue() -> Array:
 func _input(event):
 	if not dia_active:
 		return
-	if event.is_action_pressed("ui_accept") ||  Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		audio_player.play()
+	if event.is_action_pressed("chat"):
 		_next_script()
 
 func _next_script() -> void:
@@ -89,6 +88,7 @@ func _end_dialogue() -> void:
 	dia_active = false
 	current_dialogue_id = -1
 	WorldManager.player_talking_tiktoker = false
+	WorldManager.finished_talking_tiktoker = true
 	emit_signal("end_dialogue")
 
 func _on_slider_value_changed(value: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dueeruky65e3p"]
+[gd_scene load_steps=9 format=3 uid="uid://dueeruky65e3p"]
 
 [ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="1_ellrt"]
 [ext_resource type="Script" path="res://Dialogue/New_dialogue/Tiktoker/tiktoker_dia.gd" id="1_m8p1j"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://nks44vpxcty" path="res://Art/Inventory/pixil-frame-0 (24).png" id="4_tumt1"]
 [ext_resource type="Texture2D" uid="uid://0gl6mhw72dm" path="res://Art/New_Art/New npcs/Female Influencer/Portriat/Female Influencer Portrait .png" id="5_ixkl8"]
 [ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="6_h762l"]
-[ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="8_hhvnv"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_ehgu8"]
 allow_unpress = true
@@ -212,5 +211,5 @@ scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 100
 text = "Na: "
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_hhvnv")
+[connection signal="pressed" from="NinePatchRect/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="value_changed" from="NinePatchRect/slider" to="." method="_on_slider_value_changed"]

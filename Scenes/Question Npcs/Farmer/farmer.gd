@@ -78,7 +78,9 @@ func _physics_process(delta):
 			is_chatting = true
 			$AnimatedSprite2D.play("Iteract")
 			
-		
+	if WorldManager.finished_talking_Farmer == true:
+		await get_tree().create_timer(3).timeout
+		self.queue_free()
 
 func choose(array):
 	array.shuffle()
