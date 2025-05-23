@@ -3,7 +3,7 @@ extends Node2D
 @onready var control: Control = $Control
 var entered = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if entered && Input.is_action_just_pressed("chat"):
 		get_tree().change_scene_to_file("res://Scenes/World/world.tscn")
 

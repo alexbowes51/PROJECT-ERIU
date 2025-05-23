@@ -4,7 +4,7 @@ extends Panel
 @onready var amount_text : Label = $CenterContainer/Panel/Label
 @onready var label_2: Label = $CenterContainer/Panel/Label2
 @onready var texture_button: TextureButton = $TextureButton
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 var slot_data: Inventory_Slot
 var inventory: Inventory
