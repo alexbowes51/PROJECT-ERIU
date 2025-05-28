@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bt5u7u68g34ms"]
+[gd_scene load_steps=16 format=3 uid="uid://bt5u7u68g34ms"]
 
+[ext_resource type="Script" path="res://Scenes/Npc/NPC_MALE/npc_male.gd" id="1_0h080"]
 [ext_resource type="Texture2D" uid="uid://caotldl5k5qco" path="res://Art/NPC/Male Npc/Npc Charachter.png" id="1_6kstw"]
 [ext_resource type="Texture2D" uid="uid://bonn7ptw65u4a" path="res://Art/NPC/Male Npc/Walk/Npc Charachter walk-Sheet.png" id="2_60ban"]
 
@@ -49,7 +50,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_grnv3")
 }],
-"loop": true,
+"loop": false,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -81,12 +82,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ifbb4")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk",
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgsqi"]
+radius = 17.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_0h080")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
@@ -94,3 +99,9 @@ sprite_frames = SubResource("SpriteFrames_ne3tg")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lgsqi")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://6twna5ce2qh2" path="res://Celtica-BookOblique.ttf" id="1_ibtg2"]
 [ext_resource type="Script" path="res://Scenes/Main Menu/main_menu.gd" id="1_l0kpg"]
-[ext_resource type="Texture2D" uid="uid://du5y8encli37" path="res://bgpng.png" id="4_wrnr4"]
+[ext_resource type="Texture2D" uid="uid://bh126mb1t0cc3" path="res://Screenshot 2025-05-28 164137.png" id="4_yfy0w"]
 [ext_resource type="AudioStream" uid="uid://bxy1j1rfsgomt" path="res://Audio/vfx_sounds/minecraft-drop-block-sound-effect.L.wav" id="5_co0ae"]
 [ext_resource type="PackedScene" uid="uid://2dk0i07v5kqb" path="res://Scenes/settings/setting.tscn" id="5_h0djg"]
 
@@ -216,9 +216,10 @@ stream = ExtResource("5_co0ae")
 
 [node name="Bgpng" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(964, 535.5)
-scale = Vector2(1.55808, 1.55572)
-texture = ExtResource("4_wrnr4")
+texture_filter = 1
+position = Vector2(930.5, 541)
+scale = Vector2(2.20309, 1.55572)
+texture = ExtResource("4_yfy0w")
 
 [node name="Control" parent="." instance=ExtResource("5_h0djg")]
 visible = false

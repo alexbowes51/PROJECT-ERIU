@@ -4,7 +4,7 @@ var can_transition: bool = false
 
 func enter():
 	super.enter()
-	animated_sprite_2d.play("glowing")
+	animated_sprite_2d.play("buff")
 	await dash()
 	can_transition = true
 

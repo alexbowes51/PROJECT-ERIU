@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=3 format=3 uid="uid://dg2kmkmy3063j"]
+
+[ext_resource type="Script" path="res://Scenes/Item/Inventory_Item.gd" id="1_inyf7"]
+[ext_resource type="Texture2D" uid="uid://cxkwqqnm8fhvq" path="res://Art/New_Art/Items/Books/Green Book (Farmer Stuff)/Green Book.png" id="2_aqpd7"]
+
+[resource]
+script = ExtResource("1_inyf7")
+name = "Book(2)"
+texture = ExtResource("2_aqpd7")

@@ -45,7 +45,7 @@ func update(slot: Inventory_Slot, inv: Inventory, p_inv: Inventory, s_inv: Inven
 		label_2.visible = true
 		label_2.text = slot.item.name
 
-		if slot.item.name == "sword" || slot.item.name == "Book(1)":
+		if slot.item.name == "sword" || slot.item.name.begins_with("Book"):
 			item_visual.scale = Vector2(0.05, 0.05)
 		elif slot.item.name == "health_p":
 			item_visual.scale = Vector2(0.15, 0.15)
@@ -102,8 +102,8 @@ func _on_texture_button_pressed():
 			
 	
 	elif player_inv.Has_Items(item, 1):  
-		if item.name == "Book(1)":
-			WorldManager.reading_book_1 = true
+		if item.name.begins_with("Book"):
+			WorldManager.reading_book = true
 		else:
 			var transfer_amount = min(slot_data.amount, 1)  
 			if player_inv.Has_Items(item, transfer_amount):  
@@ -124,6 +124,8 @@ func _on_texture_button_pressed():
 	print_inventory("Player Inventory", player_inv)
 	print_inventory("Shop Inventory", shop_inv)
 	print_inventory("Hotbar", hot_inv)
+	
+	texture_button.release_focus()
 
 
 

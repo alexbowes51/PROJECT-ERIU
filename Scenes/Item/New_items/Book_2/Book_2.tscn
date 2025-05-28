@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://nany7g2kkrpm"]
+
+[ext_resource type="Script" path="res://Scenes/Item/New_items/Book 1/book(1).gd" id="1_ds7la"]
+[ext_resource type="Resource" uid="uid://dg2kmkmy3063j" path="res://Scenes/Item/New_items/Book_2/Book_2.tres" id="2_1e61e"]
+[ext_resource type="Texture2D" uid="uid://cxkwqqnm8fhvq" path="res://Art/New_Art/Items/Books/Green Book (Farmer Stuff)/Green Book.png" id="2_yib23"]
+[ext_resource type="PackedScene" uid="uid://83dimkt458gc" path="res://VFX/collection_expolsion/pick_up.tscn" id="3_8howc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_attxr"]
+radius = 54.037
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sx3jk"]
+radius = 3.16228
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_ds7la")
+item = ExtResource("2_1e61e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 6)
+rotation = -6.28319
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_yib23")
+
+[node name="Interactable_area" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_area"]
+shape = SubResource("CircleShape2D_attxr")
+
+[node name="CollisionExplosion" parent="." instance=ExtResource("3_8howc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_sx3jk")
+
+[connection signal="body_entered" from="Interactable_area" to="." method="_on_interactable_area_body_entered"]

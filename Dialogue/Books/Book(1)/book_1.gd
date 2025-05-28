@@ -23,11 +23,11 @@ func _load_dialogue() -> Array:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if WorldManager.reading_book_1 == true:
+	if WorldManager.reading_book == true:
 		visible = true
 	else: 
 		visible = false
 		
 	
-	if WorldManager.reading_book_1 == true && Input.is_action_just_pressed("chat"): 
-		WorldManager.reading_book_1 = false
+	if WorldManager.reading_book == true && Input.is_action_just_pressed("chat"): 
+		WorldManager.reading_book = false
