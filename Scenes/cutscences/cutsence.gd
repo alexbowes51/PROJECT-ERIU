@@ -5,7 +5,7 @@ extends Node2D
 @onready var path_follow_2d: PathFollow2D = $Path2D/PathFollow2D
 @onready var introdialogue: Control = $Path2D/PathFollow2D/Camera2D/CanvasLayer/Control
 
-var stop_points = [0.055,0.0901,0.1365,0.24,0.2864,0.4122,0.7168]
+var stop_points = [0,0.1115,0.2373,0.423,0.4801,0.5587,0.6658,1]
 var current_point = 0
 var is_stop = false
 var pause_timer = 0.0
@@ -20,7 +20,6 @@ func ready():
 	pass
 	
 func cutscenceopening():
-	BgAudio.play()
 	if !played:
 		played = true
 		animation_player.play("fade_in")
@@ -30,7 +29,6 @@ func cutscenceopening():
 	
 	
 func cutsceneclose():
-	BgAudio.stop()
 	if !played2:
 		played2 = true
 		animation_player.play("Fade_out")
@@ -69,7 +67,7 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept") and is_stop:
+	if event.is_action_pressed("ui_accept") || event.is_action("touch_activation") and is_stop:
 		if introdialogue:
 			if introdialogue.dia_active:
 				introdialogue.next_script()

@@ -2,7 +2,6 @@ extends Control
 
 @export_file("*.json") var M_D_file
 
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 var dialogue = []
@@ -44,7 +43,6 @@ func _input(event):
 		return
 		
 	if event.is_action_pressed("ui_accept") || Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		audio_stream_player.play()
 		next_script()
 
 
@@ -74,7 +72,6 @@ func reset():
 	current_dialogue_id = -1 
 
 func _on_texture_button_pressed() -> void:
-	audio_stream_player.play()
 	WorldManager.Merchant_follow_player = !WorldManager.Merchant_follow_player
 
 	$"NinePatchRect/Follow Text".visible = !WorldManager.Merchant_follow_player

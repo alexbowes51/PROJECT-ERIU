@@ -6,7 +6,6 @@ var minimap
 #preloading the house / farm 
 var farm_scene = preload("res://Scenes/Buildings/farm/farm.tscn")
 var house_scene = preload("res://Scenes/Buildings/house 1/house.tscn")
-
 var black_smith = preload("res://Scenes/Buildings/Black_smiths/blacksmith.tscn")
 
 var black_smith_built = false
@@ -20,7 +19,8 @@ var spawn_sigma = false
 
 #tilemap variables
 var building = "None"
-var player_in_build_zone = false
+var player_in_build_zone: bool = true
+
 
 #player world varibales
 var player_current_attack = false
@@ -51,6 +51,7 @@ var waypoint1clear : bool = false
 var waypoint2clear : bool = false
 
 #npc varibales 
+var player_is_talking = false
 var Merchant_follow_player = false
 var player_talking_Merchant = false
 
@@ -108,9 +109,12 @@ func _process(_delta):
 	if not spawn_sigma and waypoints_Cleared == 2 and villages_Cleared == 2:
 		spawn_boss()
 			
-	if Build_mode == true && Input.is_action_just_pressed("build"):
+	if Build_mode == true && player_in_build_zone && Input.is_action_just_pressed("build"):
 		build()
+		
 
+	
+	
 func spawn_boss():
 	if spawn_sigma:
 		return  # Prevent multiple spawns
@@ -144,13 +148,15 @@ func build():
 		building = "none"
 	
 
-func _on_build_zone_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
-	if area && area.name == "Player_HitBox":
+func _on_build_zone_body_entered(body: Node2D) -> void:
+	if body.has_method("Player"):
 		player_in_build_zone = true
-		player_attackable = true
-
-
-func _on_build_zone_area_shape_exited(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
-	if area && area.name == "Player_HitBox":
-		player_in_build_zone = false
 		player_attackable = false
+		
+
+
+func _on_build_zone_body_exited(body: Node2D) -> void:
+	if body.has_method("Player"):
+		player_in_build_zone = false
+		player_attackable = true
+		

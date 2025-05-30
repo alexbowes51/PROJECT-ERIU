@@ -99,6 +99,7 @@ sprite_frames = SubResource("SpriteFrames_ne3tg")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CircleShape2D_lgsqi")
 
 [node name="Timer" type="Timer" parent="."]

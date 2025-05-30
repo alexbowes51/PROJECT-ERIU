@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://yhn8lk22ulsr"]
+
+[ext_resource type="Texture2D" uid="uid://bbsgxr08ueryd" path="res://Art/Tile_map/Landmarks/Hook_head.png" id="1_ecna4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq3oj"]
+size = Vector2(72, 105)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 6)
+texture = ExtResource("1_ecna4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 265)
+scale = Vector2(3, 6)
+shape = SubResource("RectangleShape2D_bq3oj")

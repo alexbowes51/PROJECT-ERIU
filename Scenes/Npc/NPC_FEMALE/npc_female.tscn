@@ -123,6 +123,7 @@ sprite_frames = SubResource("SpriteFrames_8pflf")
 animation = &"Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CircleShape2D_arwo7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

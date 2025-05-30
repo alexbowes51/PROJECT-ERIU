@@ -54,6 +54,7 @@ scale = Vector2(0.100341, 0.114615)
 texture = ExtResource("4_g1ote")
 
 [node name="Label9" type="Label" parent="NinePatchRect"]
+layout_mode = 0
 offset_left = 199.062
 offset_top = 461.843
 offset_right = 4667.06
@@ -266,6 +267,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("21_ewyvc")
 
 [node name="Label8" type="Label" parent="NinePatchRect"]
+layout_mode = 0
 offset_left = 1219.51
 offset_top = 468.309
 offset_right = 6926.51

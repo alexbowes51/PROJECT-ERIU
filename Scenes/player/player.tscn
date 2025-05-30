@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=145 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -24,8 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://bopk1ta60cfqg" path="res://Scenes/Inventory/player_hotbar.tscn" id="19_ag7iv"]
 [ext_resource type="PackedScene" uid="uid://cm28ftmarv0qi" path="res://VFX/collection_expolsion/damage.tscn" id="19_d4ufm"]
 [ext_resource type="PackedScene" uid="uid://bpjx7ymy21ry7" path="res://Dialogue/New_dialogue/farmer/farmer_dialogue.tscn" id="19_dbonm"]
-[ext_resource type="PackedScene" uid="uid://wsfm3k7hhygt" path="res://Dialogue/New_dialogue/Gardai(M)/gardai(m)_dia.tscn" id="20_13rod"]
-[ext_resource type="PackedScene" uid="uid://dq3hmlbgso5a8" path="res://Dialogue/New_dialogue/Gardai(F)/garda(f)_dia.tscn" id="21_1u4em"]
+[ext_resource type="PackedScene" uid="uid://wsfm3k7hhygt" path="res://Dialogue/New_dialogue/FisherMan/FisherMan(Dia).tscn" id="20_13rod"]
+[ext_resource type="PackedScene" uid="uid://dq3hmlbgso5a8" path="res://Dialogue/New_dialogue/Pollition/Politican(dia).tscn" id="21_1u4em"]
 [ext_resource type="PackedScene" uid="uid://dueeruky65e3p" path="res://Dialogue/New_dialogue/Tiktoker/tiktoker_dia.tscn" id="22_655su"]
 [ext_resource type="PackedScene" uid="uid://dmdcilu706lxk" path="res://Scenes/respawn/respawn.tscn" id="22_fuqjl"]
 [ext_resource type="PackedScene" uid="uid://buoxgii380s3e" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="24_gpgmm"]
@@ -34,14 +34,15 @@
 [ext_resource type="PackedScene" uid="uid://bwhotbwv1uej5" path="res://Scenes/Intro_Objective/into_game_objective.tscn" id="27_crx5h"]
 [ext_resource type="PackedScene" uid="uid://dlfccjxj7500u" path="res://Scenes/quest_tracker/quest_tracker.tscn" id="28_1bthv"]
 [ext_resource type="PackedScene" uid="uid://cpbh2ctna2flc" path="res://Scenes/joystick/joy_stick.tscn" id="28_2ljpj"]
-[ext_resource type="Texture2D" uid="uid://b778nedb5dqep" path="res://Art/UI/Touch_Screen/pixil-frame-0 (32).png" id="30_ul0g5"]
-[ext_resource type="Texture2D" uid="uid://d0rhjbhekja64" path="res://Art/UI/Touch_Screen/pixil-frame-0 (31).png" id="32_tf7xg"]
+[ext_resource type="Texture2D" uid="uid://ct8bubni72kon" path="res://Art/UI/Touch_Screen/attack.png" id="33_i1aim"]
 [ext_resource type="Texture2D" uid="uid://cxam4fp308qh1" path="res://Art/UI/Touch_Screen/pixil-frame-0 (36).png" id="34_qx6ax"]
 [ext_resource type="Texture2D" uid="uid://dqcuuax5qxps8" path="res://Art/UI/Progress bars/pixil-frame-0 (29).png" id="34_rbv6y"]
 [ext_resource type="Texture2D" uid="uid://bh571b08usagr" path="res://Art/UI/Progress bars/pixil-frame-0 (31).png" id="35_1lw30"]
-[ext_resource type="Texture2D" uid="uid://b4p3hcksfpxel" path="res://Art/UI/Touch_Screen/pixil-frame-0 (37).png" id="36_mi5op"]
+[ext_resource type="Texture2D" uid="uid://cj4pt2yl2knv6" path="res://Art/UI/Touch_Screen/Inv.png" id="35_tfe8n"]
 [ext_resource type="Texture2D" uid="uid://rauhhq642mn7" path="res://Art/UI/Progress bars/pixil-frame-0 (32).png" id="36_nh234"]
+[ext_resource type="Texture2D" uid="uid://dmr8kt6n066mg" path="res://Art/UI/Touch_Screen/interact.png" id="36_tmrty"]
 [ext_resource type="Texture2D" uid="uid://cljll0sogqcyy" path="res://Art/New_Art/UI/Mental Icons/Brain Regular/Brain .png" id="37_5qleb"]
+[ext_resource type="Texture2D" uid="uid://bud6xmkltir8k" path="res://Art/UI/Touch_Screen/build.png" id="37_c7fxl"]
 [ext_resource type="Texture2D" uid="uid://dhvtadeuvbq67" path="res://Art/New_Art/UI/Mental Icons/Brain Questions/Brain Questions .png" id="38_k24rj"]
 [ext_resource type="Texture2D" uid="uid://dwfwvq8wpmo7k" path="res://Art/New_Art/UI/Mental Icons/Brain Full Power/Brain Power Full.png" id="39_5ir2b"]
 [ext_resource type="Texture2D" uid="uid://2odmtrkhk8pm" path="res://Art/New_Art/UI/Mental Icons/Brain Confused/Brain Confused .png" id="41_awpmi"]
@@ -102,6 +103,7 @@ var dash_direction = Vector2.ZERO
 @onready var touch_screen_button_2: TouchScreenButton = $Camera2D/UI/TouchScreenButton2
 @onready var touch_screen_button_3: TouchScreenButton = $Camera2D/UI/TouchScreenButton3
 @onready var touch_screen_button_4: TouchScreenButton = $Camera2D/UI/TouchScreenButton4
+@onready var touch_screen_button_5: TouchScreenButton = $Camera2D/UI/TouchScreenButton5
 
 
 
@@ -152,7 +154,7 @@ func _physics_process(_delta: float) -> void:
 	if WorldManager.player_talking_tiktoker:
 		tiktoker_dia.start()
 		
-	if WorldManager.player_in_build_zone:
+	if WorldManager.player_in_build_zone == true:
 		build_av.visible = true
 	else:
 		build_av.visible = false
@@ -226,7 +228,7 @@ func get_input():
 	if input_direction != Vector2.ZERO:
 		rotation = velocity.angle() + deg_to_rad(-90)
 
-	if Input.is_action_just_pressed(\"dash\") and can_dash and not is_dashing:
+	if Input.is_action_just_pressed(\"dash\") and can_dash:
 		start_dash()
 
 	if !is_attacking:
@@ -558,6 +560,8 @@ func not_Moblie_UI():
 		touch_screen_button_3.set_process(false)
 		touch_screen_button_4.visible = false
 		touch_screen_button_4.set_process(false)
+		touch_screen_button_5.visible = false
+		touch_screen_button_5.set_process(false)
 		joy_stick.set_process(false)
 		joy_stick.visible = false
 		
@@ -572,6 +576,10 @@ func is_mobile_like():
 	var dpi = DisplayServer.screen_get_dpi()
 	var os_name = OS.get_name()
 	return os_name in [\"Android\", \"iOS\"] or dpi > 200 or screen_size.x < 900
+
+
+func _on_touch_screen_button_2_pressed() -> void:
+	start_dash()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uuud"]
@@ -1330,6 +1338,8 @@ animations = [{
 z_index = 1
 texture_filter = 1
 position = Vector2(898, 581)
+collision_layer = 9
+collision_mask = 9
 script = SubResource("GDScript_pbkry")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -1348,8 +1358,6 @@ debug_color = Color(1, 1, 1, 0)
 
 [node name="Player_HitBox" type="Area2D" parent="."]
 z_index = 1
-collision_layer = 9
-collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_HitBox"]
 z_index = 1
@@ -1359,8 +1367,6 @@ debug_color = Color(0.984314, 0, 0.34902, 0.513726)
 [node name="Player_Attack_HitBox" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(0, 3)
-collision_layer = 9
-collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Attack_HitBox"]
 z_index = 1
@@ -1384,8 +1390,6 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="Camera2D"]
-physics_interpolation_mode = 1
-auto_translate_mode = 1
 scale = Vector2(0.97, 0.72)
 transform = Transform2D(0.97, 0, 0, 0.72, 0, 0)
 script = ExtResource("10_hpanq")
@@ -1452,6 +1456,7 @@ offset_right = -1817.94
 offset_bottom = -838.333
 
 [node name="Build_Ui" parent="Camera2D/UI" instance=ExtResource("7_olynr")]
+visible = false
 offset_left = 315.464
 offset_top = 879.167
 offset_right = -308.856
@@ -1618,8 +1623,8 @@ z_index = 0
 texture_filter = 1
 offset_left = -33.0
 offset_top = 1.0
-offset_right = 2.0
-offset_bottom = 7.0
+offset_right = -1893.0
+offset_bottom = -1079.0
 scale = Vector2(1.03, 1.38)
 mouse_filter = 2
 
@@ -1718,28 +1723,36 @@ position = Vector2(232.99, 1247.22)
 texture_filter = 1
 position = Vector2(1420.62, 1181.94)
 scale = Vector2(2.19585, 2.72219)
-texture_normal = ExtResource("30_ul0g5")
+texture_normal = ExtResource("33_i1aim")
 action = "attack"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D/UI"]
 texture_filter = 1
-position = Vector2(1643.3, 1159.72)
+position = Vector2(1640.21, 1161.11)
 scale = Vector2(2.45361, 2.875)
 texture_normal = ExtResource("34_qx6ax")
+action = "dash"
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="Camera2D/UI"]
 texture_filter = 1
 position = Vector2(15.464, 666.667)
 scale = Vector2(2.63918, 3.08333)
-texture_normal = ExtResource("32_tf7xg")
+texture_normal = ExtResource("35_tfe8n")
 action = "i"
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="Camera2D/UI"]
 texture_filter = 1
 position = Vector2(1591.75, 815.278)
 scale = Vector2(2.63918, 3.08333)
-texture_normal = ExtResource("36_mi5op")
+texture_normal = ExtResource("36_tmrty")
 action = "chat"
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="Camera2D/UI"]
+texture_filter = 1
+position = Vector2(284.536, 797.222)
+scale = Vector2(2.63918, 3.08333)
+texture_normal = ExtResource("37_c7fxl")
+action = "build_mode"
 
 [node name="Into_Game_Objective" parent="Camera2D/UI" instance=ExtResource("27_crx5h")]
 process_mode = 3
@@ -1782,4 +1795,5 @@ offset_bottom = 266.667
 [connection signal="body_exited" from="Player_Attack_HitBox" to="." method="_on_attack_hit_box_body_exited"]
 [connection signal="timeout" from="Damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="Attack_Cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="pressed" from="Camera2D/UI/TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]

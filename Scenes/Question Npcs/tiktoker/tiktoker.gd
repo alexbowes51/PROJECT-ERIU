@@ -31,6 +31,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	
 	if WorldManager.player_talking_tiktoker == true:
 		control.visible = false
 	

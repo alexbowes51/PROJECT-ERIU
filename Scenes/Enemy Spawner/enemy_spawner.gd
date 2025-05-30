@@ -12,18 +12,19 @@ func _ready():
 		spawn_counters[spawn] = 0
 
 func _on_timer_timeout():
-	time += 1
-	for spawn in spawns:
-		if time >= spawn.time_s and time <= spawn.time_e:
-			if spawn_counters[spawn] < spawn.enemy_spawn_delay:
-				spawn_counters[spawn] += 1
-			else:
-				spawn_counters[spawn] = 0
-				for i in spawn.enemy_num:
-					var enemy = spawn.enemy.instantiate()
-					enemy.global_position = get_random_position()
-					add_child(enemy)
-					print("spawned enemy")
+	if WorldManager.player_attackable == true:
+		time += 1
+		for spawn in spawns:
+			if time >= spawn.time_s and time <= spawn.time_e:
+				if spawn_counters[spawn] < spawn.enemy_spawn_delay:
+					spawn_counters[spawn] += 1
+				else:
+					spawn_counters[spawn] = 0
+					for i in spawn.enemy_num:
+						var enemy = spawn.enemy.instantiate()
+						enemy.global_position = get_random_position()
+						add_child(enemy)
+						print("spawned enemy")
 
 func get_random_position() -> Vector2:
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)

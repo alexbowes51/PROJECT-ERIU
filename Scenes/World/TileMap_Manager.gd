@@ -2,6 +2,7 @@ extends TileMapLayer
 
 @export var active_distance := 512.0 
 
+
 var player: Node = null
 
 func _ready():
