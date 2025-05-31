@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=46 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bt5u7u68g34ms" path="res://Scenes/Npc/NPC_MALE/NPC_MALE.tscn" id="27_f4tmc"]
 [ext_resource type="PackedScene" uid="uid://nany7g2kkrpm" path="res://Scenes/Item/New_items/Book_2/Book_2.tscn" id="30_pcbfa"]
 [ext_resource type="PackedScene" uid="uid://yhn8lk22ulsr" path="res://Scenes/World/hook head.tscn" id="32_f6nsa"]
+[ext_resource type="Script" path="res://Scenes/World/safe_areas.gd" id="33_bkj2y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qtiqq"]
 
@@ -283,12 +284,24 @@ radius = 1008.65
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnma6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aup6a"]
+size = Vector2(1395, 1401)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a17ye"]
+size = Vector2(1584, 2298)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ovqi"]
+size = Vector2(2195, 1691)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em4ni"]
+size = Vector2(2703, 2092)
+
 [node name="world" type="Node2D"]
 position = Vector2(100, 117)
 script = ExtResource("1_tvuku")
 
 [node name="Player" parent="." instance=ExtResource("3_2ajww")]
-position = Vector2(10801, 1862)
+position = Vector2(17392, 5418)
 collision_layer = 1
 collision_mask = 3
 
@@ -708,6 +721,35 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 
+[node name="Safe_Areas" type="Node2D" parent="."]
+script = ExtResource("33_bkj2y")
+
+[node name="Safe_zone_1" type="Area2D" parent="Safe_Areas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe_Areas/Safe_zone_1"]
+position = Vector2(10202.5, 5999.5)
+shape = SubResource("RectangleShape2D_aup6a")
+
+[node name="Safe_zone_2" type="Area2D" parent="Safe_Areas"]
+position = Vector2(17941, 3857)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe_Areas/Safe_zone_2"]
+position = Vector2(-31, 86)
+shape = SubResource("RectangleShape2D_a17ye")
+
+[node name="Safe_zone_3" type="Area2D" parent="Safe_Areas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe_Areas/Safe_zone_3"]
+position = Vector2(1899.5, 12449.5)
+shape = SubResource("RectangleShape2D_2ovqi")
+
+[node name="Safe_zone_4" type="Area2D" parent="Safe_Areas"]
+position = Vector2(3801, 14334)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe_Areas/Safe_zone_4"]
+position = Vector2(50.5, 512)
+shape = SubResource("RectangleShape2D_em4ni")
+
 [connection signal="body_entered" from="BuildZone" to="." method="_on_build_zone_body_entered"]
 [connection signal="body_exited" from="BuildZone" to="." method="_on_build_zone_body_exited"]
 [connection signal="body_entered" from="Polluted_areas/Village_1" to="Polluted_areas/Village_1" method="_on_body_entered"]
@@ -718,3 +760,11 @@ mouse_filter = 2
 [connection signal="body_exited" from="Polluted_areas/Waypoint_1" to="Polluted_areas/Waypoint_1" method="_on_body_exited"]
 [connection signal="body_entered" from="Polluted_areas/Waypoint_2" to="Polluted_areas/Waypoint_2" method="_on_body_entered"]
 [connection signal="body_exited" from="Polluted_areas/Waypoint_2" to="Polluted_areas/Waypoint_2" method="_on_body_exited"]
+[connection signal="body_entered" from="Safe_Areas/Safe_zone_1" to="Safe_Areas" method="_on_safe_zone_1_body_entered"]
+[connection signal="body_exited" from="Safe_Areas/Safe_zone_1" to="Safe_Areas" method="_on_safe_zone_1_body_exited"]
+[connection signal="body_entered" from="Safe_Areas/Safe_zone_2" to="Safe_Areas" method="_on_safe_zone_2_body_entered"]
+[connection signal="body_exited" from="Safe_Areas/Safe_zone_2" to="Safe_Areas" method="_on_safe_zone_2_body_exited"]
+[connection signal="body_entered" from="Safe_Areas/Safe_zone_3" to="Safe_Areas" method="_on_safe_zone_3_body_entered"]
+[connection signal="body_exited" from="Safe_Areas/Safe_zone_3" to="Safe_Areas" method="_on_safe_zone_3_body_exited"]
+[connection signal="body_entered" from="Safe_Areas/Safe_zone_4" to="Safe_Areas" method="_on_safe_zone_4_body_entered"]
+[connection signal="body_exited" from="Safe_Areas/Safe_zone_4" to="Safe_Areas" method="_on_safe_zone_4_body_exited"]

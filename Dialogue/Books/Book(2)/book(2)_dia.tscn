@@ -12,11 +12,13 @@ grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_right = 1860.0
 offset_bottom = 1068.0
 texture = ExtResource("1_tip8n")
 
 [node name="Page(1)" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 143.0
 offset_top = 190.0
 offset_right = 883.0
@@ -26,6 +28,7 @@ theme_override_font_sizes/normal_font_size = 200
 text = "Page(1)"
 
 [node name="Page(2)" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 972.0
 offset_top = 178.0
 offset_right = 1712.0
