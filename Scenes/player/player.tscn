@@ -145,10 +145,10 @@ func _physics_process(_delta: float) -> void:
 	if WorldManager.player_talking_Farmer:
 		farmer_dialogue.start()
 		
-	if WorldManager.player_talking_Gardai_m:
+	if WorldManager.player_talking_fisher_man:
 		gardai_m__dia.start()
 	
-	if WorldManager.player_talking_Gardai_f:
+	if WorldManager.player_talking_Polition:
 		garda_f__dia.start()
 	
 	if WorldManager.player_talking_tiktoker:

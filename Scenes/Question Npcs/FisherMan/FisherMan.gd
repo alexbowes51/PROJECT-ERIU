@@ -31,7 +31,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if WorldManager.player_talking_Gardai_m == true:
+	if WorldManager.player_talking_fisher_man == true:
 		control.visible = false
 	
 	if current_state == 0:
@@ -64,13 +64,14 @@ func _physics_process(delta):
 				look_at(player.global_position)
 				
 			
-	if player_in_interact_range:
+	if player_in_interact_range && !WorldManager.player_is_talking && !WorldManager.finished_talking_Fisher_man:
 		if Input.is_action_just_pressed("chat"):
-			WorldManager.player_talking_Gardai_m = true
+			WorldManager.player_talking_fisher_man = true
+			WorldManager.player_is_talking = true
 			is_roaming = false
 			is_chatting = true
 			
-	if WorldManager.finished_talking_Gardai_m == true:
+	if WorldManager.finished_talking_Fisher_man == true:
 		await get_tree().create_timer(3).timeout
 		self.queue_free()
 

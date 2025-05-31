@@ -86,8 +86,9 @@ func _end_dialogue() -> void:
 	_hide_all()
 	dia_active = false
 	current_dialogue_id = -1
-	WorldManager.player_talking_Gardai_m = false
-	WorldManager.finished_talking_Gardai_m = true
+	WorldManager.player_talking_fisher_man = false
+	WorldManager.finished_talking_Fisher_man = true
+	WorldManager.player_is_talking = false
 	emit_signal("end_dialogue")
 
 func _on_slider_value_changed(value: float) -> void:

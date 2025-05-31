@@ -1,7 +1,7 @@
 [
-	{"name": "Garda", "text": "Hello there Ronan!"},
-	{"name": "Garda", "text": "Climate change affects everyone in Wexford equally, regardless of income or resources."},
+	{"name": "Fisher Man", "text": "Hello there Ronan!"},
+	{"name": "Fisher Man", "text": "Climate change affects everyone in Wexford equally, regardless of income or resources."},
 	{"quiz": true,"answers": ["False", "Partly False", "Partly True", "True"],"correct": 0 },
-	{"name": "Garda", "text": "Poorer communities are more vulnerable to extreme weather and have fewer means to adapt or recover."},
-	{"name": "Garda", "text": "Glad to be a service"}
+	{"name": "Fisher Man", "text": "Poorer communities are more vulnerable to extreme weather and have fewer means to adapt or recover."},
+	{"name": "Fisher Man", "text": "Glad to be a service"}
 ]

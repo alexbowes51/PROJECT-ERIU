@@ -301,7 +301,7 @@ position = Vector2(100, 117)
 script = ExtResource("1_tvuku")
 
 [node name="Player" parent="." instance=ExtResource("3_2ajww")]
-position = Vector2(17392, 5418)
+position = Vector2(11248, 2298)
 collision_layer = 1
 collision_mask = 3
 
@@ -350,26 +350,38 @@ script = ExtResource("8_hst7l")
 player = NodePath("../Player")
 activation_distance = 1000.0
 
+[node name="CharacterBody2D16" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
+position = Vector2(5326, 13863)
+
+[node name="Npc_Female12" parent="NPC\'s" instance=ExtResource("14_86ho7")]
+position = Vector2(5534, 13845)
+
+[node name="CharacterBody2D17" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
+position = Vector2(5319, 14098)
+
+[node name="Npc_Female13" parent="NPC\'s" instance=ExtResource("14_86ho7")]
+position = Vector2(5527, 14080)
+
 [node name="CharacterBody2D18" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
-position = Vector2(6336, 13784)
+position = Vector2(4214, 13813)
 
 [node name="Npc_Female14" parent="NPC\'s" instance=ExtResource("14_86ho7")]
-position = Vector2(6544, 13766)
+position = Vector2(4422, 13795)
 
 [node name="CharacterBody2D19" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
-position = Vector2(6329, 14019)
+position = Vector2(4207, 14048)
 
 [node name="Npc_Female15" parent="NPC\'s" instance=ExtResource("14_86ho7")]
-position = Vector2(6537, 14001)
+position = Vector2(4415, 14030)
 
 [node name="CharacterBody2D20" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
-position = Vector2(-124, 27035)
+position = Vector2(-2246, 27064)
 
 [node name="CharacterBody2D5" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
-position = Vector2(6778, 14133)
+position = Vector2(4656, 14162)
 
 [node name="Npc_Female" parent="NPC\'s" instance=ExtResource("14_86ho7")]
-position = Vector2(6986, 14115)
+position = Vector2(4864, 14144)
 
 [node name="CharacterBody2D6" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
 position = Vector2(11675, 15230)
@@ -430,18 +442,6 @@ position = Vector2(4397, 18151)
 
 [node name="Npc_Female11" parent="NPC\'s" instance=ExtResource("14_86ho7")]
 position = Vector2(4605, 18133)
-
-[node name="CharacterBody2D16" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
-position = Vector2(7105, 13758)
-
-[node name="Npc_Female12" parent="NPC\'s" instance=ExtResource("14_86ho7")]
-position = Vector2(7313, 13740)
-
-[node name="CharacterBody2D17" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
-position = Vector2(7098, 13993)
-
-[node name="Npc_Female13" parent="NPC\'s" instance=ExtResource("14_86ho7")]
-position = Vector2(7306, 13975)
 
 [node name="Npc_Female16" parent="NPC\'s" instance=ExtResource("14_86ho7")]
 position = Vector2(-1992, 26515)

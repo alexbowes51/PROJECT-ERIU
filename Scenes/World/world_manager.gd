@@ -61,13 +61,13 @@ var Bs_shop = false
 var Item_Selling = "none"
 
 var player_talking_Farmer = false
-var player_talking_Gardai_m = false
-var player_talking_Gardai_f = false
+var player_talking_fisher_man = false
+var player_talking_Polition = false
 var player_talking_tiktoker = false
 
 var finished_talking_Farmer = false
-var finished_talking_Gardai_m = false
-var finished_talking_Gardai_f = false
+var finished_talking_Fisher_man = false
+var finished_talking_Polition = false
 var finished_talking_tiktoker = false
 
 var reading_book = false
