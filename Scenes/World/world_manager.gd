@@ -19,7 +19,7 @@ var spawn_sigma = false
 
 #tilemap variables
 var building = "None"
-var player_in_build_zone: bool = true
+var player_in_build_zone = false
 
 
 #player world varibales
@@ -109,12 +109,11 @@ func _process(_delta):
 	if not spawn_sigma and waypoints_Cleared == 2 and villages_Cleared == 2:
 		spawn_boss()
 			
-	if Build_mode == true && player_in_build_zone && Input.is_action_just_pressed("build"):
+	if Build_mode == true && player_in_build_zone == true && Input.is_action_just_pressed("build"):
 		build()
-		
+	
 
-	
-	
+
 func spawn_boss():
 	if spawn_sigma:
 		return  # Prevent multiple spawns
@@ -148,15 +147,15 @@ func build():
 		building = "none"
 	
 
+
 func _on_build_zone_body_entered(body: Node2D) -> void:
-	if body.has_method("Player"):
-		player_in_build_zone = true
-		player_attackable = false
+	if body.name == "Player":
+		WorldManager.player_in_build_zone = true
+		WorldManager.player_attackable = false
 		
 
 
 func _on_build_zone_body_exited(body: Node2D) -> void:
-	if body.has_method("Player"):
-		player_in_build_zone = false
-		player_attackable = true
-		
+	if body.name == "Player":
+		WorldManager.player_in_build_zone = false
+		WorldManager.player_attackable = true

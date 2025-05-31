@@ -278,10 +278,10 @@ sources/0 = SubResource("TileSetAtlasSource_rrkqu")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2a"]
 size = Vector2(15.9448, 15.9655)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnma6"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_droos"]
 radius = 1008.65
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnma6"]
 
 [node name="world" type="Node2D"]
 position = Vector2(100, 117)
@@ -289,6 +289,8 @@ script = ExtResource("1_tvuku")
 
 [node name="Player" parent="." instance=ExtResource("3_2ajww")]
 position = Vector2(10801, 1862)
+collision_layer = 1
+collision_mask = 3
 
 [node name="DAY+NIGHT CYCLE" parent="." instance=ExtResource("6_e4wto")]
 
@@ -599,41 +601,15 @@ position = Vector2(6949, 14543)
 position = Vector2(1948, 1046)
 
 [node name="BuildZone" type="Area2D" parent="."]
-z_index = 2
+z_index = 1
 position = Vector2(10876, 2011)
 scale = Vector2(145, 145)
-collision_layer = 8
-collision_mask = 8
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildZone"]
-z_index = 2
+z_index = 1
 position = Vector2(-0.158623, -0.451719)
 shape = SubResource("RectangleShape2D_q1q2a")
-
-[node name="BuildArea" type="Area2D" parent="."]
-position = Vector2(10852, 1949)
-scale = Vector2(105, 105)
-priority = 1
-script = ExtResource("2_dvjqd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildArea"]
-shape = SubResource("RectangleShape2D_rnma6")
-
-[node name="ColorRect" type="ColorRect" parent="BuildArea"]
-modulate = Color(0.327251, 0.843711, 3.85046e-07, 0.682353)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.88572
-offset_top = -9.87619
-offset_right = 30.1143
-offset_bottom = 30.1238
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
 
 [node name="Polluted_areas" type="Node2D" parent="."]
 z_index = 1
@@ -706,6 +682,31 @@ position = Vector2(10920, 3394)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("32_f6nsa")]
 position = Vector2(23023, 7829)
+
+[node name="BuildArea" type="Area2D" parent="."]
+position = Vector2(10852, 1949)
+scale = Vector2(105, 105)
+priority = 1
+script = ExtResource("2_dvjqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildArea"]
+shape = SubResource("RectangleShape2D_rnma6")
+
+[node name="ColorRect" type="ColorRect" parent="BuildArea"]
+modulate = Color(0.327251, 0.843711, 3.85046e-07, 0.682353)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.88572
+offset_top = -9.87619
+offset_right = 30.1143
+offset_bottom = 30.1238
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 
 [connection signal="body_entered" from="BuildZone" to="." method="_on_build_zone_body_entered"]
 [connection signal="body_exited" from="BuildZone" to="." method="_on_build_zone_body_exited"]

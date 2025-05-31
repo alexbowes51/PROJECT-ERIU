@@ -46,7 +46,8 @@ func _physics_process(_delta: float) -> void:
 	else:
 		avoid_obstacle()  # Avoid obstacles
 		
-	
+	if WorldManager.player_attackable == false:
+		self.queue_free()
 
 
 func _on_g_e_chase_body_entered(body: Node2D) -> void:

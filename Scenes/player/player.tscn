@@ -154,10 +154,6 @@ func _physics_process(_delta: float) -> void:
 	if WorldManager.player_talking_tiktoker:
 		tiktoker_dia.start()
 		
-	if WorldManager.player_in_build_zone == true:
-		build_av.visible = true
-	else:
-		build_av.visible = false
 	
 	if mentalhealth.value == 100:
 		mental_icon.play(\"healthly(100)\")
@@ -1340,6 +1336,7 @@ texture_filter = 1
 position = Vector2(898, 581)
 collision_layer = 9
 collision_mask = 9
+safe_margin = 0.001
 script = SubResource("GDScript_pbkry")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

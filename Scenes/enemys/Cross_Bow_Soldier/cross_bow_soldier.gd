@@ -57,7 +57,9 @@ func _physics_process(_delta: float) -> void:
 		idle()
 	else:
 		avoid_obstacle()  # Avoid obstacles
-		
+	
+	if WorldManager.player_attackable == false:
+		self.queue_free()
 	
 		
 func aim():

@@ -39,6 +39,9 @@ func _physics_process(delta):
 				avoid_obstacle()  # Avoid obstacles
 		elif not chasing_player:
 			$AnimatedSprite2D.play("Foot_E_idle")
+	
+	if WorldManager.player_attackable == false:
+		self.queue_free()
 
 func is_path_clear() -> bool:
 	var rays = [down, rigth, left, up]
