@@ -182,7 +182,7 @@ func _physics_process(_delta: float) -> void:
 	elif !Instruction:
 		control_1.visible = false
 
-	if not WorldManager.player_talking_Merchant and not WorldManager.player_talking_Black_Smith:
+
 		if currentHealth > 0:
 			update_hearts()
 			enemy_attack()
@@ -468,11 +468,11 @@ func addScore():
 		socialscore += round(25 * 1.25)
 		score.text = \"Social Score : \" + str(socialscore)
 		
-	if WorldManager.player_talking_Gardai_m:
+	if WorldManager.player_talking_fisher_man:
 		socialscore += round(25 * 1.45)
 		score.text = \"Social Score : \" + str(socialscore)
 		
-	if WorldManager.player_talking_Gardai_f:
+	if WorldManager.player_talking_Polition:
 		socialscore += round(25 * 1.45)
 		score.text = \"Social Score : \" + str(socialscore)
 		
@@ -487,13 +487,13 @@ func removeScore():
 			socialscore = 0
 		score.text = \"Social Score : \" + str(socialscore)
 		
-	if WorldManager.player_talking_Gardai_m:
+	if WorldManager.player_talking_fisher_man:
 		socialscore -= round(25 * 1.45)
 		if socialscore < 0:
 			socialscore = 0
 		score.text = \"Social Score : \" + str(socialscore)
 	
-	if WorldManager.player_talking_Gardai_f:
+	if WorldManager.player_talking_Polition:
 		socialscore -= round(25 * 1.45)
 		if socialscore < 0:
 			socialscore = 0
@@ -574,8 +574,9 @@ func is_mobile_like():
 	return os_name in [\"Android\", \"iOS\"] or dpi > 200 or screen_size.x < 900
 
 
-func _on_touch_screen_button_2_pressed() -> void:
-	start_dash()
+func _on_talking_timer_timeout() -> void:
+	WorldManager.player_finsihed_talking_BS = false
+	WorldManager.player_finished_talking_M = false
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uuud"]
@@ -1782,6 +1783,10 @@ offset_bottom = 266.667
 
 [node name="Dash_Timer" type="Timer" parent="."]
 
+[node name="talking_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Player_HitBox" to="." method="_on_player_hit_box_area_entered"]
 [connection signal="area_exited" from="Player_HitBox" to="." method="_on_player_hit_box_area_exited"]
@@ -1794,3 +1799,4 @@ offset_bottom = 266.667
 [connection signal="timeout" from="Attack_Cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="pressed" from="Camera2D/UI/TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="talking_timer" to="." method="_on_talking_timer_timeout"]

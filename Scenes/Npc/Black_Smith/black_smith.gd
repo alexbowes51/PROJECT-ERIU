@@ -75,7 +75,7 @@ func _physics_process(delta):
 				
 	
 	
-	if player_in_interact_range:
+	if player_in_interact_range && !WorldManager.player_finsihed_talking_BS:
 		if Input.is_action_just_pressed("chat"):
 			WorldManager.player_talking_Black_Smith = true
 			is_roaming = false

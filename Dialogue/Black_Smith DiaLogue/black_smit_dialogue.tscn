@@ -92,7 +92,7 @@ autowrap_mode = 2
 tab_size = 1
 
 [node name="TextureButton" type="TextureButton" parent="NinePatchRect"]
-z_index = 2
+z_index = 1
 layout_mode = 0
 offset_left = 3.58529
 offset_top = 29.8361
@@ -108,7 +108,7 @@ texture_hover = ExtResource("2_ivybf")
 stretch_mode = 0
 
 [node name="Follow Text" type="Label" parent="NinePatchRect/TextureButton"]
-z_index = 2
+z_index = 1
 layout_mode = 0
 offset_left = 8.11151
 offset_top = 36.0014
@@ -124,7 +124,7 @@ text = "Follow me
 
 [node name="unFollow Text" type="Label" parent="NinePatchRect/TextureButton"]
 visible = false
-z_index = 2
+z_index = 1
 layout_mode = 0
 offset_left = 4.05576
 offset_top = 36.0014
@@ -139,6 +139,7 @@ text = "unFollow me
 "
 
 [node name="TextureButton2" type="TextureButton" parent="NinePatchRect"]
+z_index = 1
 layout_mode = 0
 offset_left = 28.0
 offset_top = 30.0

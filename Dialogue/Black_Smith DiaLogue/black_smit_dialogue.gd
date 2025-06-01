@@ -37,7 +37,7 @@ func _input(event):
 	if !dia_active:
 		return
 		
-	if event.is_action_pressed("ui_accept") || Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if event.is_action_pressed("chat"):
 		next_script()
 
 func next_script():
@@ -53,8 +53,9 @@ func next_script():
 		$NinePatchRect.visible = false
 		$NinePatchRect/TextureButton.visible = false
 		$NinePatchRect/TextureButton2.visible = false
-		current_dialogue_id = -1 
+		current_dialogue_id = 0
 		WorldManager.player_talking_Black_Smith = false
+		WorldManager.player_finsihed_talking_BS = true
 		WorldManager.Bs_shop = false
 		emit_signal("end_dialogue")
 		return

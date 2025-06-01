@@ -54,9 +54,11 @@ var waypoint2clear : bool = false
 var player_is_talking = false
 var Merchant_follow_player = false
 var player_talking_Merchant = false
+var player_finished_talking_M = false
 
 var Black_smith_follow_player = false
 var player_talking_Black_Smith = false
+var player_finsihed_talking_BS = false
 var Bs_shop = false
 var Item_Selling = "none"
 
