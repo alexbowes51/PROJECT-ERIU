@@ -62,6 +62,7 @@ func next_script():
 		$"NinePatchRect/TextureButton".visible = false
 		current_dialogue_id = -1 
 		WorldManager.player_talking_Merchant = false
+		WorldManager.player_finished_talking_M = true
 		emit_signal("end_dialogue")
 		return
 	
