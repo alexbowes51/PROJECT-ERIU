@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://br34pgqxnbmpm"]
+
+[ext_resource type="Script" path="res://Scenes/Item/New_items/Book 1/book(1).gd" id="1_nw1b2"]
+[ext_resource type="Resource" uid="uid://c3hrbud0qp73y" path="res://Scenes/Item/New_items/Book_3/Book_3.tres" id="2_wnnj2"]
+[ext_resource type="Texture2D" uid="uid://bco1tw42jiaha" path="res://Art/New_Art/Items/Books/Yellow Book (Energy)/Yellow Book.png" id="3_y8y42"]
+[ext_resource type="PackedScene" uid="uid://83dimkt458gc" path="res://VFX/collection_expolsion/pick_up.tscn" id="4_npphs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o3t0g"]
+radius = 54.037
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqd27"]
+radius = 3.16228
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_nw1b2")
+item = ExtResource("2_wnnj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -7)
+rotation = -6.28319
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_y8y42")
+
+[node name="Interactable_area" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_area"]
+shape = SubResource("CircleShape2D_o3t0g")
+
+[node name="CollisionExplosion" parent="." instance=ExtResource("4_npphs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_jqd27")
+
+[connection signal="body_entered" from="Interactable_area" to="." method="_on_interactable_area_body_entered"]

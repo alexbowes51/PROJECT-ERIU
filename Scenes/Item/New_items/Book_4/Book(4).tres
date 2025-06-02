@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=3 format=3 uid="uid://da2m3kwhnucps"]
+
+[ext_resource type="Script" path="res://Scenes/Item/Inventory_Item.gd" id="1_o35e1"]
+[ext_resource type="Texture2D" uid="uid://cpchug6252qb6" path="res://Art/New_Art/Items/Books/Orange Book (Food)/Orange Book.png" id="2_83wil"]
+
+[resource]
+script = ExtResource("1_o35e1")
+name = "Book(4)"
+texture = ExtResource("2_83wil")

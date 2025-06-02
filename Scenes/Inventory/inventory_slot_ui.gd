@@ -102,8 +102,14 @@ func _on_texture_button_pressed():
 			
 	
 	elif player_inv.Has_Items(item, 1):  
-		if item.name.begins_with("Book"):
-			WorldManager.reading_book = true
+		if item.name == "Book(1)":
+			WorldManager.reading_book_1 = true
+		elif item.name == "Book(2)":
+			WorldManager.reading_book_2 = true
+		elif item.name == "Book(3)":
+			WorldManager.reading_book_3 = true
+		elif item.name == "Book(4)":
+			WorldManager.reading_book_4 = true
 		else:
 			var transfer_amount = min(slot_data.amount, 1)  
 			if player_inv.Has_Items(item, transfer_amount):  

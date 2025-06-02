@@ -72,7 +72,10 @@ var finished_talking_Fisher_man = false
 var finished_talking_Polition = false
 var finished_talking_tiktoker = false
 
-var reading_book = false
+var reading_book_1 = false
+var reading_book_2 = false
+var reading_book_3 = false
+var reading_book_4 = false
 
 var player_needs_healing = false
 

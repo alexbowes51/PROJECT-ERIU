@@ -1,24 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://61len70kc8gw"]
+[gd_scene load_steps=3 format=3 uid="uid://dsvbgi7dm6k80"]
 
-[ext_resource type="Script" path="res://Dialogue/Books/Book(2)/book(2)_dia.gd" id="1_7jigu"]
-[ext_resource type="Texture2D" uid="uid://bmourpiglfsve" path="res://Art/New_Art/pixil-frame-0 (36).png" id="1_tip8n"]
+[ext_resource type="Texture2D" uid="uid://bmourpiglfsve" path="res://Art/New_Art/pixil-frame-0 (36).png" id="1_1qphd"]
+[ext_resource type="Script" path="res://Dialogue/Books/Book(3)/book(3)_dia.gd" id="1_gm21o"]
 
-[node name="Book(2)_dia" type="Control"]
+[node name="Book(3)_dia" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7jigu")
-book_2_file = "res://Dialogue/Books/Book(2)/Book(2).json"
+script = ExtResource("1_gm21o")
+book_3_file = "res://Dialogue/Books/Book(3)/Book(3).json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
 offset_right = 1860.0
 offset_bottom = 1068.0
-texture = ExtResource("1_tip8n")
+texture = ExtResource("1_1qphd")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 139.0

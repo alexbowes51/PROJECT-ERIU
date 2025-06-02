@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=52 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://dchmbjoupc1p2" path="res://Scenes/Item/New_items/Book 1/Book(dia_1).tscn" id="26_56qxu"]
 [ext_resource type="PackedScene" uid="uid://bt5u7u68g34ms" path="res://Scenes/Npc/NPC_MALE/NPC_MALE.tscn" id="27_f4tmc"]
 [ext_resource type="PackedScene" uid="uid://nany7g2kkrpm" path="res://Scenes/Item/New_items/Book_2/Book_2.tscn" id="30_pcbfa"]
+[ext_resource type="PackedScene" uid="uid://br34pgqxnbmpm" path="res://Scenes/Item/New_items/Book_3/Book_3.tscn" id="31_n6ys5"]
+[ext_resource type="PackedScene" uid="uid://dt28kk2h23pxy" path="res://Scenes/Item/New_items/Book_4/book(4).tscn" id="32_avp76"]
 [ext_resource type="PackedScene" uid="uid://yhn8lk22ulsr" path="res://Scenes/World/hook head.tscn" id="32_f6nsa"]
 [ext_resource type="Script" path="res://Scenes/World/safe_areas.gd" id="33_bkj2y"]
 [ext_resource type="Script" path="res://Scenes/World/pick_up_Manager.gd" id="34_oar0l"]
@@ -696,6 +698,12 @@ position = Vector2(10931, 3291)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("30_pcbfa")]
 position = Vector2(10920, 3394)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("31_n6ys5")]
+position = Vector2(11032, 3378)
+
+[node name="Book(4)" parent="." instance=ExtResource("32_avp76")]
+position = Vector2(11032, 3270)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("32_f6nsa")]
 position = Vector2(23023, 7829)

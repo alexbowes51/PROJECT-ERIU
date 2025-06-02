@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt28kk2h23pxy"]
+
+[ext_resource type="Script" path="res://Scenes/Item/New_items/Book 1/book(1).gd" id="1_5shnq"]
+[ext_resource type="Resource" uid="uid://da2m3kwhnucps" path="res://Scenes/Item/New_items/Book_4/Book(4).tres" id="2_omm8g"]
+[ext_resource type="Texture2D" uid="uid://cpchug6252qb6" path="res://Art/New_Art/Items/Books/Orange Book (Food)/Orange Book.png" id="2_v4yn1"]
+[ext_resource type="PackedScene" uid="uid://83dimkt458gc" path="res://VFX/collection_expolsion/pick_up.tscn" id="3_n7116"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b34xg"]
+radius = 54.037
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkh4y"]
+radius = 3.16228
+
+[node name="Book(4)" type="StaticBody2D"]
+position = Vector2(-1, -1)
+script = ExtResource("1_5shnq")
+item = ExtResource("2_omm8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, -2)
+rotation = -6.28319
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_v4yn1")
+
+[node name="Interactable_area" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_area"]
+shape = SubResource("CircleShape2D_b34xg")
+
+[node name="CollisionExplosion" parent="." instance=ExtResource("3_n7116")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_lkh4y")
+
+[connection signal="body_entered" from="Interactable_area" to="." method="_on_interactable_area_body_entered"]

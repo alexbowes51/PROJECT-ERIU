@@ -21,22 +21,23 @@ offset_right = 1860.0
 offset_bottom = 1068.0
 texture = ExtResource("2_55ngw")
 
-[node name="Page(1)" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 190.0
-offset_right = 883.0
-offset_bottom = 773.0
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/normal_font_size = 200
-text = "Page(1)"
+offset_left = 139.0
+offset_top = 273.0
+offset_right = 876.0
+offset_bottom = 659.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Page_1"
+fit_content = true
 
-[node name="Page(2)" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 972.0
-offset_top = 178.0
-offset_right = 1712.0
-offset_bottom = 761.0
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/normal_font_size = 200
-text = "Page(2)"
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 973.0
+offset_top = 273.0
+offset_right = 1710.0
+offset_bottom = 653.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Page_2"
+fit_content = true

@@ -42,7 +42,7 @@ func _input(event):
 	if !dia_active:
 		return
 		
-	if event.is_action_pressed("ui_accept") || Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if event.is_action_pressed("chat"):
 		next_script()
 
 

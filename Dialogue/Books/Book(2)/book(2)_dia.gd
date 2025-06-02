@@ -1,6 +1,6 @@
 extends Control
 
-@export_file("*.json") var book_1_file
+@export_file("*.json") var book_2_file
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
 @onready var rich_text_label_2: RichTextLabel = $RichTextLabel2
 
@@ -21,9 +21,9 @@ func _ready() -> void:
 						rich_text_label_2.text = page_dict[key]
 
 func _load_dialogue() -> Array:
-	var file = FileAccess.open(book_1_file, FileAccess.READ)
+	var file = FileAccess.open(book_2_file, FileAccess.READ)
 	if not file:
-		push_error("Couldn’t open JSON: " + str(book_1_file))
+		push_error("Couldn’t open JSON: " + str(book_2_file))
 		return []
 	var content = file.get_as_text()
 	var parsed = JSON.parse_string(content)
@@ -33,7 +33,7 @@ func _load_dialogue() -> Array:
 	return parsed
 
 func _process(_delta: float) -> void:
-	visible = WorldManager.reading_book_1
+	visible = WorldManager.reading_book_2
 
-	if WorldManager.reading_book_1 and Input.is_action_just_pressed("chat"):
-		WorldManager.reading_book_1 = false
+	if WorldManager.reading_book_2 and Input.is_action_just_pressed("chat"):
+		WorldManager.reading_book_2 = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=148 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -48,6 +48,9 @@
 [ext_resource type="Texture2D" uid="uid://2odmtrkhk8pm" path="res://Art/New_Art/UI/Mental Icons/Brain Confused/Brain Confused .png" id="41_awpmi"]
 [ext_resource type="Texture2D" uid="uid://bebte7b5bl0ku" path="res://Art/New_Art/UI/Mental Icons/Clouded Judgement/Brain Clouded Judgement.png" id="42_66ua6"]
 [ext_resource type="PackedScene" uid="uid://bmnvssf1uyn3s" path="res://Dialogue/Books/Book(1)/Book(1)_dia.tscn" id="46_cpv0t"]
+[ext_resource type="PackedScene" uid="uid://61len70kc8gw" path="res://Dialogue/Books/Book(2)/book(2)_dia.tscn" id="48_d22wg"]
+[ext_resource type="PackedScene" uid="uid://dsvbgi7dm6k80" path="res://Dialogue/Books/Book(3)/book(3)_dia.tscn" id="49_p4iwk"]
+[ext_resource type="PackedScene" uid="uid://cqq3bmu6op8bw" path="res://Dialogue/Books/Book(4)/book(4)_dia.tscn" id="50_64qm3"]
 
 [sub_resource type="GDScript" id="GDScript_pbkry"]
 script/source = "extends CharacterBody2D
@@ -1778,6 +1781,16 @@ offset_left = 39.1753
 offset_top = 266.667
 offset_right = 39.1753
 offset_bottom = 266.667
+
+[node name="Book(2)_dia" parent="Camera2D/UI" instance=ExtResource("48_d22wg")]
+
+[node name="Book(3)_dia" parent="Camera2D/UI" instance=ExtResource("49_p4iwk")]
+offset_left = 898.0
+offset_top = 581.0
+offset_right = 898.0
+offset_bottom = 581.0
+
+[node name="book(4)_dia" parent="Camera2D/UI" instance=ExtResource("50_64qm3")]
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("19_d4ufm")]
 
