@@ -15,11 +15,13 @@ book_4_file = "res://Dialogue/Books/Book(4)/Book(4).json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_right = 1860.0
 offset_bottom = 1068.0
 texture = ExtResource("2_yvsvy")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 139.0
 offset_top = 273.0
 offset_right = 876.0
@@ -30,6 +32,7 @@ text = "Page_1"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 973.0
 offset_top = 273.0
 offset_right = 1710.0

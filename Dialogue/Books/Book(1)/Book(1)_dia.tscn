@@ -33,6 +33,7 @@ text = "Page_1"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 973.0
 offset_top = 273.0
 offset_right = 1710.0
