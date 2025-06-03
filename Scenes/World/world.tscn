@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=52 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
+[ext_resource type="PackedScene" uid="uid://dwmhxdnbbb5cd" path="res://Scenes/player/player.tscn" id="3_2ajww"]
 [ext_resource type="PackedScene" uid="uid://k6fwy3h1d6yf" path="res://Scenes/MiniMap/mini_map.tscn" id="5_jtj8c"]
 [ext_resource type="PackedScene" uid="uid://bntq5pscl63ve" path="res://Scenes/World/day+night/day+night_cycle.tscn" id="6_e4wto"]
 [ext_resource type="Texture2D" uid="uid://cpw45fl58mqxy" path="res://Art/Tile_map/tilemap.png" id="6_ig8a5"]
@@ -305,6 +306,9 @@ size = Vector2(2703, 2092)
 position = Vector2(100, 117)
 script = ExtResource("1_tvuku")
 
+[node name="Player" parent="." instance=ExtResource("3_2ajww")]
+position = Vector2(10990, 2097)
+
 [node name="DAY+NIGHT CYCLE" parent="." instance=ExtResource("6_e4wto")]
 
 [node name="Bosses" type="Node2D" parent="."]
@@ -347,7 +351,7 @@ script = ExtResource("7_dcl76")
 [node name="NPC\'s" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(5930, -12006)
 script = ExtResource("8_hst7l")
-player = NodePath("")
+player = NodePath("../Player")
 activation_distance = 1000.0
 
 [node name="CharacterBody2D16" parent="NPC\'s" instance=ExtResource("27_f4tmc")]
@@ -578,7 +582,7 @@ position = Vector2(6747, 31377)
 [node name="Quest Npc" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(445, 415)
 script = ExtResource("11_1djrl")
-player = NodePath("")
+player = NodePath("../Player")
 activation_distance = 1000.0
 
 [node name="Merchant_NPC" parent="Quest Npc" instance=ExtResource("10_d0n30")]
@@ -760,7 +764,7 @@ shape = SubResource("RectangleShape2D_em4ni")
 
 [node name="Rubber" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("34_oar0l")
-player = NodePath("")
+player = NodePath("../Player")
 
 [node name="Rubber_collectable" parent="Rubber" instance=ExtResource("35_gqyjm")]
 position = Vector2(10541, 3753)
@@ -962,7 +966,7 @@ position = Vector2(11466, 18464)
 
 [node name="Plastic" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("34_oar0l")
-player = NodePath("")
+player = NodePath("../Player")
 
 [node name="Bottle_collectable" parent="Plastic" instance=ExtResource("36_vgkf8")]
 position = Vector2(9089, 2316)
@@ -1176,7 +1180,7 @@ position = Vector2(4911, 16936)
 
 [node name="Wood" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("34_oar0l")
-player = NodePath("")
+player = NodePath("../Player")
 
 [node name="Wood_Collectiable" parent="Wood" instance=ExtResource("35_yqff8")]
 position = Vector2(11226, 2812)

@@ -288,16 +288,23 @@ text = "Game Objective"
 
 [node name="Label6" type="Label" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 176.944
-offset_top = 562.332
-offset_right = 31592.9
-offset_bottom = 5485.33
+offset_left = 151.81
+offset_top = 545.076
+offset_right = 31654.8
+offset_bottom = 7726.08
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 600
+text = "-The Spirits only take once with you, they left their diaries at the 	entrance read over the info and then talk 
+ to them and answer their questions your score is shown on death.
+
+-The Boss is spawned in for you to fight he is near the main village south of home base and across the bridge.
+
+-Enemies will spawn when your outside of the main villages and Enemies will despawn when in safe zones 
+which are the main villages with walls."
 
 [node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(269.266, 872.423)
+position = Vector2(243.126, 919.115)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 9
@@ -305,7 +312,7 @@ vframes = 13
 
 [node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(270.931, 924.062)
+position = Vector2(244.791, 970.754)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -314,7 +321,7 @@ frame = 1
 
 [node name="Sprite2D3" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(209.95, 924.19)
+position = Vector2(183.81, 970.882)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -323,7 +330,7 @@ frame = 2
 
 [node name="Sprite2D4" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(335.62, 925.205)
+position = Vector2(309.48, 971.897)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -332,7 +339,7 @@ frame = 3
 
 [node name="Sprite2D7" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(463.474, 871.919)
+position = Vector2(437.334, 918.611)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -341,7 +348,7 @@ frame = 38
 
 [node name="Sprite2D8" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(462.708, 924.676)
+position = Vector2(436.568, 971.368)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -350,7 +357,7 @@ frame = 34
 
 [node name="Sprite2D9" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(398.125, 922.671)
+position = Vector2(371.985, 969.363)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -359,7 +366,7 @@ frame = 16
 
 [node name="Sprite2D10" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(527.817, 925.717)
+position = Vector2(501.677, 972.409)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -381,10 +388,10 @@ text = "= Move Player"
 
 [node name="Label7" type="Label" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 579.091
-offset_top = 818.122
-offset_right = 7440.09
-offset_bottom = 1909.12
+offset_left = 535.86
+offset_top = 919.626
+offset_right = 7396.86
+offset_bottom = 2010.62
 scale = Vector2(0.05, 0.05)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -396,7 +403,7 @@ text = "Left Click = Attack"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 4
 texture_filter = 1
-position = Vector2(1699, 911.531)
+position = Vector2(1678, 954.531)
 scale = Vector2(2.67188, 2.19141)
 texture = ExtResource("17_jj7b2")
 hframes = 4
@@ -406,10 +413,10 @@ frame = 7
 [node name="Label" type="Label" parent="."]
 z_index = 4
 layout_mode = 0
-offset_left = 1312.0
-offset_top = 887.0
-offset_right = 8134.0
-offset_bottom = 1807.0
+offset_left = 1291.0
+offset_top = 930.0
+offset_right = 8113.0
+offset_bottom = 1850.0
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 600
 text = "Press Enter to Continue"

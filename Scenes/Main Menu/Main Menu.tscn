@@ -215,8 +215,8 @@ stream = ExtResource("5_co0ae")
 
 [node name="Bgpng" type="Sprite2D" parent="."]
 z_index = -1
-texture_filter = 1
-position = Vector2(932, 535)
+texture_filter = 3
+position = Vector2(942, 540)
 scale = Vector2(2.20546, 1.55572)
 texture = ExtResource("4_q7gh7")
 
