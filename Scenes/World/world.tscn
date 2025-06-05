@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=47 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Scenes/World/TileMap_Manager.gd" id="7_dcl76"]
 [ext_resource type="Script" path="res://Scenes/World/npc.gd" id="8_hst7l"]
 [ext_resource type="PackedScene" uid="uid://bgxqmbbyp2kti" path="res://Scenes/Question Npcs/FisherMan/FisherMan.tscn" id="9_so0mj"]
-[ext_resource type="PackedScene" uid="uid://cidva77gd3bbc" path="res://Scenes/Npc/Merchant/Merchant.tscn" id="10_d0n30"]
 [ext_resource type="Script" path="res://Scenes/World/quest_npc.gd" id="11_1djrl"]
 [ext_resource type="PackedScene" uid="uid://bt8u5ca3evu4h" path="res://Scenes/WayPoints/Waypoint1/WayPoint1.tscn" id="11_58lkg"]
 [ext_resource type="PackedScene" uid="uid://ccug0khxrg6xq" path="res://Scenes/Question Npcs/Politican/Pollition.tscn" id="11_n34ob"]
@@ -580,12 +579,6 @@ position = Vector2(445, 415)
 script = ExtResource("11_1djrl")
 player = NodePath("../Player")
 activation_distance = 1000.0
-
-[node name="Merchant_NPC" parent="Quest Npc" instance=ExtResource("10_d0n30")]
-process_mode = 3
-physics_interpolation_mode = 1
-auto_translate_mode = 1
-position = Vector2(10540, 1815)
 
 [node name="CharacterBody2D" parent="Quest Npc" instance=ExtResource("20_hhmmy")]
 position = Vector2(10671, 2131)

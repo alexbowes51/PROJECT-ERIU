@@ -132,8 +132,8 @@ func _ready():
 		
 
 func _physics_process(_delta: float) -> void:
-	if WorldManager.player_talking_Merchant:
-		merchant_dialogue.start()
+	#if WorldManager.player_talking_Merchant:
+		#merchant_dialogue.start()
 
 	if WorldManager.player_talking_Black_Smith:
 		black_smit_dialogue.start()

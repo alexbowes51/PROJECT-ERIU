@@ -52,7 +52,7 @@ func _input(event):
 		return
 		
 	if event.is_action_pressed("touch_activation"):
-		if sumbmited or !_is_quiz():  # Proceed only if not a quiz or quiz answer submitted
+		if sumbmited or !_is_quiz():
 			_next_script()
 
 func _next_script() -> void:
@@ -127,6 +127,7 @@ func _on_TextureButton_pressed():
 			player.removeBrain()
 
 	sumbmited = true
+	await get_tree().create_timer(2.0).timeout
 	_next_script()
 
 func _is_quiz() -> bool:
