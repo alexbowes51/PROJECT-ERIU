@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=144 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cqo1f1h37m5ly" path="res://Art/Player/No Weapons/Player Character No Weapons/Walk/Player Walk-Sheet.png" id="6_agh1c"]
 [ext_resource type="Texture2D" uid="uid://c5seg5q0wy21d" path="res://Art/Player/Sword/Sword Player/Death No Gore/Player Charachter Sword death no gore-Sheet.png" id="6_jyjmh"]
 [ext_resource type="Texture2D" uid="uid://dgg5n2wfsb5ej" path="res://Art/Player/Sword/Sword Player/Player Charachter Sword .png" id="7_eckk0"]
-[ext_resource type="PackedScene" uid="uid://dqed0ghaw8nlo" path="res://Scenes/Building/build_ui.tscn" id="7_olynr"]
-[ext_resource type="PackedScene" uid="uid://b3fek1gdhc7aw" path="res://Dialogue/Merchant_Dialogue/merchant_dialogue.tscn" id="8_dy8ic"]
 [ext_resource type="Texture2D" uid="uid://bmx4kqjkmv35g" path="res://Art/Player/Sword/Sword Player/Walk/Player Walk Sword-Sheet.png" id="8_vlpk3"]
 [ext_resource type="Texture2D" uid="uid://bhuh8nl8bx3q6" path="res://Art/Items/Wood.png" id="9_gefow"]
 [ext_resource type="Texture2D" uid="uid://bdii2j163ikfo" path="res://Art/UI/Hearts/Heart Beat-Sheet.png" id="10_5b1b5"]
@@ -35,14 +33,12 @@
 [ext_resource type="PackedScene" uid="uid://dlfccjxj7500u" path="res://Scenes/quest_tracker/quest_tracker.tscn" id="28_1bthv"]
 [ext_resource type="PackedScene" uid="uid://cpbh2ctna2flc" path="res://Scenes/joystick/joy_stick.tscn" id="28_2ljpj"]
 [ext_resource type="Texture2D" uid="uid://ct8bubni72kon" path="res://Art/UI/Touch_Screen/attack.png" id="33_i1aim"]
-[ext_resource type="Texture2D" uid="uid://cxam4fp308qh1" path="res://Art/UI/Touch_Screen/pixil-frame-0 (36).png" id="34_qx6ax"]
 [ext_resource type="Texture2D" uid="uid://dqcuuax5qxps8" path="res://Art/UI/Progress bars/pixil-frame-0 (29).png" id="34_rbv6y"]
 [ext_resource type="Texture2D" uid="uid://bh571b08usagr" path="res://Art/UI/Progress bars/pixil-frame-0 (31).png" id="35_1lw30"]
 [ext_resource type="Texture2D" uid="uid://cj4pt2yl2knv6" path="res://Art/UI/Touch_Screen/Inv.png" id="35_tfe8n"]
 [ext_resource type="Texture2D" uid="uid://rauhhq642mn7" path="res://Art/UI/Progress bars/pixil-frame-0 (32).png" id="36_nh234"]
 [ext_resource type="Texture2D" uid="uid://dmr8kt6n066mg" path="res://Art/UI/Touch_Screen/interact.png" id="36_tmrty"]
 [ext_resource type="Texture2D" uid="uid://cljll0sogqcyy" path="res://Art/New_Art/UI/Mental Icons/Brain Regular/Brain .png" id="37_5qleb"]
-[ext_resource type="Texture2D" uid="uid://bud6xmkltir8k" path="res://Art/UI/Touch_Screen/build.png" id="37_c7fxl"]
 [ext_resource type="Texture2D" uid="uid://dhvtadeuvbq67" path="res://Art/New_Art/UI/Mental Icons/Brain Questions/Brain Questions .png" id="38_k24rj"]
 [ext_resource type="Texture2D" uid="uid://dwfwvq8wpmo7k" path="res://Art/New_Art/UI/Mental Icons/Brain Full Power/Brain Power Full.png" id="39_5ir2b"]
 [ext_resource type="Texture2D" uid="uid://2odmtrkhk8pm" path="res://Art/New_Art/UI/Mental Icons/Brain Confused/Brain Confused .png" id="41_awpmi"]
@@ -97,17 +93,14 @@ var dash_direction = Vector2.ZERO
 @onready var build_av: Label = $Camera2D/UI/build_notifcation/Build_av
 @onready var respawn: Control = $Camera2D/UI/Respawn
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
-@onready var control_1: Control = $Camera2D/UI/Control_1
+@onready var PC_Controls: Control = $Camera2D/UI/PC_Controls
 @onready var joy_stick: Node2D = $Camera2D/UI/JoyStick
 @onready var mentalhealth: TextureProgressBar = $Camera2D/UI/mentalhealth
 @onready var mental_icon: AnimatedSprite2D = $Camera2D/UI/mentalhealth/mental_icon
 @onready var score: Label = $Camera2D/UI/Respawn/Score
 @onready var touch_screen_button: TouchScreenButton = $Camera2D/UI/TouchScreenButton
-@onready var touch_screen_button_2: TouchScreenButton = $Camera2D/UI/TouchScreenButton2
 @onready var touch_screen_button_3: TouchScreenButton = $Camera2D/UI/TouchScreenButton3
 @onready var touch_screen_button_4: TouchScreenButton = $Camera2D/UI/TouchScreenButton4
-@onready var touch_screen_button_5: TouchScreenButton = $Camera2D/UI/TouchScreenButton5
-
 
 
 
@@ -124,9 +117,9 @@ func _ready():
 	sprite_2d.visible = false
 	build_av.visible = false
 	respawn.visible = false
-	control_1.visible = false
+	PC_Controls.visible = false
 
-	
+
 	for heart in heart_container.get_children():
 		heart_list.append(heart)
 	print(heart_list)
@@ -156,64 +149,55 @@ func _physics_process(_delta: float) -> void:
 	
 	if WorldManager.player_talking_tiktoker:
 		tiktoker_dia.start()
-		
-	
+
+	# Handle mental health status effects
 	if mentalhealth.value == 100:
 		mental_icon.play(\"healthly(100)\")
 		speed = 300
-	if mentalhealth.value == 75:
+	elif mentalhealth.value == 75:
 		speed = 250
 		mental_icon.play(\"healthish(75)\")
-	if mentalhealth.value == 50:
+	elif mentalhealth.value == 50:
 		speed = 200
 		mental_icon.play(\"normal(50)\")
-	if mentalhealth.value == 25:
+	elif mentalhealth.value == 25:
 		speed = 150
 		mental_icon.play(\"not healthy(25)\")
-	if mentalhealth.value == 0:
+	elif mentalhealth.value == 0:
 		speed = 100
 		mental_icon.play(\"unhealthy(0)\")
-	
 
-	if currentHealth < MaxHealth:
-		WorldManager.player_needs_healing = true
-	else:
-		WorldManager.player_needs_healing = false
-		
-	if Instruction:
-		control_1.visible = true
-	elif !Instruction:
-		control_1.visible = false
+	# Healing and status
+	WorldManager.player_needs_healing = currentHealth < MaxHealth
 
+	if currentHealth > 0:
+		update_hearts()
+		enemy_attack()
+		get_input()
 
-		if currentHealth > 0:
-			update_hearts()
-			enemy_attack()
-			get_input()
+		var input_direction = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
+		var joy_dir = joy_stick.posVector
 
-			if is_dashing:
-				dash_timer -= _delta
-				if dash_timer <= 0:
-					is_dashing = false
-					receives_knockback = true
-				velocity = dash_direction * dash_speed
-			else:
-				var input_direction = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
-				var joy_dir = joy_stick.posVector
-				if joy_dir:
-					velocity = joy_dir * speed
-					rotation = float(joy_stick.posVector.angle() + deg_to_rad(-90))
-					move_and_slide()  # Always call this
-				if input_direction:
-					velocity = input_direction * speed
-				else:
-					velocity = Vector2(0,0)
-
-			move_and_slide()  # Always call this
-			teleporting()
-			Heal_damage()
+		if is_dashing:
+			dash_timer -= _delta
+			if dash_timer <= 0:
+				is_dashing = false
+				receives_knockback = true
+			velocity = dash_direction * dash_speed
 		else:
-			player_dead()
+			# Regular movement input
+			if joy_dir:
+				velocity = joy_dir * speed
+				rotation = float(joy_stick.posVector.angle() + deg_to_rad(-90))
+			else:
+				velocity = input_direction * speed
+
+		move_and_slide()
+		teleporting()
+		Heal_damage()
+	else:
+		player_dead()
+
 
 
 func get_input():
@@ -253,8 +237,6 @@ func get_input():
 		attack = true
 		$Attack_Cooldown.start()
 	
-	if Input.is_action_just_pressed(\"Instructions\"):
-		Instruction = !Instruction
 		
 
 func collect(item):	
@@ -316,14 +298,15 @@ func upgrade_player():
 	pass
 
 func player_dead():
-	currentHealth = 0
-	player_alive = false
-	respawn.visible = true
-	if death:
-		if check_weapon():
-			animated_sprite_2d.play(\"Player_sword_death\")
-		else:
-			animated_sprite_2d.play(\"Player_Death\")
+	if currentHealth <= 0:
+		currentHealth = 0
+		player_alive = false
+		respawn.visible = true
+		if death:
+			if check_weapon():
+				animated_sprite_2d.play(\"Player_sword_death\")
+			else:
+				animated_sprite_2d.play(\"Player_Death\")
 
 func enemy_attack():
 	if Player_is_in_attacking_range and attack_damage_cool_down == true:
@@ -515,11 +498,11 @@ func addBrain():
 		if mentalhealth.value <= 100:
 			mentalhealth.value += 25
 			
-	if WorldManager.player_talking_Gardai_m:
+	if WorldManager.player_talking_fisher_man:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
 			
-	if WorldManager.player_talking_Gardai_f:
+	if WorldManager.player_talking_Polition:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
 			
@@ -535,11 +518,11 @@ func removeBrain():
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
 			
-	if WorldManager.player_talking_Gardai_m:
+	if WorldManager.player_talking_fisher_man:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
 	
-	if WorldManager.player_talking_Gardai_f:
+	if WorldManager.player_talking_Polition:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
 	
@@ -553,21 +536,18 @@ func removeBrain():
 func not_Moblie_UI():
 		touch_screen_button.visible = false
 		touch_screen_button.set_process(false)
-		touch_screen_button_2.visible = false
-		touch_screen_button_2.set_process(false)
 		touch_screen_button_3.visible = false
 		touch_screen_button_3.set_process(false)
 		touch_screen_button_4.visible = false
 		touch_screen_button_4.set_process(false)
-		touch_screen_button_5.visible = false
-		touch_screen_button_5.set_process(false)
 		joy_stick.set_process(false)
 		joy_stick.visible = false
+		PC_Controls.visible = true
+		PC_Controls.set_process(true)
 		
 		
 func not_PC_UI():
-	control_1.visible = false
-	control_1.set_process(false)
+	pass
 
 
 func is_mobile_like():
@@ -1158,7 +1138,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i14oo")
 }],
-"loop": true,
+"loop": false,
 "name": &"Player_sword_death",
 "speed": 5.0
 }, {
@@ -1166,7 +1146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sog4k")
 }],
-"loop": true,
+"loop": false,
 "name": &"Player_sword_idle",
 "speed": 5.0
 }, {
@@ -1201,7 +1181,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_snoxd")
 }],
-"loop": true,
+"loop": false,
 "name": &"Player_sword_walk",
 "speed": 5.0
 }]
@@ -1340,7 +1320,6 @@ texture_filter = 1
 position = Vector2(898, 581)
 collision_layer = 9
 collision_mask = 9
-safe_margin = 0.001
 script = SubResource("GDScript_pbkry")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -1348,7 +1327,7 @@ z_index = 1
 position = Vector2(-2.98023e-08, 5.96046e-08)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_y3ys1")
-animation = &"Player_Attack"
+animation = &"Player_cross_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -1456,14 +1435,6 @@ offset_top = 241.667
 offset_right = -1817.94
 offset_bottom = -838.333
 
-[node name="Build_Ui" parent="Camera2D/UI" instance=ExtResource("7_olynr")]
-visible = false
-offset_left = 315.464
-offset_top = 879.167
-offset_right = -308.856
-offset_bottom = 835.367
-scale = Vector2(1, 1.5)
-
 [node name="Inventory_UI" parent="Camera2D/UI" instance=ExtResource("3_jvthm")]
 offset_left = 1497.94
 offset_top = 293.056
@@ -1489,13 +1460,6 @@ offset_left = 507.216
 offset_top = 581.944
 offset_right = 512.216
 offset_bottom = 581.944
-scale = Vector2(8, 8)
-
-[node name="Merchant_Dialogue" parent="Camera2D/UI" instance=ExtResource("8_dy8ic")]
-offset_left = 486.598
-offset_top = 570.833
-offset_right = 526.598
-offset_bottom = 610.833
 scale = Vector2(8, 8)
 
 [node name="Farmer_dialogue" parent="Camera2D/UI" instance=ExtResource("19_dbonm")]
@@ -1630,6 +1594,7 @@ scale = Vector2(1.03, 1.38)
 mouse_filter = 2
 
 [node name="build_notifcation" type="Control" parent="Camera2D/UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 218.557
@@ -1658,15 +1623,15 @@ hframes = 8
 vframes = 14
 frame = 17
 
-[node name="Control_1" type="Control" parent="Camera2D/UI"]
+[node name="PC_Controls" type="Control" parent="Camera2D/UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 27.8351
-offset_top = 95.8334
-offset_right = 67.8351
-offset_bottom = 135.833
+offset_left = 35.0515
+offset_top = 1377.78
+offset_right = 75.0515
+offset_bottom = 1417.78
 
-[node name="quest" type="Label" parent="Camera2D/UI/Control_1"]
+[node name="quest" type="Label" parent="Camera2D/UI/PC_Controls"]
 layout_mode = 0
 offset_left = 51.5464
 offset_top = 22.2222
@@ -1677,7 +1642,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 4000
 text = "= Quest Tracker"
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Control_1/quest"]
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/PC_Controls/quest"]
 texture_filter = 1
 position = Vector2(-2760.42, 3001.32)
 scale = Vector2(267.761, 337.355)
@@ -1686,7 +1651,7 @@ hframes = 8
 vframes = 14
 frame = 32
 
-[node name="bag" type="Label" parent="Camera2D/UI/Control_1"]
+[node name="bag" type="Label" parent="Camera2D/UI/PC_Controls"]
 layout_mode = 0
 offset_left = 51.5464
 offset_top = -34.7222
@@ -1697,7 +1662,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 4000
 text = "i = bag"
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Control_1/bag"]
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/PC_Controls/bag"]
 texture_filter = 1
 position = Vector2(-2760.42, 3001.32)
 scale = Vector2(267.761, 337.355)
@@ -1706,7 +1671,7 @@ hframes = 8
 vframes = 14
 frame = 24
 
-[node name="Build_av3" type="Label" parent="Camera2D/UI/Control_1"]
+[node name="Build_av3" type="Label" parent="Camera2D/UI/PC_Controls"]
 layout_mode = 0
 offset_left = -1.03093
 offset_top = -88.889
@@ -1715,45 +1680,35 @@ offset_bottom = 5411.11
 scale = Vector2(0.013, 0.01)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 4000
-text = "Click = Attack"
+text = "Left Click = Attack"
 
 [node name="JoyStick" parent="Camera2D/UI" instance=ExtResource("28_2ljpj")]
+z_index = 1
 position = Vector2(232.99, 1247.22)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D/UI"]
+z_index = 1
 texture_filter = 1
-position = Vector2(1420.62, 1181.94)
-scale = Vector2(2.19585, 2.72219)
+position = Vector2(1298.97, 1137.5)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("33_i1aim")
 action = "attack"
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D/UI"]
-texture_filter = 1
-position = Vector2(1640.21, 1161.11)
-scale = Vector2(2.45361, 2.875)
-texture_normal = ExtResource("34_qx6ax")
-action = "dash"
-
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="Camera2D/UI"]
+z_index = 1
 texture_filter = 1
-position = Vector2(15.464, 666.667)
+position = Vector2(24.7423, 748.611)
 scale = Vector2(2.63918, 3.08333)
 texture_normal = ExtResource("35_tfe8n")
 action = "i"
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="Camera2D/UI"]
+z_index = 1
 texture_filter = 1
-position = Vector2(1591.75, 815.278)
-scale = Vector2(2.63918, 3.08333)
+position = Vector2(1602.06, 1140.28)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("36_tmrty")
 action = "chat"
-
-[node name="TouchScreenButton5" type="TouchScreenButton" parent="Camera2D/UI"]
-texture_filter = 1
-position = Vector2(284.536, 797.222)
-scale = Vector2(2.63918, 3.08333)
-texture_normal = ExtResource("37_c7fxl")
-action = "build_mode"
 
 [node name="Into_Game_Objective" parent="Camera2D/UI" instance=ExtResource("27_crx5h")]
 process_mode = 3
@@ -1783,14 +1738,22 @@ offset_right = 39.1753
 offset_bottom = 266.667
 
 [node name="Book(2)_dia" parent="Camera2D/UI" instance=ExtResource("48_d22wg")]
+offset_left = 43.299
+offset_top = 262.5
+offset_right = 43.299
+offset_bottom = 262.5
 
 [node name="Book(3)_dia" parent="Camera2D/UI" instance=ExtResource("49_p4iwk")]
-offset_left = 898.0
-offset_top = 581.0
-offset_right = 898.0
-offset_bottom = 581.0
+offset_left = 39.1753
+offset_top = 262.5
+offset_right = 39.1753
+offset_bottom = 262.5
 
 [node name="book(4)_dia" parent="Camera2D/UI" instance=ExtResource("50_64qm3")]
+offset_left = 39.1753
+offset_top = 261.111
+offset_right = 39.1753
+offset_bottom = 261.111
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("19_d4ufm")]
 
@@ -1810,6 +1773,5 @@ autostart = true
 [connection signal="body_exited" from="Player_Attack_HitBox" to="." method="_on_attack_hit_box_body_exited"]
 [connection signal="timeout" from="Damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="Attack_Cooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="pressed" from="Camera2D/UI/TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="talking_timer" to="." method="_on_talking_timer_timeout"]

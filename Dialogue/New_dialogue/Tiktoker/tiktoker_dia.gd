@@ -12,6 +12,7 @@ extends Control
 var dialogue : Array = []
 var current_dialogue_id : int = -1
 var dia_active: bool  = false
+var sumbmited: bool = false
 
 func _ready() -> void:
 	_hide_all()
@@ -49,8 +50,10 @@ func _load_dialogue() -> Array:
 func _input(event):
 	if not dia_active:
 		return
-	if event.is_action_pressed("chat"):
-		_next_script()
+		
+	if event.is_action_pressed("touch_activation"):
+		if sumbmited or !_is_quiz():  # Proceed only if not a quiz or quiz answer submitted
+			_next_script()
 
 func _next_script() -> void:
 	if not dia_active:
@@ -123,5 +126,10 @@ func _on_TextureButton_pressed():
 			player.removeScore()
 			player.removeBrain()
 
-	await get_tree().create_timer(2.0).timeout
+	sumbmited = true
 	_next_script()
+
+func _is_quiz() -> bool:
+	if current_dialogue_id >= 0 and current_dialogue_id < dialogue.size():
+		return dialogue[current_dialogue_id].get("quiz", false)
+	return false
