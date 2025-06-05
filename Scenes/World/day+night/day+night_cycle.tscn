@@ -6,8 +6,8 @@
 z_index = 1
 script = ExtResource("1_envw0")
 day_duration = 10.0
-night_color = Color(0.728992, 0.730444, 0.878362, 1)
-sunrise_color = Color(0.954554, 0.748469, 0.531434, 1)
+night_color = Color(0.841408, 0.843456, 0.932249, 1)
+sunrise_color = Color(0.972869, 0.827897, 0.679796, 1)
 sunset_color = Color(0.910327, 0.800762, 0.800098, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
