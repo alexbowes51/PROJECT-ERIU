@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dj5o80gxakvda"]
+[gd_scene load_steps=52 format=4 uid="uid://dj5o80gxakvda"]
 
 [ext_resource type="Script" path="res://Scenes/World/world_manager.gd" id="1_tvuku"]
 [ext_resource type="Script" path="res://Scenes/World/build_area.gd" id="2_dvjqd"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://caj6plpuqsmrv" path="res://Scenes/WayPoints/WayPoint2/WayPoint2.tscn" id="12_fchno"]
 [ext_resource type="PackedScene" uid="uid://q07bst77bas7" path="res://Scenes/Question Npcs/tiktoker/Tiktoker.tscn" id="12_okk3i"]
 [ext_resource type="PackedScene" uid="uid://c4giqpf6ir3tc" path="res://Scenes/WayPoints/WayPoint2/WayPoint2_Dark.tscn" id="13_q1lxv"]
+[ext_resource type="PackedScene" uid="uid://i2tdnngav7ac" path="res://Scenes/Question Npcs/Farmer/farmer_waypoint.tscn" id="13_ta23j"]
 [ext_resource type="PackedScene" uid="uid://dpuj5yk4g0qkw" path="res://Scenes/Npc/NPC_FEMALE/npc_female.tscn" id="14_86ho7"]
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/village_1_area.gd" id="19_7vy6w"]
 [ext_resource type="Script" path="res://Scenes/World/Pollution Zone/village_2.gd" id="20_ctc6y"]
@@ -34,6 +35,10 @@
 [ext_resource type="PackedScene" uid="uid://dt28kk2h23pxy" path="res://Scenes/Item/New_items/Book_4/book(4).tscn" id="32_avp76"]
 [ext_resource type="PackedScene" uid="uid://yhn8lk22ulsr" path="res://Scenes/World/hook head.tscn" id="32_f6nsa"]
 [ext_resource type="Script" path="res://Scenes/World/safe_areas.gd" id="33_bkj2y"]
+[ext_resource type="Script" path="res://Scenes/World/npc_markers.gd" id="35_oia33"]
+[ext_resource type="PackedScene" uid="uid://cm6dgbg5f3hlg" path="res://Scenes/Question Npcs/FisherMan/fisher_man_waypoint.tscn" id="36_qq73p"]
+[ext_resource type="PackedScene" uid="uid://d16b5ymwmkv80" path="res://Scenes/Question Npcs/Politican/polition_waypoint.tscn" id="37_8o4dv"]
+[ext_resource type="PackedScene" uid="uid://xcp4eov2omhl" path="res://Scenes/Question Npcs/tiktoker/infulencer_waypoint.tscn" id="38_y0k33"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qtiqq"]
 
@@ -581,16 +586,16 @@ player = NodePath("../Player")
 activation_distance = 1000.0
 
 [node name="CharacterBody2D" parent="Quest Npc" instance=ExtResource("20_hhmmy")]
-position = Vector2(10671, 2131)
+position = Vector2(17503, 2627)
 
 [node name="CharacterBody2D2" parent="Quest Npc" instance=ExtResource("9_so0mj")]
-position = Vector2(10219, 2096)
+position = Vector2(21541, 8642)
 
 [node name="CharacterBody2D3" parent="Quest Npc" instance=ExtResource("11_n34ob")]
-position = Vector2(10402, 2058)
+position = Vector2(1459, 12390)
 
 [node name="CharacterBody2D4" parent="Quest Npc" instance=ExtResource("12_okk3i")]
-position = Vector2(10323, 1873)
+position = Vector2(3245, 14050)
 
 [node name="WayPoints" type="Node2D" parent="."]
 
@@ -752,6 +757,21 @@ position = Vector2(11032, 3378)
 
 [node name="Book(4)" parent="Books" instance=ExtResource("32_avp76")]
 position = Vector2(11032, 3270)
+
+[node name="NPC_Markers" type="Node2D" parent="."]
+script = ExtResource("35_oia33")
+
+[node name="Farmer_Waypoint" parent="NPC_Markers" instance=ExtResource("13_ta23j")]
+position = Vector2(17942, 3790)
+
+[node name="FisherMan_Waypoint" parent="NPC_Markers" instance=ExtResource("36_qq73p")]
+position = Vector2(22130, 8960)
+
+[node name="Polition_Waypoint" parent="NPC_Markers" instance=ExtResource("37_8o4dv")]
+position = Vector2(1923, 12581)
+
+[node name="Infulencer_Waypoint" parent="NPC_Markers" instance=ExtResource("38_y0k33")]
+position = Vector2(3779, 14730)
 
 [connection signal="body_entered" from="BuildZone" to="." method="_on_build_zone_body_entered"]
 [connection signal="body_exited" from="BuildZone" to="." method="_on_build_zone_body_exited"]
