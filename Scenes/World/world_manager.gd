@@ -14,29 +14,29 @@ var black_smith_built = false
 @onready var time_label = $MiniMap/Time_Label
 
 var sigma = preload("res://Scenes/enemys/Boss/scottish_giant.tscn")
-var spawn_sigma = false
+var spawn_sigma : bool = false
 @export var enable_cycle: bool = true
 
 #tilemap variables
-var building = "None"
-var player_in_build_zone = false
+var building : String = "None"
+var player_in_build_zone : bool = false
 
 
 #player world varibales
-var player_current_attack = false
-var Build_mode = false
+var player_current_attack : bool = false
+var Build_mode : bool = false
 var player_weapon = "none"
-var player_healed = false
+var player_healed : bool = false
 
-var player_in_village = false
-var player_in_combat = false
+var player_in_village : bool = false
+var player_in_combat : bool = false
 
 #teleport variables
-var tp_Wp1_A = "A"
-var tp_Wp2_A = "A"
+var tp_Wp1_A : String = "A"
+var tp_Wp2_A : String = "A"
 
-var Wp1_tp = false
-var Wp2_tp = false
+var Wp1_tp : bool = false
+var Wp2_tp : bool = false
 
 var Wp1_A = Vector2(6751,14407)
 var Wp1_B = Vector2(18349,1107)
@@ -51,41 +51,43 @@ var waypoint1clear : bool = false
 var waypoint2clear : bool = false
 
 #npc varibales 
-var player_is_talking = false
-var Merchant_follow_player = false
-var player_talking_Merchant = false
-var player_finished_talking_M = false
+var player_is_talking : bool = false
+var Merchant_follow_player : bool = false
+var player_talking_Merchant : bool = false
+var player_finished_talking_M : bool = false
 
-var Black_smith_follow_player = false
-var player_talking_Black_Smith = false
-var player_finsihed_talking_BS = false
-var Bs_shop = false
-var Item_Selling = "none"
+var Black_smith_follow_player : bool = false
+var player_talking_Black_Smith : bool = false
+var player_finsihed_talking_BS : bool = false
+var Bs_shop : bool = false
+var Item_Selling : String = "none"
 
-var player_talking_Farmer = false
-var player_talking_fisher_man = false
-var player_talking_Polition = false
-var player_talking_tiktoker = false
+var player_talking_Farmer : bool = false
+var player_talking_fisher_man : bool = false
+var player_talking_Polition : bool = false
+var player_talking_tiktoker : bool = false
 
-var finished_talking_Farmer = false
-var finished_talking_Fisher_man = false
-var finished_talking_Polition = false
-var finished_talking_tiktoker = false
+var finished_talking_Farmer : bool = false
+var finished_talking_Fisher_man : bool = false
+var finished_talking_Polition : bool = false
+var finished_talking_tiktoker : bool = false
 
-var reading_book_1 = false
-var reading_book_2 = false
-var reading_book_3 = false
-var reading_book_4 = false
+var reading_book_1 : bool = false
+var reading_book_2 : bool = false
+var reading_book_3 : bool = false
+var reading_book_4 : bool = false
 
-var player_needs_healing = false
+var player_needs_healing : bool = false
 
-var Intro_stop_index = 0
+var Intro_stop_index : int = 0
 
-var Settings = false
-var Objective = true
-var Player_Damage = 20
+var Settings : bool = false
+var Objective : bool = true
+var Player_Damage : int = 20
 
-var player_attackable = true
+var player_attackable : bool = true
+
+var NPC_Talked_to : int = 0
 
 func _ready():
 	minimap = $MiniMap
@@ -111,29 +113,29 @@ func change_time(_hour: float, time_string: String) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if not spawn_sigma and waypoints_Cleared == 2 and villages_Cleared == 2:
-		spawn_boss()
-			
+	#if not spawn_sigma and waypoints_Cleared == 2 and villages_Cleared == 2:
+		#spawn_boss()
+	
 	if Build_mode == true && player_in_build_zone == true && Input.is_action_just_pressed("build"):
 		build()
 	
 
 
-func spawn_boss():
-	if spawn_sigma:
-		return  # Prevent multiple spawns
-	
-	print("Spawning boss...")  # Debugging
-	var scottish_sigma = sigma.instantiate()
-	var bosses_node = get_node("/root/world/Bosses")
-	
-	if bosses_node:
-		bosses_node.add_child(scottish_sigma)
-		scottish_sigma.position = Vector2(4337, 12950)
-		print("Boss spawned at:", scottish_sigma.position)
-		spawn_sigma = true  # Mark the boss as spawned
-	else:
-		print("Error: 'Bosses' node not found!")
+#func spawn_boss():
+	#if spawn_sigma:
+		#return  # Prevent multiple spawns
+	#
+	#print("Spawning boss...")  # Debugging
+	#var scottish_sigma = sigma.instantiate()
+	#var bosses_node = get_node("/root/world/Bosses")
+	#
+	#if bosses_node:
+		#bosses_node.add_child(scottish_sigma)
+		#scottish_sigma.position = Vector2(4337, 12950)
+		#print("Boss spawned at:", scottish_sigma.position)
+		#spawn_sigma = true  # Mark the boss as spawned
+	#else:
+		#print("Error: 'Bosses' node not found!")
 
 func build():
 	if building == "house":

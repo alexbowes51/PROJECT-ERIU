@@ -586,10 +586,10 @@ player = NodePath("../Player")
 activation_distance = 1000.0
 
 [node name="CharacterBody2D" parent="Quest Npc" instance=ExtResource("20_hhmmy")]
-position = Vector2(17503, 2627)
+position = Vector2(17499, 3375)
 
 [node name="CharacterBody2D2" parent="Quest Npc" instance=ExtResource("9_so0mj")]
-position = Vector2(21541, 8642)
+position = Vector2(21669, 8602)
 
 [node name="CharacterBody2D3" parent="Quest Npc" instance=ExtResource("11_n34ob")]
 position = Vector2(1459, 12390)
@@ -765,13 +765,13 @@ script = ExtResource("35_oia33")
 position = Vector2(17942, 3790)
 
 [node name="FisherMan_Waypoint" parent="NPC_Markers" instance=ExtResource("36_qq73p")]
-position = Vector2(22130, 8960)
+position = Vector2(22117, 9016)
 
 [node name="Polition_Waypoint" parent="NPC_Markers" instance=ExtResource("37_8o4dv")]
-position = Vector2(1923, 12581)
+position = Vector2(1906, 12804)
 
 [node name="Infulencer_Waypoint" parent="NPC_Markers" instance=ExtResource("38_y0k33")]
-position = Vector2(3779, 14730)
+position = Vector2(3692, 14464)
 
 [connection signal="body_entered" from="BuildZone" to="." method="_on_build_zone_body_entered"]
 [connection signal="body_exited" from="BuildZone" to="." method="_on_build_zone_body_exited"]

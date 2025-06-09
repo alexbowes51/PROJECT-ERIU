@@ -92,6 +92,7 @@ func _end_dialogue() -> void:
 	WorldManager.player_talking_fisher_man = false
 	WorldManager.finished_talking_Fisher_man = true
 	WorldManager.player_is_talking = false
+	WorldManager.NPC_Talked_to += 1
 	emit_signal("end_dialogue")
 
 func _on_slider_value_changed(value: float) -> void:
