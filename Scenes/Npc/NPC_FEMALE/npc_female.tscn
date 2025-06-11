@@ -112,6 +112,7 @@ animations = [{
 radius = 17.0
 
 [node name="Npc_Female" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_7go81")
 
 [node name="Timer" type="Timer" parent="."]

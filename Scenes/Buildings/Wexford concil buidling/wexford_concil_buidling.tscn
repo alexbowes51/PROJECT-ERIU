@@ -16,15 +16,16 @@ scale = Vector2(2, 2)
 script = ExtResource("1_dxrv2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
 texture_filter = 1
 position = Vector2(2, -100)
 scale = Vector2(4, 4)
 texture = ExtResource("2_xcd8g")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 1
 position = Vector2(14, -57)
 shape = SubResource("RectangleShape2D_4rlgo")
 debug_color = Color(0.463096, 0.536017, 0.685621, 0.42)

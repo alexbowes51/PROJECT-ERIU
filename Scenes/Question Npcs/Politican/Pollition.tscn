@@ -27,9 +27,11 @@ animations = [{
 radius = 85.2115
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_3ra5q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CircleShape2D_g5nic")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

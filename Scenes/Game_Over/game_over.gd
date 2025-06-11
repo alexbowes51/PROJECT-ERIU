@@ -20,8 +20,19 @@ func _process(delta: float) -> void:
 
 
 func _on_try_agin_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/World/world.tscn")
+	restart()
+	get_tree().reload_current_scene()
 
 
 func _on_return_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Main Menu/Main Menu.tscn")
+
+
+func restart():
+	WorldManager.finished_talking_Farmer = false
+	WorldManager.finished_talking_Fisher_man = false
+	WorldManager.finished_talking_tiktoker = false
+	WorldManager.finished_talking_Polition = false
+	WorldManager.NPC_Talked_to = 0
+	WorldManager.rigth_answers = 0
+	WorldManager.wrong_answers = 0
