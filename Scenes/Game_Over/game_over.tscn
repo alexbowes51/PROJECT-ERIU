@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx4crb7ak27jk"]
+[gd_scene load_steps=4 format=3 uid="uid://cx4crb7ak27jk"]
 
 [ext_resource type="Script" path="res://Scenes/Game_Over/game_over.gd" id="1_fdhyx"]
 [ext_resource type="Texture2D" uid="uid://6oivht7vl0oc" path="res://Art/Inventory/pixil-frame-0 (10).png" id="1_sb40c"]
+[ext_resource type="Texture2D" uid="uid://bi2u7nikyf5ak" path="res://Art/Inventory/pixil-frame-0 (23).png" id="3_88spk"]
 
 [node name="Game_Over" type="Control"]
 layout_mode = 3
@@ -32,3 +33,75 @@ offset_bottom = 1387.0
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 1000
 text = "GAME OVER"
+
+[node name="Spirits Liberated" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 201.0
+offset_right = 7637.0
+offset_bottom = 1156.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 700
+text = "Spirits Liberated 0 / 4"
+
+[node name="Answer_Right" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 303.0
+offset_right = 10990.0
+offset_bottom = 1258.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 700
+text = "Questions You Got Correct 0 / 4"
+
+[node name="Answer_Right2" type="Label" parent="NinePatchRect"]
+offset_left = 412.0
+offset_top = 420.0
+offset_right = 10995.0
+offset_bottom = 1375.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 700
+text = "Questions You Got Wrong 0 / 4"
+
+[node name="Try_Agin" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 612.0
+offset_right = 412.0
+offset_bottom = 712.0
+texture_normal = ExtResource("3_88spk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Answer_Right" type="Label" parent="NinePatchRect/Try_Agin"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 25.0
+offset_right = 3670.0
+offset_bottom = 980.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 700
+text = "Try Again"
+
+[node name="Return_Main_menu" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 903.0
+offset_top = 612.0
+offset_right = 1249.0
+offset_bottom = 712.0
+texture_normal = ExtResource("3_88spk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Answer_Right" type="Label" parent="NinePatchRect/Return_Main_menu"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 29.0
+offset_right = 5502.0
+offset_bottom = 984.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 500
+text = "Return to Main menu "
+
+[connection signal="pressed" from="NinePatchRect/Try_Agin" to="." method="_on_try_agin_pressed"]
+[connection signal="pressed" from="NinePatchRect/Return_Main_menu" to="." method="_on_return_main_menu_pressed"]

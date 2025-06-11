@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://dwmhxdnbbb5cd"]
+[gd_scene load_steps=131 format=3 uid="uid://dwmhxdnbbb5cd"]
 
 [ext_resource type="Texture2D" uid="uid://d36gxump84vfh" path="res://Art/Player/No Weapons/Player Character No Weapons/Attack/Player Attack-Sheet.png" id="3_0i4q8"]
 [ext_resource type="Texture2D" uid="uid://c5n5xddjdj1u2" path="res://Art/Player/No Weapons/Player Character No Weapons/Dash/Player Charachter Dash-Sheet.png" id="3_jrwhl"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://2odmtrkhk8pm" path="res://Art/New_Art/UI/Mental Icons/Brain Confused/Brain Confused .png" id="41_awpmi"]
 [ext_resource type="Texture2D" uid="uid://bebte7b5bl0ku" path="res://Art/New_Art/UI/Mental Icons/Clouded Judgement/Brain Clouded Judgement.png" id="42_66ua6"]
 [ext_resource type="PackedScene" uid="uid://bmnvssf1uyn3s" path="res://Dialogue/Books/Book(1)/Book(1)_dia.tscn" id="46_cpv0t"]
+[ext_resource type="PackedScene" uid="uid://cx4crb7ak27jk" path="res://Scenes/Game_Over/game_over.tscn" id="47_4k8lh"]
 [ext_resource type="PackedScene" uid="uid://61len70kc8gw" path="res://Dialogue/Books/Book(2)/book(2)_dia.tscn" id="48_d22wg"]
 [ext_resource type="PackedScene" uid="uid://dsvbgi7dm6k80" path="res://Dialogue/Books/Book(3)/book(3)_dia.tscn" id="49_p4iwk"]
 [ext_resource type="PackedScene" uid="uid://cqq3bmu6op8bw" path="res://Dialogue/Books/Book(4)/book(4)_dia.tscn" id="50_64qm3"]
@@ -1639,6 +1640,19 @@ offset_bottom = 1464.78
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 1000
 text = "Spirits Liberated 0 / 4"
+
+[node name="Game_Over" parent="Camera2D/UI" instance=ExtResource("47_4k8lh")]
+z_index = 10
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -390.722
+offset_top = -306.944
+offset_right = -390.722
+offset_bottom = -306.944
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.45, 1.95)
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("19_d4ufm")]
 

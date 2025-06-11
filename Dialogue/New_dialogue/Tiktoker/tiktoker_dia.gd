@@ -120,12 +120,14 @@ func _on_TextureButton_pressed():
 		if player:
 			player.addScore()
 			player.addBrain()
+			WorldManager.rigth_answers += 1
 	else:
 		answer_label.text = "Incorrect! Correct was: " + opts[correct]
 		var player = get_tree().get_current_scene().get_node("Player")
 		if player:
 			player.removeScore()
 			player.removeBrain()
+			WorldManager.wrong_answers += 1
 
 	sumbmited = true
 	await get_tree().create_timer(2.0).timeout

@@ -747,16 +747,16 @@ shape = SubResource("RectangleShape2D_em4ni")
 [node name="Books" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="Books" instance=ExtResource("26_56qxu")]
-position = Vector2(10931, 3291)
+position = Vector2(18169, 3252)
 
 [node name="StaticBody2D2" parent="Books" instance=ExtResource("30_pcbfa")]
-position = Vector2(10920, 3394)
+position = Vector2(22813, 8373)
 
 [node name="StaticBody2D3" parent="Books" instance=ExtResource("31_n6ys5")]
-position = Vector2(11032, 3378)
+position = Vector2(3597, 14043)
 
 [node name="Book(4)" parent="Books" instance=ExtResource("32_avp76")]
-position = Vector2(11032, 3270)
+position = Vector2(2968, 12773)
 
 [node name="NPC_Markers" type="Node2D" parent="."]
 script = ExtResource("35_oia33")

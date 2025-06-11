@@ -88,6 +88,10 @@ var Player_Damage : int = 20
 var player_attackable : bool = true
 
 var NPC_Talked_to : int = 0
+var rigth_answers : int = 0
+var wrong_answers : int = 0 
+
+var game_over : bool = false
 
 func _ready():
 	minimap = $MiniMap

@@ -2,5 +2,6 @@
 	{"name": "Politican", "text": "Hi How are you doing!"},
 	{"name": "Politican", "text": "Did you Know Concrete is not always bad for the ocean and marine life"},
 	{"quiz": true,"answers": ["False", "Partly False", "Partly True", "True"],"correct": 3 },
+	{"name": "Politican", "text": "Its because of the calcium bicarbonate in concrete is biologically friendly to coral growth"},
 	{"name": "Politican", "text": "Glad You Learn something"}
 ]

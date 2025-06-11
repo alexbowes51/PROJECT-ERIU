@@ -1,11 +1,27 @@
 extends Control
 
+@onready var spirits_liberated: Label = $"NinePatchRect/Spirits Liberated"
+@onready var answer_wrong: Label = $NinePatchRect/Answer_Right2
+@onready var answer_right: Label = $NinePatchRect/Answer_Right
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if WorldManager.finished_talking_Farmer && WorldManager.finished_talking_Fisher_man && WorldManager.finished_talking_Polition && WorldManager.finished_talking_tiktoker:
+		WorldManager.game_over = true
+		visible = true
+		spirits_liberated.text = "Spirits Liberated " + str(WorldManager.NPC_Talked_to) + " / 4"
+		answer_right.text = "Questions You Got Correct " + str(WorldManager.rigth_answers) + " / 4"
+		answer_wrong.text = "Questions You Got Wrong " + str(WorldManager.wrong_answers) + " / 4"
+
+
+func _on_try_agin_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/World/world.tscn")
+
+
+func _on_return_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Main Menu/Main Menu.tscn")

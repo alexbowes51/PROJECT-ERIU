@@ -223,10 +223,10 @@ text = "Game Objective"
 
 [node name="Label6" type="Label" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 151.81
-offset_top = 545.076
-offset_right = 31654.8
-offset_bottom = 7726.08
+offset_left = 143.767
+offset_top = 518.685
+offset_right = 31646.8
+offset_bottom = 8725.69
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 600
 text = "-Each Spirit will have a waypoint to guide you to them 
@@ -236,11 +236,13 @@ text = "-Each Spirit will have a waypoint to guide you to them
 -The Spirits will only talk once to  you ONCE, so be careful your words are powerful.
 
 -Enemies will spawn when your outside of the main villages and Enemies will despawn when in safe zones 
-which are the main villages with walls."
+which are the main villages with walls.
+
+-Game Ends When you talked to all the Spirits"
 
 [node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(243.126, 919.115)
+position = Vector2(180.794, 990.168)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 9
@@ -248,7 +250,7 @@ vframes = 13
 
 [node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(244.791, 970.754)
+position = Vector2(182.459, 1041.81)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -257,7 +259,7 @@ frame = 1
 
 [node name="Sprite2D3" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(183.81, 970.882)
+position = Vector2(121.478, 1041.93)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -266,7 +268,7 @@ frame = 2
 
 [node name="Sprite2D4" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(309.48, 971.897)
+position = Vector2(247.148, 1042.95)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -275,7 +277,7 @@ frame = 3
 
 [node name="Sprite2D7" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(437.334, 918.611)
+position = Vector2(375.002, 989.664)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -284,7 +286,7 @@ frame = 38
 
 [node name="Sprite2D8" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(436.568, 971.368)
+position = Vector2(374.236, 1042.42)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -293,7 +295,7 @@ frame = 34
 
 [node name="Sprite2D9" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(371.985, 969.363)
+position = Vector2(309.653, 1040.42)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -302,7 +304,7 @@ frame = 16
 
 [node name="Sprite2D10" type="Sprite2D" parent="NinePatchRect"]
 texture_filter = 1
-position = Vector2(501.677, 972.409)
+position = Vector2(439.345, 1043.46)
 scale = Vector2(4, 4)
 texture = ExtResource("18_c2g88")
 hframes = 8
@@ -324,10 +326,10 @@ text = "= Move Player"
 
 [node name="Label7" type="Label" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 535.86
-offset_top = 919.626
-offset_right = 7396.86
-offset_bottom = 2010.62
+offset_left = 478.554
+offset_top = 979.513
+offset_right = 7339.55
+offset_bottom = 2070.51
 scale = Vector2(0.05, 0.05)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
