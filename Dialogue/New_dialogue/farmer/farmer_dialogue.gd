@@ -91,6 +91,7 @@ func _end_dialogue() -> void:
 	WorldManager.player_talking_Farmer = false
 	WorldManager.finished_talking_Farmer = true
 	WorldManager.player_is_talking = false
+	WorldManager.player_attackable = true
 	WorldManager.NPC_Talked_to += 1
 	emit_signal("end_dialogue")
 

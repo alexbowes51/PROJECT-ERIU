@@ -67,6 +67,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("chat") && !WorldManager.player_is_talking && !WorldManager.finished_talking_Polition:
 			WorldManager.player_is_talking = true
 			WorldManager.player_talking_Polition = true
+			WorldManager.player_attackable = false
 			is_roaming = false
 			is_chatting = true
 			

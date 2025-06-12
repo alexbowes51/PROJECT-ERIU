@@ -91,6 +91,7 @@ func _end_dialogue() -> void:
 	current_dialogue_id = -1
 	WorldManager.player_talking_fisher_man = false
 	WorldManager.finished_talking_Fisher_man = true
+	WorldManager.player_attackable = true
 	WorldManager.player_is_talking = false
 	WorldManager.NPC_Talked_to += 1
 	emit_signal("end_dialogue")

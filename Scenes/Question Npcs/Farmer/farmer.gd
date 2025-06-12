@@ -75,6 +75,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("chat"):
 			WorldManager.player_talking_Farmer = true
 			WorldManager.player_is_talking = true
+			WorldManager.player_attackable = false
 			is_roaming = false
 			is_chatting = true
 			$AnimatedSprite2D.play("Iteract")
