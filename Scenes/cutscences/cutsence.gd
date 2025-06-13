@@ -67,8 +67,9 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept") || event.is_action("touch_activation") and is_stop:
-		if introdialogue:
-			if introdialogue.dia_active:
-				introdialogue.next_script()
-				is_stop = false
+	if is_stop:
+		if event.is_action("touch_activation"):
+			if introdialogue:
+				if introdialogue.dia_active:
+					introdialogue.next_script()
+					is_stop = false
