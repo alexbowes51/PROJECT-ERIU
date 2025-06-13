@@ -2,37 +2,44 @@ extends Sprite2D
 
 @onready var parent: Node2D = $".."
 
-var pressing = false
-@export var maxlength = 100
-@export var deadzone = 50
+var pressing := false
+@export var maxlength := 55.0
+@export var deadzone := 20.0
 
-func ready():
+func _ready():
 	maxlength *= parent.scale.x
-	
+
 func _process(delta):
 	if pressing:
-		if get_global_mouse_position().distance_to(parent.global_position) <= maxlength:
-			global_position = get_global_mouse_position()
+		var mouse_pos = get_global_mouse_position()
+		var direction = mouse_pos - parent.global_position
+		var distance = direction.length()
+
+		if distance <= maxlength:
+			global_position = mouse_pos
 		else:
-			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
-			global_position.x = parent.global_position.x + cos(angle)*maxlength
-			global_position.y = parent.global_position.y + sin(angle)*maxlength
-		calculateVector()	
+			direction = direction.normalized()
+			global_position = parent.global_position + direction * maxlength
+
+		_calculate_vector()
 	else:
+		# Smoothly return joystick to center
 		global_position = lerp(global_position, parent.global_position, delta * 50)
-		parent.posVector = Vector2(0,0)
+		parent.posVector = Vector2.ZERO
 
-	
-func calculateVector():
-	if abs((global_position.x - parent.global_position.x)) >= deadzone:
-		parent.posVector.x = (global_position.x - parent.global_position.x) / maxlength
-	if abs((global_position.y- parent.global_position.y)) >= deadzone:
-		parent.posVector.y = (global_position.y - parent.global_position.y) / maxlength
-	
+func _calculate_vector():
+	var offset = global_position - parent.global_position
+	var vec := Vector2.ZERO
 
-func _on_button_button_down() -> void:
+	if abs(offset.x) >= deadzone:
+		vec.x = offset.x / maxlength
+	if abs(offset.y) >= deadzone:
+		vec.y = offset.y / maxlength
+
+	parent.posVector = vec
+
+func _on_button_button_down():
 	pressing = true
 
-
-func _on_button_button_up() -> void:
+func _on_button_button_up():
 	pressing = false

@@ -55,6 +55,7 @@ theme_override_font_sizes/font_size = 700
 text = "Questions You Got Correct 0 / 4"
 
 [node name="Answer_Right2" type="Label" parent="NinePatchRect"]
+layout_mode = 0
 offset_left = 412.0
 offset_top = 420.0
 offset_right = 10995.0

@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bmx4kqjkmv35g" path="res://Art/Player/Sword/Sword Player/Walk/Player Walk Sword-Sheet.png" id="8_vlpk3"]
 [ext_resource type="Texture2D" uid="uid://bhuh8nl8bx3q6" path="res://Art/Items/Wood.png" id="9_gefow"]
 [ext_resource type="Texture2D" uid="uid://bdii2j163ikfo" path="res://Art/UI/Hearts/Heart Beat-Sheet.png" id="10_5b1b5"]
-[ext_resource type="Script" path="res://Scenes/player/UIControl.gd" id="10_hpanq"]
 [ext_resource type="Texture2D" uid="uid://cunkiglykdqkr" path="res://Art/Items/Bottles.png" id="10_khoqc"]
 [ext_resource type="Texture2D" uid="uid://dk62hubethro3" path="res://Art/Items/Rubber.png" id="11_hnjnx"]
 [ext_resource type="Texture2D" uid="uid://dqovjerh5pais" path="res://Art/Inventory/pixil-frame-0 (9).png" id="12_cohmc"]
@@ -77,6 +76,7 @@ var can_dash = true
 var is_dashing = false
 var dash_timer = 0.0
 var dash_direction = Vector2.ZERO
+var acceleration := 500.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inv : Inventory = preload(\"res://Scenes/Inventory/player_Inventory.tres\")
@@ -180,22 +180,31 @@ func _physics_process(_delta: float) -> void:
 
 		var input_direction = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
 		var joy_dir = joy_stick.posVector
+		var target_velocity = Vector2.ZERO
 
+		if joy_dir:
+			target_velocity = joy_dir * speed
+			var target_rot = joy_dir.angle() + deg_to_rad(-90)
+			rotation = lerp_angle(rotation, target_rot, 10 * _delta)
+		else:
+			target_velocity = input_direction * speed
+			if input_direction.length() > 0:
+				var target_rot = input_direction.angle() + deg_to_rad(-90)
+				rotation = lerp_angle(rotation, target_rot, 10 * _delta)
+
+		# Smooth velocity
+		velocity = velocity.move_toward(target_velocity, acceleration * _delta)
+
+		# Dash override
 		if is_dashing:
 			dash_timer -= _delta
 			if dash_timer <= 0:
 				is_dashing = false
 				receives_knockback = true
 			velocity = dash_direction * dash_speed
-		else:
-			# Regular movement input
-			if joy_dir:
-				velocity = joy_dir * speed
-				rotation = float(joy_stick.posVector.angle() + deg_to_rad(-90))
-			else:
-				velocity = input_direction * speed
 
 		move_and_slide()
+
 		teleporting()
 		Heal_damage()
 	else:
@@ -1101,6 +1110,21 @@ height = 46.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayp1y"]
 size = Vector2(53, 56)
 
+[sub_resource type="GDScript" id="GDScript_d5sq6"]
+script/source = "extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+		
+"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5glv"]
 atlas = ExtResource("4_n7t0m")
 region = Rect2(0, 0, 448, 448)
@@ -1277,7 +1301,7 @@ rotation_smoothing_enabled = true
 [node name="UI" type="CanvasLayer" parent="Camera2D"]
 scale = Vector2(0.97, 0.72)
 transform = Transform2D(0.97, 0, 0, 0.72, 0, 0)
-script = ExtResource("10_hpanq")
+script = SubResource("GDScript_d5sq6")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Camera2D/UI"]
 offset_left = 708.247
