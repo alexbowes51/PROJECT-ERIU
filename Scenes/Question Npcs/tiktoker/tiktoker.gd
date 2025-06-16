@@ -37,24 +37,29 @@ func _physics_process(delta):
 	
 	if current_state == 0:
 		$AnimatedSprite2D.play("Idle")
+		$AnimatedSprite2D2.play("Idle")
 		
 	elif current_state == 2 and !is_chatting:
 		
 		if dir.x == -1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(-90)
+			$AnimatedSprite2D2.play("Move")
 			
 		if dir.x == 1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(90)
+			$AnimatedSprite2D2.play("Move")
 			
 		if dir.y == -1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(-180)
+			$AnimatedSprite2D2.play("Move")
 			
 		if dir.y == 1: 
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(0)
+			$AnimatedSprite2D2.play("Move")
 	
 	if is_roaming:
 		match  current_state:
@@ -76,6 +81,7 @@ func _physics_process(delta):
 			is_roaming = false
 			is_chatting = true
 			$AnimatedSprite2D.play("Iteract")
+			$AnimatedSprite2D2.play("Interact")
 	
 	if WorldManager.finished_talking_tiktoker == true:
 		await get_tree().create_timer(3).timeout

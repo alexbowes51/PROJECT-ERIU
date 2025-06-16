@@ -307,7 +307,7 @@ position = Vector2(100, 117)
 script = ExtResource("1_tvuku")
 
 [node name="Player" parent="." instance=ExtResource("3_2ajww")]
-position = Vector2(10871, 1732)
+position = Vector2(17932, 4754)
 
 [node name="DAY+NIGHT CYCLE" parent="." instance=ExtResource("6_e4wto")]
 
@@ -332,6 +332,7 @@ theme_override_font_sizes/font_size = 800
 text = "na"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_mkpcw")]
+visible = false
 
 [node name="TileMaps" type="Node2D" parent="."]
 position = Vector2(100, 100)
@@ -592,7 +593,7 @@ position = Vector2(17499, 3375)
 position = Vector2(21669, 8602)
 
 [node name="CharacterBody2D3" parent="Quest Npc" instance=ExtResource("11_n34ob")]
-position = Vector2(1459, 12390)
+position = Vector2(2372, 12476)
 
 [node name="CharacterBody2D4" parent="Quest Npc" instance=ExtResource("12_okk3i")]
 position = Vector2(3245, 14050)

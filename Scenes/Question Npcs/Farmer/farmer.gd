@@ -36,24 +36,33 @@ func _physics_process(delta):
 	
 	if current_state == 0:
 		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D2.play("idle")
 		
 	elif current_state == 2 and !is_chatting:
 		
 		if dir.x == -1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(-90)
+			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 			
 		if dir.x == 1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(90)
+			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 			
 		if dir.y == -1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(-180)
+			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 			
 		if dir.y == 1: 
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(0)
+			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 	
 	
 	if is_roaming:
@@ -79,6 +88,7 @@ func _physics_process(delta):
 			is_roaming = false
 			is_chatting = true
 			$AnimatedSprite2D.play("Iteract")
+			$AnimatedSprite2D2.play("Iteract")
 			
 	if WorldManager.finished_talking_Farmer == true:
 		await get_tree().create_timer(3).timeout

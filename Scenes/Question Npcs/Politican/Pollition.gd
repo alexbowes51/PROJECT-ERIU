@@ -40,12 +40,16 @@ func _physics_process(delta):
 	elif current_state == 2 and !is_chatting:
 		if dir.x == -1:
 			$AnimatedSprite2D.rotation = rad_to_deg(-90)
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 		if dir.x == 1:
 			$AnimatedSprite2D.rotation = rad_to_deg(90)
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 		if dir.y == -1:
 			$AnimatedSprite2D.rotation = rad_to_deg(-180)
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 		if dir.y == 1: 
 			$AnimatedSprite2D.rotation = rad_to_deg(0)
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 	
 	
 	if is_roaming:
