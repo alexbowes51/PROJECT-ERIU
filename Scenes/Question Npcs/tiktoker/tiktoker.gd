@@ -45,21 +45,25 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(-90)
 			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 			
 		if dir.x == 1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(90)
 			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 			
 		if dir.y == -1:
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(-180)
 			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 			
 		if dir.y == 1: 
 			$AnimatedSprite2D.play("Move")
 			$AnimatedSprite2D.rotation = rad_to_deg(0)
 			$AnimatedSprite2D2.play("Move")
+			$AnimatedSprite2D2.rotation = $AnimatedSprite2D.rotation
 	
 	if is_roaming:
 		match  current_state:

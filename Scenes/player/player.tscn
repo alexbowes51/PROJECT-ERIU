@@ -506,6 +506,7 @@ func removeScore():
 	
 		
 func addBrain():
+	Positive_effect()
 	if WorldManager.player_talking_Farmer:
 		if mentalhealth.value <= 100:
 			mentalhealth.value += 25
@@ -526,6 +527,7 @@ func addBrain():
 		mentalhealth.value = 100
 			
 func removeBrain():
+	Negative_effect()
 	if WorldManager.player_talking_Farmer:
 		if mentalhealth.value >= 25:
 			mentalhealth.value -= 25
@@ -572,6 +574,58 @@ func is_mobile_like():
 func _on_talking_timer_timeout() -> void:
 	WorldManager.player_finsihed_talking_BS = false
 	WorldManager.player_finished_talking_M = false
+
+
+func Positive_effect():
+	var tween = create_tween()
+
+	# Flash green
+	mental_icon.modulate = Color(0, 1, 0, 1)
+	mental_icon.self_modulate = Color(0, 1, 0, 0.5)
+	tween.tween_property(mental_icon, \"modulate\", Color(1, 1, 1, 1), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(mental_icon, \"self_modulate\", Color(1, 1, 1, 1), 0.3)
+
+	# Scale bounce
+	mental_icon.scale = Vector2(0.1, 0.1)
+	tween.tween_property(mental_icon, \"scale\", Vector2(0.3, 0.3), 0.1)
+	tween.tween_property(mental_icon, \"scale\", Vector2(0.1, 0.1), 0.2).set_delay(0.1)
+
+	# Rotation jiggle
+	mental_icon.rotation = deg_to_rad(10)
+	tween.tween_property(mental_icon, \"rotation\", deg_to_rad(-10), 0.05)
+	tween.tween_property(mental_icon, \"rotation\", 0, 0.05).set_delay(0.05)
+	
+	#Position jiggle
+	var original_pos = mental_icon.position
+	mental_icon.position += Vector2(5, 0)
+	tween.tween_property(mental_icon, \"position\", original_pos - Vector2(5, 0), 0.05)
+	tween.tween_property(mental_icon, \"position\", original_pos, 0.05).set_delay(0.05)
+
+
+func Negative_effect():
+	var tween = create_tween()
+
+	# Flash red
+	mental_icon.modulate = Color(1, 0, 0, 1)
+	mental_icon.self_modulate = Color(1, 0, 0, 0.5)
+	tween.tween_property(mental_icon, \"modulate\", Color(1, 1, 1, 1), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(mental_icon, \"self_modulate\", Color(1, 1, 1, 1), 0.3)
+
+	# Scale down bounce
+	mental_icon.scale = Vector2(0.1, 0.1)
+	tween.tween_property(mental_icon, \"scale\", Vector2(0.02, 0.02), 0.1)
+	tween.tween_property(mental_icon, \"scale\", Vector2(0.1, 0.1), 0.2).set_delay(0.1)
+
+	# Rotation jiggle
+	mental_icon.rotation = deg_to_rad(-10)
+	tween.tween_property(mental_icon, \"rotation\", deg_to_rad(10), 0.05)
+	tween.tween_property(mental_icon, \"rotation\", 0, 0.05).set_delay(0.05)
+
+	#Position jiggle
+	var original_pos = mental_icon.position
+	mental_icon.position -= Vector2(5, 0)
+	tween.tween_property(mental_icon, \"position\", original_pos + Vector2(5, 0), 0.05)
+	tween.tween_property(mental_icon, \"position\", original_pos, 0.05).set_delay(0.05)
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uuud"]
