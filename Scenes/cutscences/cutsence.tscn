@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bt5u7u68g34ms" path="res://Scenes/Npc/NPC_MALE/NPC_MALE.tscn" id="7_mp60i"]
 [ext_resource type="PackedScene" uid="uid://dpuj5yk4g0qkw" path="res://Scenes/Npc/NPC_FEMALE/npc_female.tscn" id="8_xfvwd"]
 [ext_resource type="PackedScene" uid="uid://cidva77gd3bbc" path="res://Scenes/Npc/Merchant/Merchant.tscn" id="10_12pct"]
-[ext_resource type="PackedScene" uid="uid://qjn60h7573st" path="res://Scenes/Intro/Intro text/Intro Text.tscn" id="11_o30mx"]
+[ext_resource type="PackedScene" uid="uid://qjn60h7573st" path="res://Scenes/Intro text/Intro Text.tscn" id="11_o30mx"]
 [ext_resource type="PackedScene" uid="uid://bvt4wca1sbt1v" path="res://Scenes/Question Npcs/Farmer/farmer.tscn" id="11_y2wi4"]
 [ext_resource type="PackedScene" uid="uid://bgxqmbbyp2kti" path="res://Scenes/Question Npcs/FisherMan/FisherMan.tscn" id="12_ciraw"]
 [ext_resource type="Texture2D" uid="uid://cpw45fl58mqxy" path="res://Art/Tile_map/tilemap.png" id="12_uopa5"]

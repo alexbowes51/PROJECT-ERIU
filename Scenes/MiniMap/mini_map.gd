@@ -18,14 +18,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if player_node:
-		mini_map_camera.global_position = lerp(mini_map_camera.global_position, player_node.global_position,0.2)
+		mini_map_camera.global_position = lerp(mini_map_camera.global_position, player_node.global_position,1)
 		player_marker.global_position = player_node.global_position
 	
 func setup_mini(mini_tilemap : TileMapLayer) -> void:
 	sub_viewport.add_child(mini_tilemap)
 	
 func set_minimap_limits(used_rect: Rect2i):
-	mini_map_camera.limit_left = used_rect.position.x * 100
-	mini_map_camera.limit_top = used_rect.position.y * 100
+	mini_map_camera.limit_left = used_rect.position.x 
+	mini_map_camera.limit_top = used_rect.position.y
 	mini_map_camera.limit_right =(used_rect.position.x + used_rect.size.x) * 100
 	mini_map_camera.limit_bottom = (used_rect.position.x + used_rect.size.y) * 100

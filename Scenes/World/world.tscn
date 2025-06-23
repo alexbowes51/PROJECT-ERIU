@@ -332,7 +332,6 @@ theme_override_font_sizes/font_size = 800
 text = "na"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_mkpcw")]
-visible = false
 
 [node name="TileMaps" type="Node2D" parent="."]
 position = Vector2(100, 100)
@@ -688,7 +687,7 @@ position = Vector2(1876, 12375)
 [node name="EnemySpawner" parent="." instance=ExtResource("25_bxhtx")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("32_f6nsa")]
-position = Vector2(23023, 7829)
+position = Vector2(22390, 8907)
 
 [node name="BuildArea" type="Area2D" parent="."]
 visible = false
@@ -751,7 +750,7 @@ shape = SubResource("RectangleShape2D_em4ni")
 position = Vector2(18169, 3252)
 
 [node name="StaticBody2D2" parent="Books" instance=ExtResource("30_pcbfa")]
-position = Vector2(22813, 8373)
+position = Vector2(21589, 9125)
 
 [node name="StaticBody2D3" parent="Books" instance=ExtResource("31_n6ys5")]
 position = Vector2(3597, 14043)

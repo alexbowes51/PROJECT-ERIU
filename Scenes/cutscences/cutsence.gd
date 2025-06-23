@@ -42,12 +42,14 @@ func _process(delta: float) -> void:
 	cutscenceopening()
 	if path_follow and !is_stop:
 		path_follow_2d.progress_ratio += delta * 0.02 # smoother movement
-
+		introdialogue.visible = false
+		
 		# Check if it's time to stop
 		if current_point < stop_points.size():
 			var stop_value = stop_points[current_point]
 			if path_follow_2d.progress_ratio >= stop_value:
 				is_stop = true
+				introdialogue.visible = true
 				pause_timer = 0.0
 				print("Paused at: ", stop_value)
 				

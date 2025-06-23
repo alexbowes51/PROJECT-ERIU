@@ -28,13 +28,13 @@ func _process(delta):
 		parent.posVector = Vector2.ZERO
 
 func _calculate_vector():
-	var offset = global_position - parent.global_position
+	var offset_gom = global_position - parent.global_position
 	var vec := Vector2.ZERO
 
-	if abs(offset.x) >= deadzone:
-		vec.x = offset.x / maxlength
-	if abs(offset.y) >= deadzone:
-		vec.y = offset.y / maxlength
+	if abs(offset_gom.x) >= deadzone:
+		vec.x = offset_gom.x / maxlength
+	if abs(offset_gom.y) >= deadzone:
+		vec.y = offset_gom.y / maxlength
 
 	parent.posVector = vec
 

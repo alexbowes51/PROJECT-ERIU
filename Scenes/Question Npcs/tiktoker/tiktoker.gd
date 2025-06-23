@@ -84,7 +84,7 @@ func _physics_process(delta):
 			WorldManager.player_attackable = false
 			is_roaming = false
 			is_chatting = true
-			$AnimatedSprite2D.play("Iteract")
+			$AnimatedSprite2D.play("Interact")
 			$AnimatedSprite2D2.play("Interact")
 	
 	if WorldManager.finished_talking_tiktoker == true:

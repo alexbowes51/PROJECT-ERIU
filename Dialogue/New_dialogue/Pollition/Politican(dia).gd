@@ -94,7 +94,7 @@ func _end_dialogue() -> void:
 	WorldManager.player_is_talking = false
 	WorldManager.player_attackable = true
 	WorldManager.NPC_Talked_to += 1
-	emit_signal("end_dialogue")
+
 
 func _on_slider_value_changed(value: float) -> void:
 	if not dia_active:

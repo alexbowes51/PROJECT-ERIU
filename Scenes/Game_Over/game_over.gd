@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if WorldManager.finished_talking_Farmer && WorldManager.finished_talking_Fisher_man && WorldManager.finished_talking_Polition && WorldManager.finished_talking_tiktoker:
 		WorldManager.game_over = true
 		visible = true
