@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bt5u7u68g34ms"]
+[gd_scene load_steps=15 format=3 uid="uid://bt5u7u68g34ms"]
 
 [ext_resource type="Script" path="res://Scenes/Npc/NPC_MALE/npc_male.gd" id="1_0h080"]
 [ext_resource type="Texture2D" uid="uid://caotldl5k5qco" path="res://Art/NPC/Male Npc/Npc Charachter.png" id="1_6kstw"]
@@ -40,10 +40,6 @@ region = Rect2(2688, 0, 448, 448)
 atlas = ExtResource("2_60ban")
 region = Rect2(3136, 0, 448, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifbb4"]
-atlas = ExtResource("2_60ban")
-region = Rect2(3584, 0, 448, 448)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ne3tg"]
 animations = [{
 "frames": [{
@@ -78,9 +74,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tpwoy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ifbb4")
 }],
 "loop": false,
 "name": &"Walk",
@@ -97,7 +90,9 @@ script = ExtResource("1_0h080")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_ne3tg")
-animation = &"Idle"
+animation = &"Walk"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
